@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="eabg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bae6fd"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <filter id="eash">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="20" fill="url(#eabg)"/>
+  <!-- Charging case -->
+  <g filter="url(#eash)" transform="translate(200,230)">
+    <rect x="-60" y="-20" width="120" height="50" rx="20" fill="#f8fafc"/>
+    <rect x="-58" y="-18" width="116" height="46" rx="18" fill="#ffffff"/>
+    <rect x="-56" y="-16" width="112" height="20" rx="10" fill="#f1f5f9"/>
+    <!-- Case LED -->
+    <circle cx="0" cy="-6" r="2.5" fill="#22c55e"/>
+    <!-- Case seam -->
+    <line x1="-50" y1="0" x2="50" y2="0" stroke="#e2e8f0" stroke-width="1"/>
+    <!-- Case hinge -->
+    <rect x="-10" y="-20" width="20" height="4" rx="2" fill="#e2e8f0"/>
+  </g>
+  <!-- Left earbud -->
+  <g filter="url(#eash)" transform="translate(135,170)">
+    <ellipse cx="0" cy="0" rx="22" ry="24" fill="#ffffff"/>
+    <ellipse cx="0" cy="0" rx="20" ry="22" fill="#f8fafc"/>
+    <ellipse cx="0" cy="-4" rx="10" ry="10" fill="#e2e8f0"/>
+    <circle cx="0" cy="-4" r="6" fill="#d1d5db"/>
+    <!-- Stem -->
+    <rect x="-4" y="18" width="8" height="22" rx="4" fill="#ffffff"/>
+    <rect x="-3" y="19" width="6" height="20" rx="3" fill="#f8fafc"/>
+    <!-- Microphone hole -->
+    <circle cx="0" cy="35" r="1.5" fill="#c0c0c0"/>
+    <!-- LED -->
+    <circle cx="0" cy="-4" r="2" fill="#60a5fa"/>
+  </g>
+  <!-- Right earbud -->
+  <g filter="url(#eash)" transform="translate(265,170)">
+    <ellipse cx="0" cy="0" rx="22" ry="24" fill="#ffffff"/>
+    <ellipse cx="0" cy="0" rx="20" ry="22" fill="#f8fafc"/>
+    <ellipse cx="0" cy="-4" rx="10" ry="10" fill="#e2e8f0"/>
+    <circle cx="0" cy="-4" r="6" fill="#d1d5db"/>
+    <!-- Stem -->
+    <rect x="-4" y="18" width="8" height="22" rx="4" fill="#ffffff"/>
+    <rect x="-3" y="19" width="6" height="20" rx="3" fill="#f8fafc"/>
+    <!-- Microphone hole -->
+    <circle cx="0" cy="35" r="1.5" fill="#c0c0c0"/>
+    <!-- LED -->
+    <circle cx="0" cy="-4" r="2" fill="#60a5fa"/>
+  </g>
+</svg>

@@ -1,0 +1,1345 @@
+/**
+ * Stackly E-Commerce Store - Main JavaScript
+ * Single self-executing module handling all store functionality.
+ */
+(function () {
+  "use strict";
+
+  /* ─────────────────────────────────────────────
+     1. PAGE LOADER
+  ───────────────────────────────────────────── */
+  function initLoader() {
+    var loader = document.querySelector(".page-loader");
+    if (!loader) return;
+    setTimeout(function () {
+      loader.style.opacity = "0";
+      loader.style.pointerEvents = "none";
+      setTimeout(function () {
+        loader.style.display = "none";
+      }, 500);
+    }, 1500);
+  }
+
+  /* ─────────────────────────────────────────────
+     2. STICKY HEADER
+  ───────────────────────────────────────────── */
+  function initStickyHeader() {
+    var header = document.querySelector(".header");
+    if (!header) return;
+    function onScroll() {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ─────────────────────────────────────────────
+     3. MOBILE MENU
+  ───────────────────────────────────────────── */
+  function initMobileMenu() {
+    var hamburger = document.querySelector(".hamburger");
+    var mainNav = document.querySelector(".main-nav");
+    if (!hamburger || !mainNav) return;
+
+    function toggleMenu() {
+      hamburger.classList.toggle("active");
+      mainNav.classList.toggle("active");
+    }
+    function closeMenu() {
+      hamburger.classList.remove("active");
+      mainNav.classList.remove("active");
+    }
+
+    hamburger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Close when clicking a nav link
+    var navLinks = mainNav.querySelectorAll("a");
+    navLinks.forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    // Close on clicking outside
+    document.addEventListener("click", function (e) {
+      if (!mainNav.contains(e.target) && !hamburger.contains(e.target)) {
+        closeMenu();
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     4. MEGA MENU
+  ───────────────────────────────────────────── */
+  function initMegaMenu() {
+    var shopLink = document.querySelector('.main-nav a[href="#shop"], .main-nav a[href="shop.html"], .main-nav li:has(.mega-menu) > a');
+    var megaMenu = document.querySelector(".mega-menu");
+    if (!shopLink || !megaMenu) return;
+
+    var hideTimeout = null;
+
+    function showMega() {
+      clearTimeout(hideTimeout);
+      megaMenu.classList.add("show");
+    }
+    function scheduleHide() {
+      hideTimeout = setTimeout(function () {
+        megaMenu.classList.remove("show");
+      }, 300);
+    }
+
+    // Hover
+    shopLink.addEventListener("mouseenter", showMega);
+    shopLink.addEventListener("mouseleave", scheduleHide);
+    megaMenu.addEventListener("mouseenter", showMega);
+    megaMenu.addEventListener("mouseleave", scheduleHide);
+
+    // Click toggle (mobile)
+    shopLink.addEventListener("click", function (e) {
+      if (window.innerWidth <= 991) {
+        e.preventDefault();
+        megaMenu.classList.toggle("show");
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     5. SEARCH OVERLAY
+  ───────────────────────────────────────────── */
+  function initSearchOverlay() {
+    var overlay = document.querySelector(".search-overlay");
+    if (!overlay) return;
+    var searchIcons = document.querySelectorAll(".search-icon, [data-action='search']");
+    var closeBtn = overlay.querySelector(".search-close");
+    var searchInput = overlay.querySelector("input");
+
+    function show() {
+      overlay.classList.add("active");
+      overlay.style.display = "flex";
+      requestAnimationFrame(function () {
+        overlay.style.opacity = "1";
+        if (searchInput) searchInput.focus();
+      });
+    }
+    function hide() {
+      overlay.style.opacity = "0";
+      setTimeout(function () {
+        overlay.classList.remove("active");
+        overlay.style.display = "none";
+      }, 300);
+    }
+
+    searchIcons.forEach(function (icon) {
+      icon.addEventListener("click", function (e) {
+        e.preventDefault();
+        show();
+      });
+    });
+    if (closeBtn) closeBtn.addEventListener("click", hide);
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay) hide();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && overlay.classList.contains("active")) hide();
+    });
+
+    // Initial state
+    overlay.style.opacity = "0";
+    overlay.style.transition = "opacity 0.3s ease";
+    overlay.style.display = "none";
+  }
+
+  /* ─────────────────────────────────────────────
+     6. DARK MODE
+  ───────────────────────────────────────────── */
+  function initDarkMode() {
+    var toggle = document.querySelector(".dark-mode-toggle, [data-action='dark-mode']");
+    if (!toggle) return;
+
+    var body = document.body;
+    var moonIcon = "fa-moon";
+    var sunIcon = "fa-sun";
+
+    function setIcon() {
+      var icon = toggle.querySelector("i");
+      if (!icon) return;
+      icon.classList.remove(moonIcon, sunIcon);
+      icon.classList.add(body.classList.contains("dark-mode") ? sunIcon : moonIcon);
+    }
+
+    // Load saved preference
+    if (localStorage.getItem("stackly-dark-mode") === "true") {
+      body.classList.add("dark-mode");
+    }
+    setIcon();
+
+    toggle.addEventListener("click", function () {
+      body.classList.toggle("dark-mode");
+      localStorage.setItem("stackly-dark-mode", body.classList.contains("dark-mode"));
+      setIcon();
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     7. HERO SLIDER
+  ───────────────────────────────────────────── */
+  function initHeroSlider() {
+    var slider = document.querySelector(".hero");
+    if (!slider) return;
+    var slides = slider.querySelectorAll(".hero-slide");
+    var dots = slider.querySelectorAll(".dot");
+    var prevBtn = slider.querySelector(".hero-prev");
+    var nextBtn = slider.querySelector(".hero-next");
+    if (slides.length === 0) return;
+
+    var current = 0;
+    var autoTimer = null;
+    var interval = 5000;
+
+    function goTo(index) {
+      slides[current].classList.remove("active");
+      if (dots[current]) dots[current].classList.remove("active");
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add("active");
+      if (dots[current]) dots[current].classList.add("active");
+    }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(next, interval);
+    }
+    function stopAuto() {
+      if (autoTimer) clearInterval(autoTimer);
+    }
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener("click", function () {
+        goTo(i);
+        startAuto();
+      });
+    });
+    if (prevBtn) prevBtn.addEventListener("click", function () { prev(); startAuto(); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { next(); startAuto(); });
+
+    slider.addEventListener("mouseenter", stopAuto);
+    slider.addEventListener("mouseleave", startAuto);
+
+    // Touch swipe
+    var touchStartX = 0;
+    var touchEndX = 0;
+    slider.addEventListener("touchstart", function (e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    slider.addEventListener("touchend", function (e) {
+      touchEndX = e.changedTouches[0].screenX;
+      var diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        diff > 0 ? next() : prev();
+        startAuto();
+      }
+    }, { passive: true });
+
+    // Ensure first slide is active
+    if (!slider.querySelector(".hero-slide.active")) {
+      slides[0].classList.add("active");
+      if (dots[0]) dots[0].classList.add("active");
+    }
+    startAuto();
+  }
+
+  /* ─────────────────────────────────────────────
+     8. COUNTDOWN TIMER
+  ───────────────────────────────────────────── */
+  function initCountdown(element) {
+    if (!element) return;
+    var endStr = element.getAttribute("data-end");
+    var endTime = endStr ? new Date(endStr).getTime() : Date.now() + 2 * 24 * 60 * 60 * 1000;
+
+    var daysEl = element.querySelector(".days, [data-unit='days']");
+    var hoursEl = element.querySelector(".hours, [data-unit='hours']");
+    var minutesEl = element.querySelector(".minutes, [data-unit='minutes']");
+    var secondsEl = element.querySelector(".seconds, [data-unit='seconds']");
+
+    function update() {
+      var now = Date.now();
+      var diff = endTime - now;
+      if (diff <= 0) {
+        diff = 0;
+      }
+      var d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      var m = Math.floor((diff / (1000 * 60)) % 60);
+      var s = Math.floor((diff / 1000) % 60);
+      if (daysEl) daysEl.textContent = String(d).padStart(2, "0");
+      if (hoursEl) hoursEl.textContent = String(h).padStart(2, "0");
+      if (minutesEl) minutesEl.textContent = String(m).padStart(2, "0");
+      if (secondsEl) secondsEl.textContent = String(s).padStart(2, "0");
+    }
+
+    update();
+    setInterval(update, 1000);
+  }
+
+  function initAllCountdowns() {
+    document.querySelectorAll(".countdown").forEach(initCountdown);
+  }
+
+  /* ─────────────────────────────────────────────
+     9. PRODUCT FILTERING
+  ───────────────────────────────────────────── */
+  function initProductFiltering() {
+    var filterBtns = document.querySelectorAll(".filter-btn");
+    var productCards = document.querySelectorAll(".product-card");
+    if (filterBtns.length === 0 || productCards.length === 0) return;
+
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var filter = btn.getAttribute("data-filter");
+
+        // Active state
+        filterBtns.forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+
+        productCards.forEach(function (card) {
+          var category = card.getAttribute("data-category");
+          var show = filter === "all" || category === filter;
+
+          if (show) {
+            card.style.opacity = "0";
+            card.style.display = "";
+            requestAnimationFrame(function () {
+              card.style.transition = "opacity 0.4s ease";
+              card.style.opacity = "1";
+            });
+          } else {
+            card.style.transition = "opacity 0.4s ease";
+            card.style.opacity = "0";
+            setTimeout(function () {
+              card.style.display = "none";
+            }, 400);
+          }
+        });
+      });
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     10. PRODUCT SORTING
+  ───────────────────────────────────────────── */
+  function initProductSorting() {
+    var sortSelect = document.querySelector(".sort-select");
+    var grid = document.querySelector(".products-grid");
+    if (!sortSelect || !grid) return;
+
+    sortSelect.addEventListener("change", function () {
+      var value = sortSelect.value;
+      var items = Array.from(grid.children);
+
+      items.forEach(function (item) {
+        item.style.transition = "opacity 0.3s ease";
+        item.style.opacity = "0";
+      });
+
+      setTimeout(function () {
+        items.sort(function (a, b) {
+          var priceA = parseFloat(a.getAttribute("data-price")) || 0;
+          var priceB = parseFloat(b.getAttribute("data-price")) || 0;
+          var ratingA = parseFloat(a.getAttribute("data-rating")) || 0;
+          var ratingB = parseFloat(b.getAttribute("data-rating")) || 0;
+          var dateA = parseInt(a.getAttribute("data-date")) || 0;
+          var dateB = parseInt(b.getAttribute("data-date")) || 0;
+
+          switch (value) {
+            case "price-low": return priceA - priceB;
+            case "price-high": return priceB - priceA;
+            case "rating": return ratingB - ratingA;
+            case "newest": return dateB - dateA;
+            default: return 0;
+          }
+        });
+
+        items.forEach(function (item) {
+          grid.appendChild(item);
+          requestAnimationFrame(function () {
+            item.style.opacity = "1";
+          });
+        });
+      }, 300);
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     11. GRID / LIST VIEW TOGGLE
+  ───────────────────────────────────────────── */
+  function initViewToggle() {
+    var viewBtns = document.querySelectorAll(".view-btn");
+    var grid = document.querySelector(".products-grid");
+    if (viewBtns.length === 0 || !grid) return;
+
+    viewBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var view = btn.getAttribute("data-view");
+        viewBtns.forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        grid.classList.remove("grid-view", "list-view");
+        grid.classList.add(view + "-view");
+      });
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     12. QUANTITY CONTROLS
+  ───────────────────────────────────────────── */
+  function initQuantityControls() {
+    document.addEventListener("click", function (e) {
+      var btn = e.target.closest(".qty-plus, .qty-minus");
+      if (!btn) return;
+
+      var wrapper = btn.closest(".quantity-control, .qty-wrapper, .cart-qty");
+      if (!wrapper) return;
+      var display = wrapper.querySelector(".qty-value, input[type='number'], .quantity-value");
+      if (!display) return;
+
+      var current = parseInt(display.value || display.textContent) || 1;
+      var min = parseInt(wrapper.getAttribute("data-min")) || 1;
+      var max = parseInt(wrapper.getAttribute("data-max")) || 99;
+
+      if (btn.classList.contains("qty-plus")) {
+        current = Math.min(current + 1, max);
+      } else {
+        current = Math.max(current - 1, min);
+      }
+
+      if (display.tagName === "INPUT") {
+        display.value = current;
+      } else {
+        display.textContent = current;
+      }
+
+      wrapper.dispatchEvent(new CustomEvent("qtyChange", {
+        detail: { quantity: current },
+        bubbles: true
+      }));
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     13. ADD TO CART (UI handler)
+  ───────────────────────────────────────────── */
+  function initAddToCartButtons() {
+    document.addEventListener("click", function (e) {
+      var btn = e.target.closest(".add-to-cart");
+      if (!btn) return;
+
+      var card = btn.closest(".product-card, .product-detail, .product-info");
+      if (!card) return;
+
+      var item = {
+        id: btn.getAttribute("data-id") || card.getAttribute("data-id") || "prod-" + Date.now(),
+        name: card.getAttribute("data-name") || (card.querySelector(".product-title, .product-name, h3, h2") || {}).textContent || "Product",
+        price: parseFloat(btn.getAttribute("data-price") || card.getAttribute("data-price")) || 0,
+        image: card.getAttribute("data-image") || (card.querySelector("img") || {}).src || "",
+        qty: 1
+      };
+
+      // Check if qty control exists nearby
+      var qtyDisplay = card.querySelector(".qty-value, .quantity-value");
+      if (qtyDisplay) {
+        item.qty = parseInt(qtyDisplay.textContent || qtyDisplay.value) || 1;
+      }
+
+      Stackly.addToCart(item);
+      Stackly.showToast(item.name + " added to cart!", "success");
+      animateBadge();
+    });
+  }
+
+  function animateBadge() {
+    var badge = document.querySelector(".cart-badge");
+    if (!badge) return;
+    badge.classList.remove("pop");
+    void badge.offsetWidth; // reflow
+    badge.classList.add("pop");
+  }
+
+  /* ─────────────────────────────────────────────
+     14. CART MANAGEMENT (core)
+  ───────────────────────────────────────────── */
+  function getCart() {
+    try {
+      return JSON.parse(localStorage.getItem("stackly-cart")) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveCart(cart) {
+    localStorage.setItem("stackly-cart", JSON.stringify(cart));
+    updateCartBadge();
+  }
+
+  function addToCart(item) {
+    var cart = getCart();
+    var existing = cart.find(function (c) { return c.id === item.id; });
+    if (existing) {
+      existing.qty += (item.qty || 1);
+    } else {
+      cart.push({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        image: item.image,
+        qty: item.qty || 1
+      });
+    }
+    saveCart(cart);
+  }
+
+  function removeFromCart(id) {
+    var cart = getCart().filter(function (c) { return c.id !== id; });
+    saveCart(cart);
+  }
+
+  function updateQty(id, qty) {
+    var cart = getCart();
+    var item = cart.find(function (c) { return c.id === id; });
+    if (item) {
+      item.qty = Math.max(1, qty);
+      saveCart(cart);
+    }
+  }
+
+  function getCartTotal() {
+    return getCart().reduce(function (sum, item) {
+      return sum + item.price * item.qty;
+    }, 0);
+  }
+
+  function getCartCount() {
+    return getCart().reduce(function (sum, item) {
+      return sum + item.qty;
+    }, 0);
+  }
+
+  function updateCartBadge() {
+    var badges = document.querySelectorAll(".cart-badge");
+    var count = getCartCount();
+    badges.forEach(function (badge) {
+      badge.textContent = count;
+      badge.style.display = count > 0 ? "" : "none";
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     15. CART PAGE RENDERING
+  ───────────────────────────────────────────── */
+  function initCartPage() {
+    var cartBody = document.querySelector(".cart-body, .cart-items, #cart-items");
+    if (!cartBody) return;
+
+    var subtotalEl = document.querySelector(".cart-subtotal, #cart-subtotal");
+    var shippingEl = document.querySelector(".cart-shipping, #cart-shipping");
+    var totalEl = document.querySelector(".cart-total, #cart-total");
+
+    function render() {
+      var cart = getCart();
+      if (cart.length === 0) {
+        cartBody.innerHTML = '<tr><td colspan="6" class="empty-cart" style="text-align:center;padding:3rem;">Your cart is empty. <a href="shop.html">Start shopping</a></td></tr>';
+        updateCartTotals();
+        return;
+      }
+
+      var html = "";
+      cart.forEach(function (item) {
+        html += '<tr class="cart-row" data-id="' + item.id + '">';
+        html += '  <td class="cart-product">';
+        html += '    <div class="cart-product-info">';
+        html += '      <img src="' + (item.image || "images/placeholder.jpg") + '" alt="' + item.name + '" width="80">';
+        html += '      <span class="cart-product-name">' + item.name + '</span>';
+        html += '    </div>';
+        html += '  </td>';
+        html += '  <td class="cart-price">$' + item.price.toFixed(2) + '</td>';
+        html += '  <td class="cart-qty">';
+        html += '    <div class="quantity-control">';
+        html += '      <button class="qty-minus" data-id="' + item.id + '">-</button>';
+        html += '      <span class="qty-value">' + item.qty + '</span>';
+        html += '      <button class="qty-plus" data-id="' + item.id + '">+</button>';
+        html += '    </div>';
+        html += '  </td>';
+        html += '  <td class="cart-subtotal-item">$' + (item.price * item.qty).toFixed(2) + '</td>';
+        html += '  <td class="cart-remove"><button class="remove-item" data-id="' + item.id + '"><i class="fas fa-trash"></i></button></td>';
+        html += '</tr>';
+      });
+      cartBody.innerHTML = html;
+      updateCartTotals();
+    }
+
+    function updateCartTotals() {
+      var subtotal = getCartTotal();
+      var shipping = subtotal > 0 ? (subtotal >= 100 ? 0 : 9.99) : 0;
+      var discount = window._stacklyDiscount || 0;
+      var discountAmount = subtotal * discount;
+      var total = subtotal - discountAmount + shipping;
+
+      if (subtotalEl) subtotalEl.textContent = "$" + subtotal.toFixed(2);
+      if (shippingEl) shippingEl.textContent = shipping === 0 ? "Free" : "$" + shipping.toFixed(2);
+      if (totalEl) totalEl.textContent = "$" + total.toFixed(2);
+    }
+
+    // Event delegation for qty and remove
+    cartBody.addEventListener("click", function (e) {
+      var minus = e.target.closest(".qty-minus");
+      var plus = e.target.closest(".qty-plus");
+      var remove = e.target.closest(".remove-item");
+
+      if (minus || plus) {
+        var id = (minus || plus).getAttribute("data-id");
+        var row = (minus || plus).closest(".cart-row");
+        var display = row.querySelector(".qty-value");
+        var current = parseInt(display.textContent) || 1;
+        var newQty = minus ? Math.max(1, current - 1) : Math.min(99, current + 1);
+        updateQty(id, newQty);
+        display.textContent = newQty;
+        updateCartTotals();
+      }
+
+      if (remove) {
+        var removeId = remove.getAttribute("data-id");
+        removeFromCart(removeId);
+        render();
+        Stackly.showToast("Item removed from cart", "warning");
+      }
+    });
+
+    render();
+  }
+
+  /* ─────────────────────────────────────────────
+     16. WISHLIST
+  ───────────────────────────────────────────── */
+  function getWishlist() {
+    try {
+      return JSON.parse(localStorage.getItem("stackly-wishlist")) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveWishlist(list) {
+    localStorage.setItem("stackly-wishlist", JSON.stringify(list));
+    updateWishlistBadge();
+  }
+
+  function updateWishlistBadge() {
+    var badges = document.querySelectorAll(".wishlist-badge");
+    var count = getWishlist().length;
+    badges.forEach(function (badge) {
+      badge.textContent = count;
+      badge.style.display = count > 0 ? "" : "none";
+    });
+  }
+
+  function initWishlist() {
+    document.addEventListener("click", function (e) {
+      var heart = e.target.closest(".wishlist-btn, .wishlist-icon, [data-action='wishlist']");
+      if (!heart) return;
+      e.preventDefault();
+
+      var card = heart.closest(".product-card, .product-detail, .product-info");
+      var id = heart.getAttribute("data-id") || (card && card.getAttribute("data-id")) || "item-" + Date.now();
+      var name = (card && (card.getAttribute("data-name") || (card.querySelector(".product-title, h3, h2") || {}).textContent)) || "Product";
+
+      var list = getWishlist();
+      var idx = list.findIndex(function (w) { return w.id === id; });
+      var icon = heart.querySelector("i");
+
+      if (idx > -1) {
+        list.splice(idx, 1);
+        if (icon) { icon.classList.remove("fas"); icon.classList.add("far"); }
+        heart.classList.remove("active");
+        Stackly.showToast(name + " removed from wishlist", "warning");
+      } else {
+        list.push({ id: id, name: name });
+        if (icon) { icon.classList.remove("far"); icon.classList.add("fas"); }
+        heart.classList.add("active");
+        Stackly.showToast(name + " added to wishlist!", "success");
+      }
+      saveWishlist(list);
+    });
+
+    // Restore active states
+    var list = getWishlist();
+    list.forEach(function (item) {
+      var btn = document.querySelector('.wishlist-btn[data-id="' + item.id + '"], .wishlist-icon[data-id="' + item.id + '"]');
+      if (btn) {
+        btn.classList.add("active");
+        var i = btn.querySelector("i");
+        if (i) { i.classList.remove("far"); i.classList.add("fas"); }
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     17. PRODUCT QUICK VIEW MODAL
+  ───────────────────────────────────────────── */
+  function initQuickView() {
+    var modal = document.getElementById("quickviewModal");
+    if (!modal) return;
+    var closeBtn = document.getElementById("quickviewClose");
+    var overlay = document.getElementById("quickviewOverlay");
+
+    document.addEventListener("click", function (e) {
+      var eyeBtn = e.target.closest(".quick-view-btn, [data-action='quick-view']");
+      if (!eyeBtn) return;
+      e.preventDefault();
+
+      var card = eyeBtn.closest(".product-card");
+      if (!card) return;
+
+      var qvImg = document.getElementById("qvImg");
+      var qvName = document.getElementById("qvName");
+      var qvPrice = document.getElementById("qvPrice");
+      var qvOldPrice = document.getElementById("qvOldPrice");
+      var qvCat = document.getElementById("qvCat");
+      var qvAddCart = document.getElementById("qvAddCart");
+
+      if (qvImg) qvImg.src = card.getAttribute("data-image") || (card.querySelector("img") || {}).src || "";
+      if (qvName) qvName.textContent = card.getAttribute("data-name") || "";
+      if (qvPrice) qvPrice.textContent = "$" + (parseFloat(card.getAttribute("data-price")) || 0).toFixed(2);
+      if (qvCat) qvCat.textContent = (card.querySelector(".product-category") || {}).textContent || "";
+      if (qvAddCart) {
+        qvAddCart.setAttribute("data-id", card.getAttribute("data-id") || "");
+        qvAddCart.setAttribute("data-price", card.getAttribute("data-price") || "0");
+        qvAddCart.setAttribute("data-name", card.getAttribute("data-name") || "");
+        qvAddCart.setAttribute("data-image", card.getAttribute("data-image") || "");
+      }
+
+      modal.classList.add("active");
+      modal.style.display = "flex";
+      requestAnimationFrame(function () { modal.style.opacity = "1"; });
+    });
+
+    function closeModal() {
+      modal.style.opacity = "0";
+      setTimeout(function () {
+        modal.classList.remove("active");
+        modal.style.display = "none";
+      }, 300);
+    }
+
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+    if (overlay) overlay.addEventListener("click", closeModal);
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modal.classList.contains("active")) closeModal();
+    });
+
+    modal.style.opacity = "0";
+    modal.style.transition = "opacity 0.3s ease";
+    modal.style.display = "none";
+  }
+
+  /* ─────────────────────────────────────────────
+     18. COMPARE TOGGLE
+  ───────────────────────────────────────────── */
+  function initCompare() {
+    document.addEventListener("click", function (e) {
+      var btn = e.target.closest(".compare-btn, [data-action='compare']");
+      if (!btn) return;
+      e.preventDefault();
+
+      var card = btn.closest(".product-card");
+      if (!card) return;
+      var name = card.getAttribute("data-name") || "Product";
+
+      var icon = btn.querySelector("i");
+      if (btn.classList.contains("active")) {
+        btn.classList.remove("active");
+        if (icon) { icon.style.color = ""; }
+        Stackly.showToast(name + " removed from compare", "warning");
+      } else {
+        btn.classList.add("active");
+        if (icon) { icon.style.color = "#4F46E5"; }
+        Stackly.showToast(name + " added to compare!", "success");
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     18. PRODUCT DETAIL IMAGE GALLERY
+  ───────────────────────────────────────────── */
+  function initProductGallery() {
+    var gallery = document.querySelector(".product-gallery, .gallery");
+    if (!gallery) return;
+    var mainImage = gallery.querySelector(".main-image img, .gallery-main img");
+    var thumbnails = gallery.querySelectorAll(".thumbnail, .gallery-thumb");
+    if (!mainImage || thumbnails.length === 0) return;
+
+    thumbnails.forEach(function (thumb) {
+      thumb.addEventListener("click", function () {
+        var src = thumb.getAttribute("src") || thumb.getAttribute("data-src") || thumb.querySelector("img");
+        if (src && typeof src === "string") {
+          mainImage.src = src;
+        } else if (src && src.src) {
+          mainImage.src = src.src;
+        }
+        thumbnails.forEach(function (t) { t.classList.remove("active"); });
+        thumb.classList.add("active");
+      });
+    });
+
+    // Zoom on hover
+    mainImage.addEventListener("mouseenter", function () {
+      mainImage.style.transition = "transform 0.3s ease";
+      mainImage.style.transform = "scale(1.15)";
+    });
+    mainImage.addEventListener("mouseleave", function () {
+      mainImage.style.transform = "scale(1)";
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     19. PRODUCT DETAIL TABS
+  ───────────────────────────────────────────── */
+  function initProductTabs() {
+    var tabBtns = document.querySelectorAll(".tab-btn");
+    var tabContents = document.querySelectorAll(".tab-content");
+    if (tabBtns.length === 0) return;
+
+    function activateTab(index) {
+      tabBtns.forEach(function (b) { b.classList.remove("active"); });
+      tabContents.forEach(function (c) { c.classList.remove("active"); });
+      if (tabBtns[index]) tabBtns[index].classList.add("active");
+      if (tabContents[index]) tabContents[index].classList.add("active");
+    }
+
+    tabBtns.forEach(function (btn, i) {
+      btn.addEventListener("click", function () { activateTab(i); });
+    });
+
+    // Default first tab
+    if (tabBtns.length > 0) activateTab(0);
+  }
+
+  /* ─────────────────────────────────────────────
+     20. FAQ ACCORDION
+  ───────────────────────────────────────────── */
+  function initFaqAccordion() {
+    var faqItems = document.querySelectorAll(".faq-item");
+    if (faqItems.length === 0) return;
+
+    faqItems.forEach(function (item) {
+      var question = item.querySelector(".faq-question");
+      var answer = item.querySelector(".faq-answer, .faq-body");
+      if (!question) return;
+
+      question.addEventListener("click", function () {
+        var isOpen = item.classList.contains("active");
+
+        // Close all
+        faqItems.forEach(function (other) {
+          other.classList.remove("active");
+          var otherAnswer = other.querySelector(".faq-answer, .faq-body");
+          if (otherAnswer) {
+            otherAnswer.style.maxHeight = null;
+            otherAnswer.style.overflow = "hidden";
+          }
+        });
+
+        // Toggle current
+        if (!isOpen) {
+          item.classList.add("active");
+          if (answer) {
+            answer.style.overflow = "hidden";
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          }
+        }
+      });
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     21. BACK TO TOP
+  ───────────────────────────────────────────── */
+  function initBackToTop() {
+    var btn = document.querySelector(".back-to-top");
+    if (!btn) return;
+
+    function toggleVisibility() {
+      if (window.scrollY > 400) {
+        btn.classList.add("visible");
+        btn.style.opacity = "1";
+        btn.style.pointerEvents = "auto";
+      } else {
+        btn.classList.remove("visible");
+        btn.style.opacity = "0";
+        btn.style.pointerEvents = "none";
+      }
+    }
+
+    btn.style.opacity = "0";
+    btn.style.pointerEvents = "none";
+    btn.style.transition = "opacity 0.3s ease";
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+
+    btn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     22. TOAST NOTIFICATIONS
+  ───────────────────────────────────────────── */
+  function showToast(message, type) {
+    type = type || "success";
+    var container = document.querySelector(".toast-container");
+    if (!container) {
+      container = document.createElement("div");
+      container.className = "toast-container";
+      document.body.appendChild(container);
+    }
+
+    var colors = { success: "#27ae60", error: "#e74c3c", warning: "#f39c12" };
+    var icons = { success: "fa-check-circle", error: "fa-exclamation-circle", warning: "fa-exclamation-triangle" };
+
+    var toast = document.createElement("div");
+    toast.className = "toast toast-" + type;
+    toast.style.cssText = "background:" + (colors[type] || colors.success) + ";color:#fff;padding:12px 24px;border-radius:8px;margin-top:10px;display:flex;align-items:center;gap:10px;font-size:14px;box-shadow:0 4px 12px rgba(0,0,0,0.15);transform:translateX(100%);transition:all 0.3s ease;opacity:0;";
+    toast.innerHTML = '<i class="fas ' + (icons[type] || icons.success) + '"></i><span>' + message + '</span>';
+
+    container.appendChild(toast);
+
+    requestAnimationFrame(function () {
+      toast.style.transform = "translateX(0)";
+      toast.style.opacity = "1";
+    });
+
+    setTimeout(function () {
+      toast.style.transform = "translateX(100%)";
+      toast.style.opacity = "0";
+      setTimeout(function () {
+        if (toast.parentNode) toast.parentNode.removeChild(toast);
+      }, 300);
+    }, 3000);
+  }
+
+  /* ─────────────────────────────────────────────
+     23. NEWSLETTER FORM
+  ───────────────────────────────────────────── */
+  function initNewsletter() {
+    var form = document.querySelector(".newsletter-form, #newsletter-form");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var emailInput = form.querySelector("input[type='email'], input[name='email']");
+      var email = emailInput ? emailInput.value.trim() : "";
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showToast("Please enter a valid email address.", "error");
+        return;
+      }
+
+      showToast("Thanks for subscribing!", "success");
+      form.reset();
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     24. CONTACT FORM
+  ───────────────────────────────────────────── */
+  function initContactForm() {
+    var form = document.querySelector(".contact-form, #contact-form");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = (form.querySelector("[name='name'], #contact-name") || {}).value || "";
+      var email = (form.querySelector("[name='email'], #contact-email") || {}).value || "";
+      var message = (form.querySelector("[name='message'], #contact-message") || {}).value || "";
+
+      if (!name.trim()) { showToast("Please enter your name.", "error"); return; }
+      if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showToast("Please enter a valid email.", "error"); return; }
+      if (!message.trim()) { showToast("Please enter a message.", "error"); return; }
+
+      showToast("Message sent successfully!", "success");
+      form.reset();
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     25. AUTH FORM VALIDATION
+  ───────────────────────────────────────────── */
+  function initAuthForms() {
+    // Login form
+    var loginForm = document.querySelector(".login-form, #loginForm");
+    if (loginForm) {
+      loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var email = (loginForm.querySelector("[type='email'], [name='email']") || {}).value || "";
+        var password = (loginForm.querySelector("[type='password'], [name='password']") || {}).value || "";
+        var roleEl = loginForm.querySelector("[name='role']:checked");
+        var role = roleEl ? roleEl.value : "customer";
+
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showToast("Enter a valid email.", "error"); return;
+        }
+        if (!password || password.length < 6) {
+          showToast("Password must be at least 6 characters.", "error"); return;
+        }
+
+        var users = JSON.parse(localStorage.getItem("stacklyUsers") || "[]");
+        var user = users.find(function(u) { return u.email === email && u.role === role; });
+
+        if (!user) {
+          showToast("No " + role + " account found with this email.", "error"); return;
+        }
+        if (user.password !== password) {
+          showToast("Incorrect password.", "error"); return;
+        }
+
+        localStorage.setItem("stacklyCurrentUser", JSON.stringify(user));
+        showToast("Logged in successfully! Redirecting...", "success");
+
+        setTimeout(function() {
+          if (role === "admin") {
+            window.location.href = "admin-dashboard.html";
+          } else {
+            window.location.href = "customer-dashboard.html";
+          }
+        }, 1000);
+      });
+    }
+
+    // Register form
+    var registerForm = document.querySelector(".register-form, #registerForm");
+    if (registerForm) {
+      var regPassword = registerForm.querySelector("[name='password']");
+      var regConfirm = registerForm.querySelector("[name='confirm-password']");
+      var strengthBar = document.getElementById("strengthBar");
+      var strengthText = document.getElementById("strengthText");
+
+      function checkPasswordStrength(pw) {
+        var score = 0;
+        if (pw.length >= 8) score++;
+        if (pw.length >= 12) score++;
+        if (/[A-Z]/.test(pw)) score++;
+        if (/[a-z]/.test(pw)) score++;
+        if (/[0-9]/.test(pw)) score++;
+        if (/[^A-Za-z0-9]/.test(pw)) score++;
+        return score;
+      }
+
+      function updateStrengthBar(pw) {
+        if (!strengthBar || !strengthText) return;
+        var score = checkPasswordStrength(pw);
+        var percent = 0;
+        var label = "";
+        var color = "";
+
+        if (pw.length === 0) {
+          percent = 0; label = ""; color = "";
+        } else if (score <= 2) {
+          percent = 25; label = "Weak"; color = "#ef4444";
+        } else if (score <= 3) {
+          percent = 50; label = "Fair"; color = "#f59e0b";
+        } else if (score <= 4) {
+          percent = 75; label = "Good"; color = "#3b82f6";
+        } else {
+          percent = 100; label = "Strong"; color = "#10b981";
+        }
+
+        strengthBar.style.width = percent + "%";
+        strengthBar.style.background = color;
+        strengthText.textContent = label;
+        strengthText.style.color = color;
+      }
+
+      if (regPassword) {
+        regPassword.addEventListener("input", function () {
+          updateStrengthBar(regPassword.value);
+        });
+      }
+
+      registerForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var firstName = (registerForm.querySelector("[name='first-name']") || {}).value || "";
+        var email = (registerForm.querySelector("[type='email'], [name='email']") || {}).value || "";
+        var password = (regPassword || {}).value || "";
+        var confirm = (regConfirm || {}).value || "";
+        var roleEl = registerForm.querySelector("[name='role']:checked");
+        var role = roleEl ? roleEl.value : "customer";
+
+        if (!firstName) { showToast("Enter your first name.", "error"); return; }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showToast("Enter a valid email.", "error"); return;
+        }
+        if (password.length < 8) { showToast("Password must be at least 8 characters.", "error"); return; }
+        if (!/[A-Z]/.test(password)) { showToast("Password needs an uppercase letter.", "error"); return; }
+        if (!/[a-z]/.test(password)) { showToast("Password needs a lowercase letter.", "error"); return; }
+        if (!/[0-9]/.test(password)) { showToast("Password needs a number.", "error"); return; }
+        if (!/[^A-Za-z0-9]/.test(password)) { showToast("Password needs a special character.", "error"); return; }
+        if (password !== confirm) {
+          showToast("Passwords do not match!", "error");
+          if (regConfirm) regConfirm.style.borderColor = "#ef4444";
+          return;
+        }
+
+        var users = JSON.parse(localStorage.getItem("stacklyUsers") || "[]");
+        if (users.find(function(u) { return u.email === email && u.role === role; })) {
+          showToast("An account with this email already exists.", "error"); return;
+        }
+
+        var newUser = { firstName: firstName, email: email, password: password, role: role };
+        users.push(newUser);
+        localStorage.setItem("stacklyUsers", JSON.stringify(users));
+
+        showToast("Account created! Redirecting to login...", "success");
+        registerForm.reset();
+        if (strengthBar) { strengthBar.style.width = "0"; }
+        if (strengthText) { strengthText.textContent = ""; }
+
+        setTimeout(function() { window.location.href = "login.html"; }, 1200);
+      });
+
+      if (regConfirm) {
+        regConfirm.addEventListener("input", function () {
+          if (regPassword && regConfirm.value && regPassword.value !== regConfirm.value) {
+            regConfirm.style.borderColor = "#ef4444";
+          } else {
+            regConfirm.style.borderColor = "";
+          }
+        });
+      }
+    }
+
+    // Password visibility toggles
+    document.addEventListener("click", function (e) {
+      var toggle = e.target.closest(".toggle-pass, .toggle-password, [data-action='toggle-password']");
+      if (!toggle) return;
+      var wrapper = toggle.closest(".input-group, .form-group");
+      if (!wrapper) return;
+      var input = wrapper.querySelector("input[type='password'], input[type='text']");
+      if (!input) return;
+
+      if (input.type === "password") {
+        input.type = "text";
+        toggle.classList.add("visible");
+      } else {
+        input.type = "password";
+        toggle.classList.remove("visible");
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     26. SCROLL ANIMATIONS
+  ───────────────────────────────────────────── */
+  function initScrollAnimations() {
+    if (!("IntersectionObserver" in window)) return;
+
+    // Reveal elements
+    var revealElements = document.querySelectorAll(".reveal");
+    if (revealElements.length > 0) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      revealElements.forEach(function (el) { revealObserver.observe(el); });
+    }
+
+    // Stagger children
+    var staggerContainers = document.querySelectorAll(".stagger-children");
+    if (staggerContainers.length > 0) {
+      var staggerObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var children = entry.target.children;
+            Array.from(children).forEach(function (child, i) {
+              child.style.transition = "opacity 0.5s ease " + (i * 0.1) + "s, transform 0.5s ease " + (i * 0.1) + "s";
+              child.classList.add("revealed");
+            });
+            staggerObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      staggerContainers.forEach(function (el) { staggerObserver.observe(el); });
+    }
+  }
+
+  /* ─────────────────────────────────────────────
+     27. SMOOTH SCROLL
+  ───────────────────────────────────────────── */
+  function initSmoothScroll() {
+    document.addEventListener("click", function (e) {
+      var anchor = e.target.closest('a[href^="#"]');
+      if (!anchor) return;
+      var href = anchor.getAttribute("href");
+      if (!href || href === "#" || href === "#0") return;
+
+      var target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     28. LAZY IMAGE LOADING
+  ───────────────────────────────────────────── */
+  function initLazyImages() {
+    var images = document.querySelectorAll("img[data-src]");
+    if (images.length === 0) return;
+
+    if ("IntersectionObserver" in window) {
+      var imgObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var img = entry.target;
+            img.src = img.getAttribute("data-src");
+            img.removeAttribute("data-src");
+            img.classList.add("loaded");
+            imgObserver.unobserve(img);
+          }
+        });
+      }, { rootMargin: "200px" });
+
+      images.forEach(function (img) { imgObserver.observe(img); });
+    } else {
+      // Fallback
+      images.forEach(function (img) {
+        img.src = img.getAttribute("data-src");
+        img.removeAttribute("data-src");
+      });
+    }
+  }
+
+  /* ─────────────────────────────────────────────
+     29. COUPON SYSTEM
+  ───────────────────────────────────────────── */
+  function initCouponSystem() {
+    var couponInput = document.querySelector(".coupon-input, #coupon-code, [name='coupon']");
+    var couponBtn = document.querySelector(".coupon-btn, .apply-coupon, #apply-coupon");
+    if (!couponInput || !couponBtn) return;
+
+    var coupons = {
+      "STACKLY10": 0.10,
+      "WELCOME20": 0.20
+    };
+
+    couponBtn.addEventListener("click", function () {
+      var code = couponInput.value.trim().toUpperCase();
+      if (coupons[code] !== undefined) {
+        window._stacklyDiscount = coupons[code];
+        showToast("Coupon applied! " + (coupons[code] * 100) + "% discount.", "success");
+
+        // Re-render cart totals if on cart page
+        var cartBody = document.querySelector(".cart-body, .cart-items, #cart-items");
+        if (cartBody && cartBody.children.length > 0) {
+          // Trigger re-render by dispatching event
+          document.dispatchEvent(new Event("couponApplied"));
+        }
+      } else {
+        window._stacklyDiscount = 0;
+        showToast("Invalid coupon code.", "error");
+      }
+    });
+
+    // Listen for couponApplied to re-calculate totals
+    document.addEventListener("couponApplied", function () {
+      var subtotal = getCartTotal();
+      var shipping = subtotal > 0 ? (subtotal >= 100 ? 0 : 9.99) : 0;
+      var discount = window._stacklyDiscount || 0;
+      var total = subtotal * (1 - discount) + shipping;
+
+      var subtotalEl = document.querySelector(".cart-subtotal, #cart-subtotal");
+      var totalEl = document.querySelector(".cart-total, #cart-total");
+      var discountEl = document.querySelector(".cart-discount, #cart-discount");
+
+      if (subtotalEl) subtotalEl.textContent = "$" + subtotal.toFixed(2);
+      if (totalEl) totalEl.textContent = "$" + total.toFixed(2);
+      if (discountEl) {
+        discountEl.textContent = "-$" + (subtotal * discount).toFixed(2);
+        discountEl.closest(".discount-row") && (discountEl.closest(".discount-row").style.display = discount > 0 ? "" : "none");
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     30. INITIALIZE EVERYTHING
+  ───────────────────────────────────────────── */
+  function init() {
+    initLoader();
+    initStickyHeader();
+    initMobileMenu();
+    initMegaMenu();
+    initSearchOverlay();
+    initDarkMode();
+    initHeroSlider();
+    initAllCountdowns();
+    initProductFiltering();
+    initProductSorting();
+    initViewToggle();
+    initQuantityControls();
+    initAddToCartButtons();
+    initWishlist();
+    initQuickView();
+    initCompare();
+    initProductGallery();
+    initProductTabs();
+    initFaqAccordion();
+    initBackToTop();
+    initNewsletter();
+    initContactForm();
+    initAuthForms();
+    initScrollAnimations();
+    initSmoothScroll();
+    initLazyImages();
+    initCouponSystem();
+    initCartPage();
+
+    updateCartBadge();
+    updateWishlistBadge();
+  }
+
+  /* ─────────────────────────────────────────────
+     PUBLIC API  –  window.Stackly
+  ───────────────────────────────────────────── */
+  window.Stackly = {
+    getCart: getCart,
+    saveCart: saveCart,
+    addToCart: addToCart,
+    removeFromCart: removeFromCart,
+    updateQty: updateQty,
+    getCartTotal: getCartTotal,
+    getCartCount: getCartCount,
+    updateCartBadge: updateCartBadge,
+    showToast: showToast,
+    getWishlist: getWishlist,
+    initCountdown: initCountdown
+  };
+
+  /* ─────────────────────────────────────────────
+     BOOT
+  ───────────────────────────────────────────── */
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+})();

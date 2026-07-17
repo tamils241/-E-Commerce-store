@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="pbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fce7f3"/>
+      <stop offset="100%" stop-color="#fdf2f8"/>
+    </linearGradient>
+    <linearGradient id="pscreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899"/>
+      <stop offset="30%" stop-color="#f43f5e"/>
+      <stop offset="60%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#eab308"/>
+    </linearGradient>
+    <filter id="psh">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="20" fill="url(#pbg)"/>
+  <g filter="url(#psh)" transform="translate(200,200)">
+    <!-- Phone body -->
+    <rect x="-55" y="-95" width="110" height="190" rx="16" fill="#1a1a1a"/>
+    <rect x="-52" y="-92" width="104" height="184" rx="14" fill="#2a2a2a"/>
+    <!-- Screen -->
+    <rect x="-48" y="-85" width="96" height="170" rx="10" fill="url(#pscreen)"/>
+    <!-- Dynamic island -->
+    <rect x="-18" y="-82" width="36" height="12" rx="6" fill="#1a1a1a"/>
+    <!-- Status bar -->
+    <text x="-35" y="-70" font-family="system-ui" font-size="7" fill="white" opacity="0.8">9:41</text>
+    <!-- Battery icon -->
+    <rect x="30" y="-73" width="10" height="5" rx="1" fill="none" stroke="white" stroke-width="0.7" opacity="0.8"/>
+    <rect x="31" y="-72" width="7" height="3" rx="0.5" fill="white" opacity="0.8"/>
+    <!-- App icons grid -->
+    <rect x="-35" y="-50" width="16" height="16" rx="4" fill="rgba(255,255,255,0.25)"/>
+    <rect x="-13" y="-50" width="16" height="16" rx="4" fill="rgba(255,255,255,0.25)"/>
+    <rect x="9" y="-50" width="16" height="16" rx="4" fill="rgba(255,255,255,0.25)"/>
+    <rect x="-35" y="-28" width="16" height="16" rx="4" fill="rgba(255,255,255,0.25)"/>
+    <rect x="-13" y="-28" width="16" height="16" rx="4" fill="rgba(255,255,255,0.25)"/>
+    <rect x="9" y="-28" width="16" height="16" rx="4" fill="rgba(255,255,255,0.25)"/>
+    <!-- Widget -->
+    <rect x="-35" y="0" width="70" height="35" rx="8" fill="rgba(255,255,255,0.2)"/>
+    <text x="0" y="15" text-anchor="middle" font-family="system-ui" font-size="10" fill="white" font-weight="600">Stackly</text>
+    <text x="0" y="27" text-anchor="middle" font-family="system-ui" font-size="7" fill="rgba(255,255,255,0.7)">Shop Smart</text>
+    <!-- Bottom bar -->
+    <rect x="-15" y="72" width="30" height="4" rx="2" fill="white" opacity="0.6"/>
+    <!-- Side buttons -->
+    <rect x="-57" y="-60" width="2" height="20" rx="1" fill="#444"/>
+    <rect x="55" y="-50" width="2" height="12" rx="1" fill="#444"/>
+    <rect x="55" y="-32" width="2" height="12" rx="1" fill="#444"/>
+  </g>
+</svg>

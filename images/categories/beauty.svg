@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="100%" stop-color="#EC4899"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="300" rx="24" fill="url(#bg2)"/>
+  <circle cx="260" cy="40" r="50" fill="white" opacity="0.06"/>
+  <circle cx="40" cy="260" r="40" fill="white" opacity="0.06"/>
+  <circle cx="150" cy="140" r="65" fill="white"/>
+  <!-- Star shape -->
+  <polygon points="150,108 157,128 178,128 161,140 168,160 150,148 132,160 139,140 122,128 143,128" fill="#EC4899"/>
+  <!-- Inner star -->
+  <polygon points="150,118 154,130 168,130 157,138 161,150 150,143 139,150 143,138 132,130 146,130" fill="#f9a8d4"/>
+  <!-- Lipstick icon -->
+  <rect x="140" y="158" width="20" height="12" rx="2" fill="#EC4899"/>
+  <rect x="143" y="148" width="14" height="12" rx="1" fill="#f472b6"/>
+  <path d="M143,148 L150,140 L157,148 Z" fill="#be185d"/>
+  <text x="150" y="230" text-anchor="middle" font-family="system-ui" font-size="14" font-weight="700" fill="white">Beauty</text>
+</svg>

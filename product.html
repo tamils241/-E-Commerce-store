@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly - Premium Wireless Headphones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <a href="#"><i class="fas fa-truck"></i> Free shipping on orders over $50</a>
+      <a href="#"><i class="fas fa-phone"></i> +1 (555) 123-4567</a>
+    </div>
+    <div class="topbar-right">
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Store Locator</a>
+      <a href="track-order.html">Track Order</a>
+      <a href="#">English <i class="fas fa-chevron-down"></i></a>
+    </div>
+  </div>
+</div>
+
+<header class="header" id="header">
+  <div class="container">
+    <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="42"></a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="deals.html">Deals</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="header-btn" id="searchBtn" aria-label="Search"><i class="fas fa-search"></i></button>
+      <a href="wishlist.html" class="header-btn" aria-label="Wishlist"><i class="far fa-heart"></i><span class="badge" id="wishlistBadge">0</span></a>
+      <a href="cart.html" class="header-btn" aria-label="Cart"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartBadge">0</span></a>
+      <a href="login.html" class="header-btn" aria-label="Account"><i class="far fa-user"></i></a>
+    </div>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="shop.html">Categories</a>
+  <a href="shop.html">Deals</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<div class="page-header">
+  <div class="container">
+    <h1 class="page-title">Premium Wireless Headphones</h1>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> / <a href="shop.html">Shop</a> / <a href="shop.html">Electronics</a> / <span class="current">Premium Wireless Headphones</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="pdp-grid">
+
+      <div class="pdp-gallery">
+        <div class="pdp-gallery-main">
+          <img src="images/products/headphones.svg" id="mainProductImage" alt="Premium Wireless Headphones">
+        </div>
+        <div class="pdp-thumbnails">
+          <div class="pdp-thumb active"><img src="images/products/headphones.svg" alt="Thumbnail 1"></div>
+          <div class="pdp-thumb"><img src="images/products/headphones.svg" alt="Thumbnail 2"></div>
+          <div class="pdp-thumb"><img src="images/products/headphones.svg" alt="Thumbnail 3"></div>
+          <div class="pdp-thumb"><img src="images/products/headphones.svg" alt="Thumbnail 4"></div>
+        </div>
+      </div>
+
+      <div>
+        <p class="pdp-brand">SoundMax</p>
+        <h1 class="pdp-title">Premium Wireless Noise-Cancelling Headphones</h1>
+        <div class="pdp-rating">
+          <div class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <span class="count">(342 reviews)</span>
+        </div>
+        <div class="pdp-price">
+          <span class="current">$79.99</span>
+          <span class="old">$129.99</span>
+          <span class="discount">Save 38%</span>
+        </div>
+        <p class="pdp-desc">Experience crystal-clear audio with our premium wireless noise-cancelling headphones. Featuring advanced active noise cancellation technology, 30-hour battery life, and ultra-comfortable memory foam ear cushions for all-day listening comfort. Connect seamlessly via Bluetooth 5.2 for a stable, high-quality wireless experience.</p>
+
+        <label class="variant-label">Color</label>
+        <div class="color-picker">
+          <div class="color-option active" style="background:#000" title="Black"></div>
+          <div class="color-option" style="background:#fff; border:1px solid #ddd" title="White"></div>
+          <div class="color-option" style="background:#3498db" title="Blue"></div>
+          <div class="color-option" style="background:#e74c3c" title="Red"></div>
+        </div>
+
+        <label class="variant-label">Type</label>
+        <div class="size-options-detail">
+          <button class="size-option active">Over-Ear</button>
+          <button class="size-option">On-Ear</button>
+          <button class="size-option">In-Ear</button>
+        </div>
+
+        <label class="variant-label">Quantity</label>
+        <div class="quantity">
+          <button class="qty-btn" aria-label="Decrease quantity"><i class="fas fa-minus"></i></button>
+          <input type="number" class="qty-value" value="1" min="1" max="99">
+          <button class="qty-btn" aria-label="Increase quantity"><i class="fas fa-plus"></i></button>
+        </div>
+
+        <div class="pdp-actions">
+          <button class="btn-add-cart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+          <button class="btn-wishlist"><i class="far fa-heart"></i></button>
+        </div>
+
+        <ul class="pdp-info-list">
+          <li><i class="fas fa-truck"></i> Free Shipping on orders over $50</li>
+          <li><i class="fas fa-undo"></i> 30-Day Returns Policy</li>
+          <li><i class="fas fa-shield-alt"></i> 2-Year Manufacturer Warranty</li>
+          <li><i class="fas fa-lock"></i> Secure Payment Processing</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="pdp-tabs">
+      <div class="tab-btns">
+        <button class="tab-btn active" data-tab="description">Description</button>
+        <button class="tab-btn" data-tab="reviews">Reviews</button>
+        <button class="tab-btn" data-tab="specifications">Specifications</button>
+        <button class="tab-btn" data-tab="shipping">Shipping</button>
+      </div>
+
+      <div class="tab-content active" id="description">
+        <p>Our Premium Wireless Noise-Cancelling Headphones deliver an immersive audio experience that blocks out the world around you. Equipped with advanced hybrid active noise cancellation, these headphones use multiple microphones to detect and neutralize ambient noise across a wide range of frequencies.</p>
+        <p>The custom-tuned 40mm dynamic drivers produce rich, detailed sound with deep bass and crystal-clear highs. Whether you are commuting, working in a busy office, or relaxing at home, these headphones adapt to your environment with three selectable noise cancellation modes: Full, Ambient, and Off.</p>
+        <p>With up to 30 hours of wireless playback on a single charge and quick-charge support providing 5 hours of listening from just 10 minutes of charging, you will never be caught without your music. The premium memory foam ear cushions and adjustable headband ensure a comfortable, secure fit during extended listening sessions.</p>
+      </div>
+
+      <div class="tab-content" id="reviews">
+        <div class="review-item">
+          <div class="review-header">
+            <img src="images/avatars/avatar1.svg" alt="Sarah M." class="review-avatar">
+            <div>
+              <h4>Sarah M.</h4>
+              <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
+            <span class="review-date">January 15, 2026</span>
+          </div>
+          <p>Absolutely love these headphones! The noise cancellation is incredible on my daily commute. The sound quality is fantastic and the battery lasts all week. Most comfortable headphones I have ever owned.</p>
+        </div>
+        <div class="review-item">
+          <div class="review-header">
+            <img src="images/avatars/avatar2.svg" alt="James K." class="review-avatar">
+            <div>
+              <h4>James K.</h4>
+              <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+              </div>
+            </div>
+            <span class="review-date">January 8, 2026</span>
+          </div>
+          <p>Great headphones overall. Sound quality is excellent and the ANC works very well. Took one star off because the carrying case could be a bit more compact. Otherwise, highly recommended for the price.</p>
+        </div>
+        <div class="review-item">
+          <div class="review-header">
+            <img src="images/avatars/avatar3.svg" alt="Emily R." class="review-avatar">
+            <div>
+              <h4>Emily R.</h4>
+              <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
+            <span class="review-date">December 29, 2025</span>
+          </div>
+          <p>These headphones exceeded my expectations. I use them for work calls and music throughout the day. The Bluetooth connection is rock solid and the microphone quality for calls is surprisingly good. Best purchase I have made this year.</p>
+        </div>
+      </div>
+
+      <div class="tab-content" id="specifications">
+        <table class="spec-table">
+          <tbody>
+            <tr><td>Driver Size</td><td>40mm</td></tr>
+            <tr><td>Frequency Response</td><td>20Hz - 20kHz</td></tr>
+            <tr><td>Battery Life</td><td>Up to 30 hours</td></tr>
+            <tr><td>Bluetooth Version</td><td>5.2</td></tr>
+            <tr><td>Weight</td><td>250g</td></tr>
+            <tr><td>Charging Port</td><td>USB-C</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-content" id="shipping">
+        <p>We offer free standard shipping on all orders over $50 within the continental United States. Standard shipping typically delivers within 3-5 business days. Expedited shipping options are available at checkout for an additional fee.</p>
+        <p>International shipping is available to over 50 countries worldwide. International delivery times vary by destination, typically ranging from 7-14 business days. All international orders may be subject to customs duties and taxes, which are the responsibility of the customer.</p>
+        <p>All orders are carefully packaged in eco-friendly materials to ensure your product arrives in perfect condition. You will receive a tracking number via email once your order has been dispatched from our warehouse.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Related Products</h2>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="images/products/speaker.svg" alt="Bluetooth Speaker">
+          <div class="product-actions">
+            <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+            <button aria-label="Quick view"><i class="far fa-eye"></i></button>
+            <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <span class="product-category">Electronics</span>
+          <h3 class="product-name"><a href="product.html">Bluetooth Speaker</a></h3>
+          <div class="product-rating">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="count">(312)</span>
+          </div>
+          <div class="product-price">
+            <span class="current">$49.99</span>
+            <span class="old">$79.99</span>
+          </div>
+          <button class="product-add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="images/products/headphones2.svg" alt="Wireless Earbuds">
+          <span class="product-badge badge-sale">Sale</span>
+          <div class="product-actions">
+            <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+            <button aria-label="Quick view"><i class="far fa-eye"></i></button>
+            <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <span class="product-category">Electronics</span>
+          <h3 class="product-name"><a href="product.html">Wireless Earbuds</a></h3>
+          <div class="product-rating">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+            </div>
+            <span class="count">(203)</span>
+          </div>
+          <div class="product-price">
+            <span class="current">$59.99</span>
+            <span class="old">$89.99</span>
+          </div>
+          <button class="product-add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="images/products/smartwatch.svg" alt="Smart Watch">
+          <div class="product-actions">
+            <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+            <button aria-label="Quick view"><i class="far fa-eye"></i></button>
+            <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <span class="product-category">Electronics</span>
+          <h3 class="product-name"><a href="product.html">Smart Watch</a></h3>
+          <div class="product-rating">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <span class="count">(256)</span>
+          </div>
+          <div class="product-price">
+            <span class="current">$199.99</span>
+            <span class="old">$299.99</span>
+          </div>
+          <button class="product-add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="images/products/charger.svg" alt="Wireless Charger">
+          <div class="product-actions">
+            <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+            <button aria-label="Quick view"><i class="far fa-eye"></i></button>
+            <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <span class="product-category">Electronics</span>
+          <h3 class="product-name"><a href="product.html">Wireless Charger</a></h3>
+          <div class="product-rating">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="count">(98)</span>
+          </div>
+          <div class="product-price">
+            <span class="current">$29.99</span>
+          </div>
+          <button class="product-add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+<div class="toast-container" id="toastContainer"></div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="images/logo.webp" alt="Stackly" height="40"></div>
+        <p class="footer-desc">Premium e-commerce store offering quality products at unbeatable prices. Shop with confidence.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Categories</h4>
+        <ul class="footer-links">
+          <li><a href="shop.html">Electronics</a></li>
+          <li><a href="shop.html">Fashion</a></li>
+          <li><a href="shop.html">Home &amp; Living</a></li>
+          <li><a href="shop.html">Sports</a></li>
+          <li><a href="shop.html">Beauty</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Contact Us</h4>
+        <ul class="footer-contact">
+          <li><i class="fas fa-map-marker-alt"></i><span>123 Commerce St, New York, NY 10001</span></li>
+          <li><i class="fas fa-phone"></i><span>+1 (555) 123-4567</span></li>
+          <li><i class="fas fa-envelope"></i><span>support@stackly.com</span></li>
+          <li><i class="fas fa-clock"></i><span>Mon-Fri: 9AM - 6PM</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Stackly. All rights reserved.</p>
+      <div class="payment-icons">
+        <img src="images/payments/visa.svg" alt="Visa">
+        <img src="images/payments/mastercard.svg" alt="Mastercard">
+        <img src="images/payments/paypal.svg" alt="PayPal">
+        <img src="images/payments/applepay.svg" alt="Apple Pay">
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

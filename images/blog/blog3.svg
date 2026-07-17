@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="b3bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" rx="12" fill="url(#b3bg)"/>
+  <circle cx="480" cy="80" r="70" fill="white" opacity="0.05"/>
+  <circle cx="530" cy="330" r="55" fill="white" opacity="0.04"/>
+  <!-- Sofa -->
+  <rect x="100" y="200" width="160" height="60" rx="12" fill="white" opacity="0.15"/>
+  <rect x="90" y="180" width="180" height="30" rx="8" fill="white" opacity="0.12"/>
+  <rect x="85" y="170" width="15" height="90" rx="6" fill="white" opacity="0.12"/>
+  <rect x="280" y="170" width="15" height="90" rx="6" fill="white" opacity="0.12"/>
+  <!-- Cushion on sofa -->
+  <rect x="120" y="185" width="30" height="25" rx="6" fill="#34d399" opacity="0.3"/>
+  <!-- Lamp -->
+  <rect x="330" y="140" width="4" height="120" fill="white" opacity="0.15"/>
+  <path d="M310,140 L350,140 L340,110 L320,110 Z" fill="white" opacity="0.15"/>
+  <circle cx="332" cy="130" r="3" fill="#fbbf24" opacity="0.5"/>
+  <!-- Plant -->
+  <rect x="420" y="230" width="20" height="30" rx="4" fill="#92400e" opacity="0.4"/>
+  <circle cx="430" cy="220" r="20" fill="#22c55e" opacity="0.3"/>
+  <circle cx="420" cy="210" r="15" fill="#16a34a" opacity="0.25"/>
+  <circle cx="440" cy="212" r="15" fill="#15803d" opacity="0.25"/>
+  <!-- Picture frame -->
+  <rect x="160" y="100" width="60" height="45" rx="2" fill="white" opacity="0.1"/>
+  <rect x="165" y="105" width="50" height="35" rx="1" fill="#10b981" opacity="0.2"/>
+  <!-- Rug -->
+  <ellipse cx="200" cy="290" rx="100" ry="15" fill="white" opacity="0.06"/>
+  <!-- Coffee table -->
+  <rect x="160" y="260" width="80" height="8" rx="4" fill="white" opacity="0.12"/>
+  <rect x="170" y="268" width="4" height="12" fill="white" opacity="0.1"/>
+  <rect x="226" y="268" width="4" height="12" fill="white" opacity="0.1"/>
+  <!-- Books on table -->
+  <rect x="180" y="254" width="20" height="6" rx="1" fill="#f59e0b" opacity="0.3"/>
+  <rect x="185" y="250" width="15" height="6" rx="1" fill="#3b82f6" opacity="0.3"/>
+  <!-- Tag -->
+  <rect x="30" y="30" width="60" height="28" rx="14" fill="#34d399"/>
+  <text x="60" y="49" text-anchor="middle" font-family="system-ui" font-size="12" font-weight="700" fill="white">HOME</text>
+  <text x="30" y="360" font-family="system-ui" font-size="18" font-weight="700" fill="white">Living Room Makeover Ideas</text>
+  <text x="30" y="382" font-family="system-ui" font-size="12" fill="#a7f3d0">Transform your space on a budget</text>
+</svg>

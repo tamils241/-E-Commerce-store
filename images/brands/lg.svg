@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <rect width="200" height="60" fill="white"/>
+  <!-- LG circle -->
+  <circle cx="40" cy="30" r="18" fill="none" stroke="#a50034" stroke-width="2.5"/>
+  <!-- L in circle -->
+  <path d="M30,22 L30,38 L42,38" stroke="#a50034" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- nose/dot -->
+  <circle cx="44" cy="26" r="3" fill="#a50034"/>
+  <!-- Smile -->
+  <path d="M33,32 C36,36 42,36 45,32" stroke="#a50034" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <text x="70" y="38" font-family="system-ui" font-size="20" font-weight="900" fill="#a50034" letter-spacing="2">LG</text>
+</svg>

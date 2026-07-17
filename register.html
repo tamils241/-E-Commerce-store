@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <!-- Auth Page -->
+  <section class="auth-page">
+    <div class="container">
+      <div class="auth-wrapper">
+        <div class="auth-visual">
+          <img src="images/products/Summer-Fashion.webp" alt="Register">
+          <div class="auth-visual-overlay">
+            <h2>Join Stackly</h2>
+            <p>Create an account to start shopping, track orders, and get exclusive deals.</p>
+          </div>
+        </div>
+        <div class="auth-form-section">
+          <div class="auth-form-header">
+            <h2>Create Account</h2>
+            <p>Already have an account? <a href="login.html">Log In</a></p>
+          </div>
+          <form class="auth-form" id="registerForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="regFirstName">First Name</label>
+                <div class="input-icon">
+                  <i class="far fa-user"></i>
+                  <input type="text" id="regFirstName" name="first-name" placeholder="First name" required maxlength="16" pattern="[A-Za-z\s]+" oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'')">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="regLastName">Last Name</label>
+                <div class="input-icon">
+                  <i class="far fa-user"></i>
+                  <input type="text" id="regLastName" name="last-name" placeholder="Last name" required maxlength="16" pattern="[A-Za-z\s]+" oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'')">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="regEmail">Email Address</label>
+              <div class="input-icon">
+                <i class="far fa-envelope"></i>
+                <input type="email" id="regEmail" name="email" placeholder="your@email.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>I want to join as</label>
+              <div class="role-select">
+                <label class="role-option">
+                  <input type="radio" name="role" value="customer" checked>
+                  <div class="role-card">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Customer</span>
+                    <small>Shop & buy products</small>
+                  </div>
+                </label>
+                <label class="role-option">
+                  <input type="radio" name="role" value="admin">
+                  <div class="role-card">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Admin</span>
+                    <small>Manage store</small>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="regPassword">Password</label>
+              <div class="input-icon">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="regPassword" name="password" placeholder="Create a password" required>
+                <button type="button" class="toggle-pass" aria-label="Show password"><i class="far fa-eye"></i></button>
+              </div>
+              <div class="password-strength">
+                <div class="strength-bar" id="strengthBar"></div>
+                <span class="strength-text" id="strengthText"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="regConfirm">Confirm Password</label>
+              <div class="input-icon">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="regConfirm" name="confirm-password" placeholder="Confirm your password" required>
+                <button type="button" class="toggle-pass" aria-label="Show password"><i class="far fa-eye"></i></button>
+              </div>
+            </div>
+            <div class="auth-options">
+              <label class="checkbox-label">
+                <input type="checkbox" id="agreeTerms" required> <span class="checkmark"></span> I agree to the <a href="404.html">Terms &amp; Conditions</a>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary auth-btn">Create Account</button>
+          </form>
+          <div class="auth-divider"><span>or sign up with</span></div>
+          <div class="social-auth">
+            <button class="social-btn"><i class="fab fa-google"></i> Google</button>
+            <button class="social-btn"><i class="fab fa-facebook-f"></i> Facebook</button>
+          </div>
+          <a href="index.html" class="auth-back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

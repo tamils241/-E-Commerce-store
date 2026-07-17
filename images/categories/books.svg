@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <defs>
+    <linearGradient id="bkbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="300" rx="24" fill="url(#bkbg)"/>
+  <circle cx="260" cy="40" r="50" fill="white" opacity="0.06"/>
+  <circle cx="40" cy="260" r="40" fill="white" opacity="0.06"/>
+  <circle cx="150" cy="140" r="65" fill="white"/>
+  <!-- Book stack - back book -->
+  <rect x="125" y="118" width="50" height="42" rx="2" fill="#1d4ed8"/>
+  <rect x="127" y="120" width="46" height="38" rx="1" fill="#2563eb"/>
+  <!-- Book - middle -->
+  <rect x="122" y="122" width="50" height="40" rx="2" fill="#3B82F6"/>
+  <rect x="124" y="124" width="46" height="36" rx="1" fill="#60a5fa"/>
+  <!-- Book - front (open) -->
+  <rect x="120" y="128" width="60" height="36" rx="3" fill="#3B82F6"/>
+  <rect x="122" y="130" width="56" height="32" rx="2" fill="#dbeafe"/>
+  <!-- Spine -->
+  <rect x="120" y="128" width="5" height="36" rx="1" fill="#2563eb"/>
+  <!-- Pages -->
+  <line x1="130" y1="135" x2="170" y2="135" stroke="#93c5fd" stroke-width="1.5"/>
+  <line x1="130" y1="141" x2="165" y2="141" stroke="#93c5fd" stroke-width="1.5"/>
+  <line x1="130" y1="147" x2="160" y2="147" stroke="#93c5fd" stroke-width="1.5"/>
+  <line x1="130" y1="153" x2="155" y2="153" stroke="#93c5fd" stroke-width="1.5"/>
+  <!-- Bookmark -->
+  <path d="M165,128 L165,142 L160,137 L155,142 L155,128 Z" fill="#ef4444"/>
+  <text x="150" y="230" text-anchor="middle" font-family="system-ui" font-size="14" font-weight="700" fill="white">Books</text>
+</svg>
