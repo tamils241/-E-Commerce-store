@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Order - Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container">
+    <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="42"></a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="deals.html">Deals</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="header-btn" id="searchBtn" aria-label="Search"><i class="fas fa-search"></i></button>
+      <a href="wishlist.html" class="header-btn" aria-label="Wishlist"><i class="far fa-heart"></i><span class="badge" id="wishlistBadge">0</span></a>
+      <a href="cart.html" class="header-btn" aria-label="Cart"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartBadge">0</span></a>
+      <a href="login.html" class="header-btn" aria-label="Account"><i class="far fa-user"></i></a>
+    </div>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="shop.html">Categories</a>
+  <a href="shop.html">Deals</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Track Your Order</h1>
+    <p>Enter your order details to check delivery status</p>
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> Track Order</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:800px;">
+
+    <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:40px;text-align:center;margin-bottom:48px;">
+      <div style="width:80px;height:80px;border-radius:50%;background-color:rgba(var(--primary-rgb),0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:2rem;color:var(--primary);">
+        <i class="fas fa-shipping-fast"></i>
+      </div>
+      <h2 style="margin-bottom:8px;">Where's My Order?</h2>
+      <p style="color:var(--text-light);margin-bottom:24px;">Enter your order number and email address to track your package</p>
+
+      <form id="trackingForm" style="text-align:left;max-width:400px;margin:0 auto;">
+        <div style="margin-bottom:16px;">
+          <label for="orderNumber" style="display:block;margin-bottom:6px;font-weight:600;font-size:0.9rem;">Order Number</label>
+          <input type="text" id="orderNumber" placeholder="e.g. #STK-12345" style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:var(--radius-lg);font-size:1rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='var(--border)'">
+        </div>
+        <div style="margin-bottom:20px;">
+          <label for="emailAddress" style="display:block;margin-bottom:6px;font-weight:600;font-size:0.9rem;">Email Address</label>
+          <input type="email" id="emailAddress" placeholder="Enter your email" style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:var(--radius-lg);font-size:1rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='var(--border)'">
+        </div>
+        <button type="submit" class="checkout-btn" style="width:100%;padding:14px;font-size:1rem;"><i class="fas fa-search" style="margin-right:8px;"></i> Track Order</button>
+      </form>
+    </div>
+
+    <div id="trackingResult" style="display:none;background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:32px;margin-bottom:48px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:28px;">
+        <h3 style="margin:0;"><i class="fas fa-box" style="color:var(--primary);margin-right:8px;"></i> Order Status</h3>
+        <span style="background:rgba(46,204,113,0.1);color:#2ecc71;padding:4px 12px;border-radius:20px;font-size:0.8rem;font-weight:600;">In Transit</span>
+      </div>
+      <div style="padding-left:4px;">
+        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:0;">
+          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:24px;">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:0.7rem;flex-shrink:0;"><i class="fas fa-check"></i></div>
+            <div style="width:2px;height:32px;background:var(--primary);flex-shrink:0;"></div>
+          </div>
+          <div style="padding-top:2px;padding-bottom:16px;">
+            <h4 style="margin-bottom:2px;">Order Confirmed</h4>
+            <p style="color:var(--text-light);font-size:0.85rem;margin:0;">Jan 15, 2026 - 2:30 PM</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:0;">
+          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:24px;">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:0.7rem;flex-shrink:0;"><i class="fas fa-check"></i></div>
+            <div style="width:2px;height:32px;background:var(--primary);flex-shrink:0;"></div>
+          </div>
+          <div style="padding-top:2px;padding-bottom:16px;">
+            <h4 style="margin-bottom:2px;">Processing</h4>
+            <p style="color:var(--text-light);font-size:0.85rem;margin:0;">Jan 15, 2026 - 4:15 PM</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:0;">
+          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:24px;">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:0.7rem;flex-shrink:0;"><i class="fas fa-check"></i></div>
+            <div style="width:2px;height:32px;background:var(--primary);flex-shrink:0;"></div>
+          </div>
+          <div style="padding-top:2px;padding-bottom:16px;">
+            <h4 style="margin-bottom:2px;">Shipped</h4>
+            <p style="color:var(--text-light);font-size:0.85rem;margin:0;">Jan 16, 2026 - 9:00 AM</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:0;">
+          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:24px;">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:0.7rem;flex-shrink:0;"><i class="fas fa-check"></i></div>
+            <div style="width:2px;height:32px;background:var(--primary);flex-shrink:0;"></div>
+          </div>
+          <div style="padding-top:2px;padding-bottom:16px;">
+            <h4 style="margin-bottom:2px;">Out for Delivery</h4>
+            <p style="color:var(--text-light);font-size:0.85rem;margin:0;">Jan 17, 2026 - 8:30 AM</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:0;">
+          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:24px;">
+            <div style="width:24px;height:24px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:0.7rem;flex-shrink:0;"><i class="fas fa-check"></i></div>
+            <div style="width:2px;height:32px;background:var(--primary);flex-shrink:0;"></div>
+          </div>
+          <div style="padding-top:2px;padding-bottom:16px;">
+            <h4 style="margin-bottom:2px;">Delivery Attempted</h4>
+            <p style="color:var(--text-light);font-size:0.85rem;margin:0;">Jan 17, 2026 - 2:45 PM</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;align-items:flex-start;">
+          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:24px;">
+            <div style="width:24px;height:24px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.7rem;flex-shrink:0;background:var(--white);"><i class="fas fa-clock"></i></div>
+          </div>
+          <div style="padding-top:2px;">
+            <h4 style="margin-bottom:2px;color:var(--text-muted);">Delivered</h4>
+            <p style="color:var(--text-light);font-size:0.85rem;margin:0;">Estimated: Jan 19-21, 2026</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border-light);display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center;">
+        <div>
+          <span style="font-size:0.75rem;color:var(--text-muted);display:block;margin-bottom:4px;">Order Number</span>
+          <span style="font-weight:600;font-size:0.9rem;">#STK-12345</span>
+        </div>
+        <div>
+          <span style="font-size:0.75rem;color:var(--text-muted);display:block;margin-bottom:4px;">Tracking Number</span>
+          <span style="font-weight:600;font-size:0.9rem;">1Z999AA10123456784</span>
+        </div>
+        <div>
+          <span style="font-size:0.75rem;color:var(--text-muted);display:block;margin-bottom:4px;">Carrier</span>
+          <span style="font-weight:600;font-size:0.9rem;">UPS Ground</span>
+        </div>
+        <div>
+          <span style="font-size:0.75rem;color:var(--text-muted);display:block;margin-bottom:4px;">Est. Delivery</span>
+          <span style="font-weight:600;font-size:0.9rem;">Jan 21, 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:48px;">
+      <h2 style="text-align:center;margin-bottom:24px;"><i class="fas fa-shipping-fast" style="color:var(--primary);margin-right:8px;"></i> Shipping Partners</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+        <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:20px;text-align:center;">
+          <i class="fas fa-truck" style="font-size:1.5rem;color:var(--primary);margin-bottom:8px;display:block;"></i>
+          <h4 style="margin-bottom:4px;">UPS</h4>
+          <p style="color:var(--text-light);font-size:0.85rem;">ups.com/track</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:20px;text-align:center;">
+          <i class="fas fa-box" style="font-size:1.5rem;color:var(--primary);margin-bottom:8px;display:block;"></i>
+          <h4 style="margin-bottom:4px;">FedEx</h4>
+          <p style="color:var(--text-light);font-size:0.85rem;">fedex.com/tracking</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:20px;text-align:center;">
+          <i class="fas fa-envelope" style="font-size:1.5rem;color:var(--primary);margin-bottom:8px;display:block;"></i>
+          <h4 style="margin-bottom:4px;">USPS</h4>
+          <p style="color:var(--text-light);font-size:0.85rem;">usps.com/track</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:20px;text-align:center;">
+          <i class="fas fa-dhl" style="font-size:1.5rem;color:var(--primary);margin-bottom:8px;display:block;"></i>
+          <h4 style="margin-bottom:4px;">DHL</h4>
+          <p style="color:var(--text-light);font-size:0.85rem;">dhl.com/track</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:20px;text-align:center;">
+          <i class="fas fa-amazon" style="font-size:1.5rem;color:var(--primary);margin-bottom:8px;display:block;"></i>
+          <h4 style="margin-bottom:4px;">Amazon Logistics</h4>
+          <p style="color:var(--text-light);font-size:0.85rem;">amazon.com/track</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:20px;text-align:center;">
+          <i class="fas fa-shipping-fast" style="font-size:1.5rem;color:var(--primary);margin-bottom:8px;display:block;"></i>
+          <h4 style="margin-bottom:4px;">OnTrac</h4>
+          <p style="color:var(--text-light);font-size:0.85rem;">ontrac.com/track</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:48px;">
+      <h2 style="text-align:center;margin-bottom:24px;"><i class="fas fa-question-circle" style="color:var(--primary);margin-right:8px;"></i> Frequently Asked Questions</h2>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:20px;">
+          <h4 style="margin-bottom:8px;"><i class="fas fa-clock" style="color:var(--primary);margin-right:8px;"></i> How long does shipping take?</h4>
+          <p style="color:var(--text-light);line-height:1.7;margin:0;">Standard shipping takes 5-7 business days. Express shipping delivers in 2-3 business days. Next day delivery is available for orders placed before 2 PM EST.</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:20px;">
+          <h4 style="margin-bottom:8px;"><i class="fas fa-envelope" style="color:var(--primary);margin-right:8px;"></i> I didn't receive a tracking number</h4>
+          <p style="color:var(--text-light);line-height:1.7;margin:0;">Tracking numbers are sent via email within 24 hours of shipping. Check your spam folder or contact <a href="contact.html" style="color:var(--primary);">support</a> if you can't find it.</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:20px;">
+          <h4 style="margin-bottom:8px;"><i class="fas fa-map-marker-alt" style="color:var(--primary);margin-right:8px;"></i> My package shows delivered but I haven't received it</h4>
+          <p style="color:var(--text-light);line-height:1.7;margin:0;">Check with neighbors or your building's front desk. If still not found, wait 24 hours as carrier updates can be delayed. <a href="contact.html" style="color:var(--primary);">Contact us</a> if the issue persists.</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:20px;">
+          <h4 style="margin-bottom:8px;"><i class="fas fa-globe" style="color:var(--primary);margin-right:8px;"></i> Do you ship internationally?</h4>
+          <p style="color:var(--text-light);line-height:1.7;margin:0;">Yes! We ship to over 50 countries. International orders may take 7-21 business days depending on the destination and customs processing times.</p>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:20px;">
+          <h4 style="margin-bottom:8px;"><i class="fas fa-undo" style="color:var(--primary);margin-right:8px;"></i> Can I change my shipping address after ordering?</h4>
+          <p style="color:var(--text-light);line-height:1.7;margin:0;">Address changes are possible only before the order ships. <a href="contact.html" style="color:var(--primary);">Contact support</a> immediately with your order number to request a change.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;margin-bottom:48px;">
+      <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:28px;text-align:center;">
+        <div style="width:56px;height:56px;border-radius:50%;background:rgba(var(--primary-rgb),0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.2rem;color:var(--primary);">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h4 style="margin-bottom:6px;">24/7 Support</h4>
+        <p style="color:var(--text-light);font-size:0.9rem;line-height:1.6;">Our team is always available to help with any shipping concerns.</p>
+        <a href="contact.html" style="display:inline-block;margin-top:12px;color:var(--primary);font-weight:600;font-size:0.9rem;text-decoration:none;">Contact Support</a>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:28px;text-align:center;">
+        <div style="width:56px;height:56px;border-radius:50%;background:rgba(var(--primary-rgb),0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.2rem;color:var(--primary);">
+          <i class="fas fa-undo"></i>
+        </div>
+        <h4 style="margin-bottom:6px;">Easy Returns</h4>
+        <p style="color:var(--text-light);font-size:0.9rem;line-height:1.6;">Not happy? Return within 30 days for a full refund.</p>
+        <a href="returns.html" style="display:inline-block;margin-top:12px;color:var(--primary);font-weight:600;font-size:0.9rem;text-decoration:none;">Return Policy</a>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:28px;text-align:center;">
+        <div style="width:56px;height:56px;border-radius:50%;background:rgba(var(--primary-rgb),0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.2rem;color:var(--primary);">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h4 style="margin-bottom:6px;">Secure Shipping</h4>
+        <p style="color:var(--text-light);font-size:0.9rem;line-height:1.6;">All packages are insured and trackable for your peace of mind.</p>
+        <a href="shipping.html" style="display:inline-block;margin-top:12px;color:var(--primary);font-weight:600;font-size:0.9rem;text-decoration:none;">Shipping Policy</a>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:28px;text-align:center;">
+        <div style="width:56px;height:56px;border-radius:50%;background:rgba(var(--primary-rgb),0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.2rem;color:var(--primary);">
+          <i class="fas fa-gift"></i>
+        </div>
+        <h4 style="margin-bottom:6px;">Free Shipping</h4>
+        <p style="color:var(--text-light);font-size:0.9rem;line-height:1.6;">Enjoy free standard shipping on all orders over $50.</p>
+        <a href="shipping.html" style="display:inline-block;margin-top:12px;color:var(--primary);font-weight:600;font-size:0.9rem;text-decoration:none;">Learn More</a>
+      </div>
+    </div>
+
+    <div style="background-color:var(--bg);border-radius:var(--radius-xl);padding:32px;text-align:center;">
+      <h3 style="margin-bottom:12px;"><i class="fas fa-headset" style="color:var(--primary);margin-right:8px;"></i> Still Need Help?</h3>
+      <p style="color:var(--text-light);line-height:1.8;margin-bottom:16px;">Our customer support team is ready to assist you with any questions about your order.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="contact.html" class="checkout-btn" style="text-decoration:none;padding:12px 24px;"><i class="fas fa-envelope" style="margin-right:8px;"></i> Contact Us</a>
+        <a href="404.html" class="checkout-btn" style="text-decoration:none;padding:12px 24px;background:var(--white);color:var(--primary);border:2px solid var(--primary);"><i class="fas fa-phone" style="margin-right:8px;"></i> +1 (555) 123-4567</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-logo"><img src="images/logo.webp" alt="Stackly" height="42"></a>
+          <p class="footer-desc">Stackly is your one-stop destination for premium products at unbeatable prices. Shop with confidence and enjoy fast, reliable delivery.</p>
+          <div class="footer-social">
+            <a href="404.html" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="404.html" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+            <a href="404.html" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="404.html" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Customer Service</h4>
+          <ul class="footer-links">
+            <li><a href="login.html">My Account</a></li>
+            <li><a href="tracking.html">Order Tracking</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="shipping.html">Shipping Policy</a></li>
+            <li><a href="returns.html">Returns &amp; Exchanges</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact Info</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> 123 Street, New York, NY 10001</li>
+            <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+            <li><i class="fas fa-envelope"></i> support@stackly.com</li>
+            <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Stackly. All Rights Reserved.</p>
+        <div class="payment-icons">
+          <img src="images/payments/visa.svg" alt="Visa">
+          <img src="images/payments/mastercard.svg" alt="Mastercard">
+          <img src="images/payments/paypal.svg" alt="PayPal">
+          <img src="images/payments/applepay.svg" alt="Apple Pay">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+<script src="js/main.js"></script>
+<script>
+document.getElementById("trackingForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  var orderNum = document.getElementById("orderNumber").value.trim();
+  var email = document.getElementById("emailAddress").value.trim();
+  if (!orderNum || !email) {
+    Stackly.showToast("Please fill in all fields", "warning");
+    return;
+  }
+  document.getElementById("trackingResult").style.display = "block";
+  document.getElementById("trackingResult").scrollIntoView({ behavior: "smooth", block: "center" });
+  Stackly.showToast("Tracking information loaded!", "success");
+});
+</script>
+</body>
+</html>

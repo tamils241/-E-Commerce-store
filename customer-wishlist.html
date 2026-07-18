@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist - Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="36"></a>
+      <button class="dash-sidebar-close" id="dashSidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="dash-sidebar-nav">
+      <a href="customer-dashboard.html" class="dash-nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+      <a href="customer-orders.html" class="dash-nav-item"><i class="fas fa-shopping-cart"></i> My Orders</a>
+      <a href="customer-wishlist.html" class="dash-nav-item active"><i class="far fa-heart"></i> Wishlist</a>
+      <a href="customer-address.html" class="dash-nav-item"><i class="fas fa-map-marker-alt"></i> Addresses</a>
+      <a href="customer-profile.html" class="dash-nav-item"><i class="far fa-user"></i> Profile</a>
+      <a href="index.html" class="dash-nav-item"><i class="fas fa-store"></i> Back to Shop</a>
+      <a href="login.html" class="dash-nav-item dash-nav-logout" id="customerLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="dash-main">
+    <!-- Top Bar -->
+    <div class="dash-topbar">
+      <button class="dash-menu-toggle" id="dashMenuToggle"><i class="fas fa-bars"></i></button>
+      <h2 class="dash-topbar-title">My Wishlist</h2>
+      <div class="dash-topbar-actions">
+        <span class="dash-user"><i class="fas fa-user"></i> Customer</span>
+      </div>
+    </div>
+
+    <!-- Wishlist Grid -->
+    <div class="dash-card">
+      <div class="dash-card-header">
+        <h3>Saved Items (6)</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;padding:24px;">
+
+        <div style="border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;background:#fff;position:relative;">
+          <button style="position:absolute;top:12px;right:12px;background:#ef4444;color:#fff;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:14px;z-index:2;"><i class="fas fa-times"></i></button>
+          <img src="images/products/Wireless-Headphones1.webp" alt="Wireless Headphones" style="width:100%;height:200px;object-fit:cover;">
+          <div style="padding:16px;">
+            <h4 style="margin:0 0 4px;font-size:16px;">Wireless Headphones</h4>
+            <p style="margin:0 0 12px;color:#4F46E5;font-weight:700;font-size:18px;">$79.99</p>
+            <a href="404.html" style="display:block;text-align:center;background:#4F46E5;color:#fff;padding:10px;border-radius:8px;text-decoration:none;font-weight:600;"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+          </div>
+        </div>
+
+        <div style="border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;background:#fff;position:relative;">
+          <button style="position:absolute;top:12px;right:12px;background:#ef4444;color:#fff;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:14px;z-index:2;"><i class="fas fa-times"></i></button>
+          <img src="images/products/Smart-Watch.webp" alt="Smart Watch Pro" style="width:100%;height:200px;object-fit:cover;">
+          <div style="padding:16px;">
+            <h4 style="margin:0 0 4px;font-size:16px;">Smart Watch Pro</h4>
+            <p style="margin:0 0 12px;color:#4F46E5;font-weight:700;font-size:18px;">$199.99</p>
+            <a href="404.html" style="display:block;text-align:center;background:#4F46E5;color:#fff;padding:10px;border-radius:8px;text-decoration:none;font-weight:600;"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+          </div>
+        </div>
+
+        <div style="border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;background:#fff;position:relative;">
+          <button style="position:absolute;top:12px;right:12px;background:#ef4444;color:#fff;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:14px;z-index:2;"><i class="fas fa-times"></i></button>
+          <img src="images/products/Running-Sneakers.webp" alt="Running Sneakers" style="width:100%;height:200px;object-fit:cover;">
+          <div style="padding:16px;">
+            <h4 style="margin:0 0 4px;font-size:16px;">Running Sneakers</h4>
+            <p style="margin:0 0 12px;color:#4F46E5;font-weight:700;font-size:18px;">$89.99</p>
+            <a href="404.html" style="display:block;text-align:center;background:#4F46E5;color:#fff;padding:10px;border-radius:8px;text-decoration:none;font-weight:600;"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+          </div>
+        </div>
+
+        <div style="border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;background:#fff;position:relative;">
+          <button style="position:absolute;top:12px;right:12px;background:#ef4444;color:#fff;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:14px;z-index:2;"><i class="fas fa-times"></i></button>
+          <img src="images/products/Bluetooth-Speaker.webp" alt="Bluetooth Speaker" style="width:100%;height:200px;object-fit:cover;">
+          <div style="padding:16px;">
+            <h4 style="margin:0 0 4px;font-size:16px;">Bluetooth Speaker</h4>
+            <p style="margin:0 0 12px;color:#4F46E5;font-weight:700;font-size:18px;">$49.99</p>
+            <a href="404.html" style="display:block;text-align:center;background:#4F46E5;color:#fff;padding:10px;border-radius:8px;text-decoration:none;font-weight:600;"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+          </div>
+        </div>
+
+        <div style="border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;background:#fff;position:relative;">
+          <button style="position:absolute;top:12px;right:12px;background:#ef4444;color:#fff;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:14px;z-index:2;"><i class="fas fa-times"></i></button>
+          <img src="images/products/Travel-Backpack.webp" alt="Travel Backpack" style="width:100%;height:200px;object-fit:cover;">
+          <div style="padding:16px;">
+            <h4 style="margin:0 0 4px;font-size:16px;">Travel Backpack</h4>
+            <p style="margin:0 0 12px;color:#4F46E5;font-weight:700;font-size:18px;">$59.99</p>
+            <a href="404.html" style="display:block;text-align:center;background:#4F46E5;color:#fff;padding:10px;border-radius:8px;text-decoration:none;font-weight:600;"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+          </div>
+        </div>
+
+        <div style="border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;background:#fff;position:relative;">
+          <button style="position:absolute;top:12px;right:12px;background:#ef4444;color:#fff;border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;font-size:14px;z-index:2;"><i class="fas fa-times"></i></button>
+          <img src="images/products/Laptop-Stand.webp" alt="Laptop Stand" style="width:100%;height:200px;object-fit:cover;">
+          <div style="padding:16px;">
+            <h4 style="margin:0 0 4px;font-size:16px;">Laptop Stand</h4>
+            <p style="margin:0 0 12px;color:#4F46E5;font-weight:700;font-size:18px;">$34.99</p>
+            <a href="404.html" style="display:block;text-align:center;background:#4F46E5;color:#fff;padding:10px;border-radius:8px;text-decoration:none;font-weight:600;"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    var sidebar = document.getElementById('dashSidebar');
+    var toggle = document.getElementById('dashMenuToggle');
+    var close = document.getElementById('dashSidebarClose');
+    if (toggle) toggle.addEventListener('click', function() { sidebar.classList.toggle('open'); });
+    if (close) close.addEventListener('click', function() { sidebar.classList.remove('open'); });
+  </script>
+</body>
+</html>

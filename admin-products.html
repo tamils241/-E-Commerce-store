@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - Admin | Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="36"></a>
+      <button class="dash-sidebar-close" id="dashSidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="dash-sidebar-nav">
+      <a href="admin-dashboard.html" class="dash-nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+      <a href="admin-products.html" class="dash-nav-item active"><i class="fas fa-box"></i> Products</a>
+      <a href="admin-orders.html" class="dash-nav-item"><i class="fas fa-shopping-cart"></i> Orders</a>
+      <a href="admin-customers.html" class="dash-nav-item"><i class="fas fa-users"></i> Customers</a>
+      <a href="admin-categories.html" class="dash-nav-item"><i class="fas fa-tags"></i> Categories</a>
+      <a href="admin-analytics.html" class="dash-nav-item"><i class="fas fa-chart-bar"></i> Analytics</a>
+      <a href="admin-settings.html" class="dash-nav-item"><i class="fas fa-cog"></i> Settings</a>
+      <a href="index.html" class="dash-nav-item"><i class="fas fa-store"></i> View Store</a>
+      <a href="login.html" class="dash-nav-item dash-nav-logout" id="adminLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="dash-main">
+    <div class="dash-topbar">
+      <button class="dash-menu-toggle" id="dashMenuToggle"><i class="fas fa-bars"></i></button>
+      <h2 class="dash-topbar-title">Products</h2>
+      <div class="dash-topbar-actions">
+        <button class="btn btn-primary" style="padding:10px 20px;font-size:14px;border-radius:8px;border:none;cursor:pointer;background:#4F46E5;color:#fff"><i class="fas fa-plus"></i> Add Product</button>
+      </div>
+    </div>
+
+    <div class="dash-stats">
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(79,70,229,0.1);color:#4F46E5"><i class="fas fa-box"></i></div>
+        <div><span class="dash-stat-value">1,280</span><span class="dash-stat-label">Total Products</span></div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(16,185,129,0.1);color:#10b981"><i class="fas fa-check-circle"></i></div>
+        <div><span class="dash-stat-value">1,105</span><span class="dash-stat-label">In Stock</span></div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(239,68,68,0.1);color:#ef4444"><i class="fas fa-times-circle"></i></div>
+        <div><span class="dash-stat-value">85</span><span class="dash-stat-label">Out of Stock</span></div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(245,158,11,0.1);color:#f59e0b"><i class="fas fa-star"></i></div>
+        <div><span class="dash-stat-value">92</span><span class="dash-stat-label">Featured</span></div>
+      </div>
+    </div>
+
+    <div class="dash-card">
+      <div class="dash-card-header">
+        <h3>All Products</h3>
+      </div>
+      <div class="dash-table-wrap">
+        <table class="dash-table">
+          <thead>
+            <tr><th>Image</th><th>Product Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="images/products/wireless-headphones1.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
+              <td>Wireless Headphones</td><td>Electronics</td><td>$79.99</td><td>124</td>
+              <td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
+            </tr>
+            <tr>
+              <td><img src="images/products/smart-watch.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
+              <td>Smart Watch Pro</td><td>Electronics</td><td>$199.99</td><td>67</td>
+              <td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
+            </tr>
+            <tr>
+              <td><img src="images/products/Running-Sneakers.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
+              <td>Running Sneakers</td><td>Fashion</td><td>$89.99</td><td>0</td>
+              <td><span class="dash-badge dash-badge-danger">Out of Stock</span></td>
+              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
+            </tr>
+            <tr>
+              <td><img src="images/products/laptop.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
+              <td>Laptop Pro 15</td><td>Electronics</td><td>$1,299.99</td><td>34</td>
+              <td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
+            </tr>
+            <tr>
+              <td><img src="images/products/Bluetooth-Speaker.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
+              <td>Bluetooth Speaker</td><td>Electronics</td><td>$49.99</td><td>210</td>
+              <td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
+            </tr>
+            <tr>
+              <td><img src="images/products/Travel-Backpack.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
+              <td>Travel Backpack</td><td>Fashion</td><td>$59.99</td><td>89</td>
+              <td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    var sidebar = document.getElementById('dashSidebar');
+    var toggle = document.getElementById('dashMenuToggle');
+    var close = document.getElementById('dashSidebarClose');
+    if (toggle) toggle.addEventListener('click', function() { sidebar.classList.toggle('open'); });
+    if (close) close.addEventListener('click', function() { sidebar.classList.remove('open'); });
+  </script>
+</body>
+</html>

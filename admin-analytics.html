@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics - Admin | Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="36"></a>
+      <button class="dash-sidebar-close" id="dashSidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="dash-sidebar-nav">
+      <a href="admin-dashboard.html" class="dash-nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+      <a href="admin-products.html" class="dash-nav-item"><i class="fas fa-box"></i> Products</a>
+      <a href="admin-orders.html" class="dash-nav-item"><i class="fas fa-shopping-cart"></i> Orders</a>
+      <a href="admin-customers.html" class="dash-nav-item"><i class="fas fa-users"></i> Customers</a>
+      <a href="admin-categories.html" class="dash-nav-item"><i class="fas fa-tags"></i> Categories</a>
+      <a href="admin-analytics.html" class="dash-nav-item active"><i class="fas fa-chart-bar"></i> Analytics</a>
+      <a href="admin-settings.html" class="dash-nav-item"><i class="fas fa-cog"></i> Settings</a>
+      <a href="index.html" class="dash-nav-item"><i class="fas fa-store"></i> View Store</a>
+      <a href="login.html" class="dash-nav-item dash-nav-logout" id="adminLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="dash-main">
+    <div class="dash-topbar">
+      <button class="dash-menu-toggle" id="dashMenuToggle"><i class="fas fa-bars"></i></button>
+      <h2 class="dash-topbar-title">Analytics</h2>
+      <div class="dash-topbar-actions">
+        <span class="dash-user"><i class="fas fa-calendar"></i> Last 30 Days</span>
+      </div>
+    </div>
+
+    <div class="dash-stats">
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(79,70,229,0.1);color:#4F46E5"><i class="fas fa-dollar-sign"></i></div>
+        <div><span class="dash-stat-value">$24,560</span><span class="dash-stat-label">Revenue</span></div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(16,185,129,0.1);color:#10b981"><i class="fas fa-chart-line"></i></div>
+        <div><span class="dash-stat-value">+18.2%</span><span class="dash-stat-label">Growth</span></div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(245,158,11,0.1);color:#f59e0b"><i class="fas fa-eye"></i></div>
+        <div><span class="dash-stat-value">52,400</span><span class="dash-stat-label">Page Views</span></div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(239,68,68,0.1);color:#ef4444"><i class="fas fa-shopping-bag"></i></div>
+        <div><span class="dash-stat-value">3.2%</span><span class="dash-stat-label">Conversion</span></div>
+      </div>
+    </div>
+
+    <!-- Revenue Chart -->
+    <div class="dash-card" style="margin-bottom:24px">
+      <div class="dash-card-header"><h3>Revenue Overview</h3></div>
+      <div style="padding:24px">
+        <div style="display:flex;align-items:flex-end;gap:12px;height:200px;padding:20px 0;border-bottom:1px solid #e5e7eb">
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;background:linear-gradient(180deg,#4F46E5,#818cf8);border-radius:6px 6px 0 0;height:120px"></div><span style="font-size:11px;color:#6b7280">Mon</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;background:linear-gradient(180deg,#10b981,#6ee7b7);border-radius:6px 6px 0 0;height:160px"></div><span style="font-size:11px;color:#6b7280">Tue</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;background:linear-gradient(180deg,#f59e0b,#fcd34d);border-radius:6px 6px 0 0;height:90px"></div><span style="font-size:11px;color:#6b7280">Wed</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;background:linear-gradient(180deg,#ef4444,#fca5a5);border-radius:6px 6px 0 0;height:180px"></div><span style="font-size:11px;color:#6b7280">Thu</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;background:linear-gradient(180deg,#8b5cf6,#c4b5fd);border-radius:6px 6px 0 0;height:140px"></div><span style="font-size:11px;color:#6b7280">Fri</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;background:linear-gradient(180deg,#06b6d4,#67e8f9);border-radius:6px 6px 0 0;height:110px"></div><span style="font-size:11px;color:#6b7280">Sat</span></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:100%;background:linear-gradient(180deg,#ec4899,#f9a8d4);border-radius:6px 6px 0 0;height:80px"></div><span style="font-size:11px;color:#6b7280">Sun</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <!-- Top Products -->
+      <div class="dash-card">
+        <div class="dash-card-header"><h3>Top Selling Products</h3></div>
+        <div style="padding:16px 24px">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #f3f4f6"><span style="font-size:14px">Wireless Headphones</span><span style="font-weight:600;color:#4F46E5">$7,999</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #f3f4f6"><span style="font-size:14px">Smart Watch Pro</span><span style="font-weight:600;color:#4F46E5">$6,399</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #f3f4f6"><span style="font-size:14px">Laptop Pro 15</span><span style="font-weight:600;color:#4F46E5">$5,199</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #f3f4f6"><span style="font-size:14px">Running Sneakers</span><span style="font-weight:600;color:#4F46E5">$3,599</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0"><span style="font-size:14px">Bluetooth Speaker</span><span style="font-weight:600;color:#4F46E5">$2,499</span></div>
+        </div>
+      </div>
+
+      <!-- Traffic Sources -->
+      <div class="dash-card">
+        <div class="dash-card-header"><h3>Traffic Sources</h3></div>
+        <div style="padding:16px 24px">
+          <div style="margin-bottom:16px"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:13px">Organic Search</span><span style="font-size:13px;font-weight:600">42%</span></div><div style="height:8px;background:#e5e7eb;border-radius:4px"><div style="height:100%;width:42%;background:#4F46E5;border-radius:4px"></div></div></div>
+          <div style="margin-bottom:16px"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:13px">Direct</span><span style="font-size:13px;font-weight:600">28%</span></div><div style="height:8px;background:#e5e7eb;border-radius:4px"><div style="height:100%;width:28%;background:#10b981;border-radius:4px"></div></div></div>
+          <div style="margin-bottom:16px"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:13px">Social Media</span><span style="font-size:13px;font-weight:600">18%</span></div><div style="height:8px;background:#e5e7eb;border-radius:4px"><div style="height:100%;width:18%;background:#f59e0b;border-radius:4px"></div></div></div>
+          <div style="margin-bottom:16px"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:13px">Email</span><span style="font-size:13px;font-weight:600">8%</span></div><div style="height:8px;background:#e5e7eb;border-radius:4px"><div style="height:100%;width:8%;background:#ef4444;border-radius:4px"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:13px">Referral</span><span style="font-size:13px;font-weight:600">4%</span></div><div style="height:8px;background:#e5e7eb;border-radius:4px"><div style="height:100%;width:4%;background:#8b5cf6;border-radius:4px"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    var sidebar = document.getElementById('dashSidebar');
+    var toggle = document.getElementById('dashMenuToggle');
+    var close = document.getElementById('dashSidebarClose');
+    if (toggle) toggle.addEventListener('click', function() { sidebar.classList.toggle('open'); });
+    if (close) close.addEventListener('click', function() { sidebar.classList.remove('open'); });
+  </script>
+</body>
+</html>

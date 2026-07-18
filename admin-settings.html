@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Admin | Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="36"></a>
+      <button class="dash-sidebar-close" id="dashSidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="dash-sidebar-nav">
+      <a href="admin-dashboard.html" class="dash-nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+      <a href="admin-products.html" class="dash-nav-item"><i class="fas fa-box"></i> Products</a>
+      <a href="admin-orders.html" class="dash-nav-item"><i class="fas fa-shopping-cart"></i> Orders</a>
+      <a href="admin-customers.html" class="dash-nav-item"><i class="fas fa-users"></i> Customers</a>
+      <a href="admin-categories.html" class="dash-nav-item"><i class="fas fa-tags"></i> Categories</a>
+      <a href="admin-analytics.html" class="dash-nav-item"><i class="fas fa-chart-bar"></i> Analytics</a>
+      <a href="admin-settings.html" class="dash-nav-item active"><i class="fas fa-cog"></i> Settings</a>
+      <a href="index.html" class="dash-nav-item"><i class="fas fa-store"></i> View Store</a>
+      <a href="login.html" class="dash-nav-item dash-nav-logout" id="adminLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="dash-main">
+    <div class="dash-topbar">
+      <button class="dash-menu-toggle" id="dashMenuToggle"><i class="fas fa-bars"></i></button>
+      <h2 class="dash-topbar-title">Settings</h2>
+      <div class="dash-topbar-actions">
+        <a href="404.html" style="padding:10px 20px;font-size:14px;border-radius:8px;border:none;cursor:pointer;background:#4F46E5;color:#fff;font-weight:600;text-decoration:none">Save Changes</a>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:200px 1fr;gap:24px">
+      <!-- Settings Nav -->
+      <div class="dash-card" style="height:fit-content">
+        <div style="padding:16px">
+          <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;background:rgba(79,70,229,0.08);color:#4F46E5;font-weight:600;font-size:14px;text-decoration:none;margin-bottom:4px"><i class="fas fa-store"></i> Store</a>
+          <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;color:#6b7280;font-size:14px;text-decoration:none;margin-bottom:4px"><i class="fas fa-credit-card"></i> Payments</a>
+          <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;color:#6b7280;font-size:14px;text-decoration:none;margin-bottom:4px"><i class="fas fa-truck"></i> Shipping</a>
+          <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;color:#6b7280;font-size:14px;text-decoration:none;margin-bottom:4px"><i class="fas fa-bell"></i> Notifications</a>
+          <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;color:#6b7280;font-size:14px;text-decoration:none"><i class="fas fa-shield-alt"></i> Security</a>
+        </div>
+      </div>
+
+      <!-- Settings Content -->
+      <div>
+        <!-- Store Settings -->
+        <div class="dash-card" style="margin-bottom:24px">
+          <div class="dash-card-header"><h3>Store Settings</h3></div>
+          <div style="padding:24px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+              <div>
+                <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Store Name</label>
+                <input type="text" value="Stackly" style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;box-sizing:border-box">
+              </div>
+              <div>
+                <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Store Email</label>
+                <input type="email" value="admin@stackly.com" style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;box-sizing:border-box">
+              </div>
+              <div>
+                <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Phone</label>
+                <input type="tel" value="+1 (555) 123-4567" style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;box-sizing:border-box">
+              </div>
+              <div>
+                <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Currency</label>
+                <select style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;box-sizing:border-box;background:#fff">
+                  <option>USD - US Dollar</option>
+                  <option>EUR - Euro</option>
+                  <option>GBP - British Pound</option>
+                </select>
+              </div>
+              <div style="grid-column:1/-1">
+                <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Store Address</label>
+                <input type="text" value="123 Commerce St, New York, NY 10001" style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;box-sizing:border-box">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tax Settings -->
+        <div class="dash-card" style="margin-bottom:24px">
+          <div class="dash-card-header"><h3>Tax Settings</h3></div>
+          <div style="padding:24px">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+              <div>
+                <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Tax Rate (%)</label>
+                <input type="number" value="8.5" style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;box-sizing:border-box">
+              </div>
+              <div>
+                <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Tax Method</label>
+                <select style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;box-sizing:border-box;background:#fff">
+                  <option>Inclusive</option>
+                  <option>Exclusive</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notification Settings -->
+        <div class="dash-card">
+          <div class="dash-card-header"><h3>Notification Settings</h3></div>
+          <div style="padding:24px">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid #f3f4f6">
+              <div><span style="font-size:14px;font-weight:600;display:block">New Order Alerts</span><span style="font-size:12px;color:#6b7280">Get notified when a new order is placed</span></div>
+              <label style="position:relative;display:inline-block;width:44px;height:24px"><input type="checkbox" checked style="opacity:0;width:0;height:0"><span style="position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#4F46E5;border-radius:24px;transition:.3s"></span></label>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid #f3f4f6">
+              <div><span style="font-size:14px;font-weight:600;display:block">Low Stock Alerts</span><span style="font-size:12px;color:#6b7280">Alert when product stock is low</span></div>
+              <label style="position:relative;display:inline-block;width:44px;height:24px"><input type="checkbox" checked style="opacity:0;width:0;height:0"><span style="position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#4F46E5;border-radius:24px;transition:.3s"></span></label>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0">
+              <div><span style="font-size:14px;font-weight:600;display:block">Email Reports</span><span style="font-size:12px;color:#6b7280">Receive weekly analytics reports</span></div>
+              <label style="position:relative;display:inline-block;width:44px;height:24px"><input type="checkbox" style="opacity:0;width:0;height:0"><span style="position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:#d1d5db;border-radius:24px;transition:.3s"></span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    var sidebar = document.getElementById('dashSidebar');
+    var toggle = document.getElementById('dashMenuToggle');
+    var close = document.getElementById('dashSidebarClose');
+    if (toggle) toggle.addEventListener('click', function() { sidebar.classList.toggle('open'); });
+    if (close) close.addEventListener('click', function() { sidebar.classList.remove('open'); });
+  </script>
+</body>
+</html>

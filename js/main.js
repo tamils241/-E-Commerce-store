@@ -294,7 +294,7 @@
      9. PRODUCT FILTERING
   ───────────────────────────────────────────── */
   function initProductFiltering() {
-    var filterBtns = document.querySelectorAll(".filter-btn");
+    var filterBtns = document.querySelectorAll("[data-filter]");
     var productCards = document.querySelectorAll(".product-card");
     if (filterBtns.length === 0 || productCards.length === 0) return;
 
@@ -327,6 +327,135 @@
         });
       });
     });
+  }
+
+  /* ─────────────────────────────────────────────
+     9a. MOBILE SIDEBAR TOGGLE
+  ───────────────────────────────────────────── */
+  function initMobileFilterSidebar() {
+    var filterBtn = document.querySelector(".filter-btn");
+    var sidebar = document.querySelector(".shop-sidebar");
+    if (!filterBtn || !sidebar) return;
+
+    filterBtn.addEventListener("click", function () {
+      sidebar.classList.toggle("active");
+    });
+
+    document.addEventListener("click", function (e) {
+      if (sidebar.classList.contains("active") && !sidebar.contains(e.target) && e.target !== filterBtn && !filterBtn.contains(e.target)) {
+        sidebar.classList.remove("active");
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     9b. SIDEBAR FILTERS (category, brand, price, rating, color)
+  ───────────────────────────────────────────── */
+  function initSidebarFilters() {
+    var grid = document.querySelector(".products-grid");
+    if (!grid) return;
+    var cards = Array.from(grid.querySelectorAll(".product-card"));
+    if (cards.length === 0) return;
+
+    var filterState = { categories: [], brands: [], colors: [], minRating: 0, minPrice: 0, maxPrice: Infinity };
+
+    function applyFilters() {
+      var visibleCount = 0;
+      cards.forEach(function (card) {
+        var cat = (card.getAttribute("data-category") || "").toLowerCase();
+        var brand = (card.getAttribute("data-brand") || "").toLowerCase();
+        var color = (card.getAttribute("data-color") || "").toLowerCase();
+        var rating = parseFloat(card.getAttribute("data-rating")) || 0;
+        var price = parseFloat(card.getAttribute("data-price")) || 0;
+
+        var matchCat = filterState.categories.length === 0 || filterState.categories.indexOf(cat) !== -1;
+        var matchBrand = filterState.brands.length === 0 || filterState.brands.indexOf(brand) !== -1;
+        var matchColor = filterState.colors.length === 0 || filterState.colors.indexOf(color) !== -1;
+        var matchRating = rating >= filterState.minRating;
+        var matchPrice = price >= filterState.minPrice && price <= filterState.maxPrice;
+
+        if (matchCat && matchBrand && matchColor && matchRating && matchPrice) {
+          card.style.display = "";
+          card.style.opacity = "1";
+          visibleCount++;
+        } else {
+          card.style.display = "none";
+        }
+      });
+      var result = document.querySelector(".shop-results");
+      if (result) result.textContent = "Showing " + visibleCount + " product" + (visibleCount !== 1 ? "s" : "");
+    }
+
+    document.querySelectorAll(".filter-options input[type='checkbox']").forEach(function (cb) {
+      cb.addEventListener("change", function () {
+        var group = cb.closest(".filter-group");
+        if (!group) return;
+        var title = (group.querySelector(".filter-title") || {}).textContent || "";
+        var label = cb.parentElement.textContent.trim().toLowerCase();
+
+        if (title === "Categories") {
+          filterState.categories = getCheckedValues(group);
+        } else if (title === "Brands") {
+          filterState.brands = getCheckedValues(group);
+        }
+        applyFilters();
+      });
+    });
+
+    document.querySelectorAll(".filter-options input[type='radio']").forEach(function (rb) {
+      rb.addEventListener("change", function () {
+        var group = rb.closest(".filter-group");
+        if (!group) return;
+        var title = (group.querySelector(".filter-title") || {}).textContent || "";
+        if (title === "Rating") {
+          var checked = group.querySelector("input[type='radio']:checked");
+          if (checked) {
+            var stars = checked.parentElement.querySelectorAll("i.fas.fa-star").length;
+            filterState.minRating = stars;
+          }
+          applyFilters();
+        }
+      });
+    });
+
+    var priceInputs = document.querySelectorAll(".price-range input");
+    priceInputs.forEach(function (inp) {
+      inp.addEventListener("input", function () {
+        var minVal = parseFloat(priceInputs[0].value) || 0;
+        var maxVal = parseFloat(priceInputs[1].value) || Infinity;
+        filterState.minPrice = minVal;
+        filterState.maxPrice = maxVal;
+        applyFilters();
+      });
+    });
+
+    document.querySelectorAll(".color-swatch").forEach(function (swatch) {
+      swatch.addEventListener("click", function () {
+        swatch.classList.toggle("active");
+        var selected = [];
+        document.querySelectorAll(".color-swatch.active").forEach(function (s) {
+          var c = (s.getAttribute("title") || "").toLowerCase();
+          if (c) selected.push(c);
+        });
+        filterState.colors = selected;
+        applyFilters();
+      });
+    });
+
+    document.querySelectorAll(".size-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        btn.classList.toggle("active");
+      });
+    });
+
+    function getCheckedValues(group) {
+      var vals = [];
+      group.querySelectorAll("input[type='checkbox']:checked").forEach(function (cb) {
+        var t = (cb.parentElement.textContent || "").trim().split("(")[0].trim().toLowerCase();
+        if (t) vals.push(t);
+      });
+      return vals;
+    }
   }
 
   /* ─────────────────────────────────────────────
@@ -434,7 +563,7 @@
   ───────────────────────────────────────────── */
   function initAddToCartButtons() {
     document.addEventListener("click", function (e) {
-      var btn = e.target.closest(".add-to-cart");
+      var btn = e.target.closest(".product-add-btn");
       if (!btn) return;
 
       var card = btn.closest(".product-card, .product-detail, .product-info");
@@ -443,7 +572,7 @@
       var item = {
         id: btn.getAttribute("data-id") || card.getAttribute("data-id") || "prod-" + Date.now(),
         name: card.getAttribute("data-name") || (card.querySelector(".product-title, .product-name, h3, h2") || {}).textContent || "Product",
-        price: parseFloat(btn.getAttribute("data-price") || card.getAttribute("data-price")) || 0,
+        price: parseFloat(btn.getAttribute("data-price") || card.getAttribute("data-price")) || parseFloat((card.querySelector(".current, .product-price") || {}).textContent.replace(/[^0-9.]/g, "")) || 0,
         image: card.getAttribute("data-image") || (card.querySelector("img") || {}).src || "",
         qty: 1
       };
@@ -461,7 +590,7 @@
   }
 
   function animateBadge() {
-    var badge = document.querySelector(".cart-badge");
+    var badge = document.querySelector("#cartBadge");
     if (!badge) return;
     badge.classList.remove("pop");
     void badge.offsetWidth; // reflow
@@ -528,7 +657,7 @@
   }
 
   function updateCartBadge() {
-    var badges = document.querySelectorAll(".cart-badge");
+    var badges = document.querySelectorAll("#cartBadge");
     var count = getCartCount();
     badges.forEach(function (badge) {
       badge.textContent = count;
@@ -540,17 +669,19 @@
      15. CART PAGE RENDERING
   ───────────────────────────────────────────── */
   function initCartPage() {
-    var cartBody = document.querySelector(".cart-body, .cart-items, #cart-items");
+    var cartBody = document.getElementById("cart-items");
     if (!cartBody) return;
 
-    var subtotalEl = document.querySelector(".cart-subtotal, #cart-subtotal");
-    var shippingEl = document.querySelector(".cart-shipping, #cart-shipping");
-    var totalEl = document.querySelector(".cart-total, #cart-total");
+    var subtotalEl = document.getElementById("cart-subtotal");
+    var shippingEl = document.getElementById("cart-shipping");
+    var totalEl = document.getElementById("cart-total");
 
     function render() {
       var cart = getCart();
+      updateCartBadge();
+
       if (cart.length === 0) {
-        cartBody.innerHTML = '<tr><td colspan="6" class="empty-cart" style="text-align:center;padding:3rem;">Your cart is empty. <a href="shop.html">Start shopping</a></td></tr>';
+        cartBody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:3rem;"><i class="fas fa-shopping-cart" style="font-size:3rem;color:#ccc;display:block;margin-bottom:12px;"></i>Your cart is empty. <a href="shop.html">Start shopping</a></td></tr>';
         updateCartTotals();
         return;
       }
@@ -558,22 +689,24 @@
       var html = "";
       cart.forEach(function (item) {
         html += '<tr class="cart-row" data-id="' + item.id + '">';
-        html += '  <td class="cart-product">';
-        html += '    <div class="cart-product-info">';
-        html += '      <img src="' + (item.image || "images/placeholder.jpg") + '" alt="' + item.name + '" width="80">';
-        html += '      <span class="cart-product-name">' + item.name + '</span>';
+        html += '  <td>';
+        html += '    <div class="cart-product">';
+        html += '      <img src="' + (item.image || "images/placeholder.jpg") + '" alt="' + item.name + '">';
+        html += '      <div>';
+        html += '        <a href="product.html" class="cart-product-name">' + item.name + '</a>';
+        html += '      </div>';
         html += '    </div>';
         html += '  </td>';
-        html += '  <td class="cart-price">$' + item.price.toFixed(2) + '</td>';
-        html += '  <td class="cart-qty">';
-        html += '    <div class="quantity-control">';
-        html += '      <button class="qty-minus" data-id="' + item.id + '">-</button>';
-        html += '      <span class="qty-value">' + item.qty + '</span>';
-        html += '      <button class="qty-plus" data-id="' + item.id + '">+</button>';
+        html += '  <td>$' + item.price.toFixed(2) + '</td>';
+        html += '  <td>';
+        html += '    <div class="cart-qty">';
+        html += '      <button class="qty-btn qty-minus" data-id="' + item.id + '" aria-label="Decrease quantity"><i class="fas fa-minus"></i></button>';
+        html += '      <span>' + item.qty + '</span>';
+        html += '      <button class="qty-btn qty-plus" data-id="' + item.id + '" aria-label="Increase quantity"><i class="fas fa-plus"></i></button>';
         html += '    </div>';
         html += '  </td>';
-        html += '  <td class="cart-subtotal-item">$' + (item.price * item.qty).toFixed(2) + '</td>';
-        html += '  <td class="cart-remove"><button class="remove-item" data-id="' + item.id + '"><i class="fas fa-trash"></i></button></td>';
+        html += '  <td>$' + (item.price * item.qty).toFixed(2) + '</td>';
+        html += '  <td><button class="cart-remove remove-item" data-id="' + item.id + '" aria-label="Remove item"><i class="fas fa-trash-alt"></i></button></td>';
         html += '</tr>';
       });
       cartBody.innerHTML = html;
@@ -588,11 +721,13 @@
       var total = subtotal - discountAmount + shipping;
 
       if (subtotalEl) subtotalEl.textContent = "$" + subtotal.toFixed(2);
-      if (shippingEl) shippingEl.textContent = shipping === 0 ? "Free" : "$" + shipping.toFixed(2);
+      if (shippingEl) {
+        shippingEl.textContent = shipping === 0 ? "Free" : "$" + shipping.toFixed(2);
+        shippingEl.style.color = shipping === 0 ? "#2ecc71" : "";
+      }
       if (totalEl) totalEl.textContent = "$" + total.toFixed(2);
     }
 
-    // Event delegation for qty and remove
     cartBody.addEventListener("click", function (e) {
       var minus = e.target.closest(".qty-minus");
       var plus = e.target.closest(".qty-plus");
@@ -601,11 +736,15 @@
       if (minus || plus) {
         var id = (minus || plus).getAttribute("data-id");
         var row = (minus || plus).closest(".cart-row");
-        var display = row.querySelector(".qty-value");
+        var display = row.querySelector(".cart-qty span");
         var current = parseInt(display.textContent) || 1;
         var newQty = minus ? Math.max(1, current - 1) : Math.min(99, current + 1);
         updateQty(id, newQty);
         display.textContent = newQty;
+        var item = getCart().find(function (c) { return c.id === id; });
+        if (item) {
+          row.querySelector("td:nth-child(4)").textContent = "$" + (item.price * newQty).toFixed(2);
+        }
         updateCartTotals();
       }
 
@@ -637,7 +776,7 @@
   }
 
   function updateWishlistBadge() {
-    var badges = document.querySelectorAll(".wishlist-badge");
+    var badges = document.querySelectorAll("#wishlistBadge");
     var count = getWishlist().length;
     badges.forEach(function (badge) {
       badge.textContent = count;
@@ -653,7 +792,9 @@
 
       var card = heart.closest(".product-card, .product-detail, .product-info");
       var id = heart.getAttribute("data-id") || (card && card.getAttribute("data-id")) || "item-" + Date.now();
-      var name = (card && (card.getAttribute("data-name") || (card.querySelector(".product-title, h3, h2") || {}).textContent)) || "Product";
+      var name = (card && (card.getAttribute("data-name") || (card.querySelector(".product-title, .product-name, h3, h2") || {}).textContent)) || "Product";
+      var price = parseFloat(heart.getAttribute("data-price") || (card && card.getAttribute("data-price")) || ((card && (card.querySelector(".current, .product-price") || {}).textContent || "").replace(/[^0-9.]/g, ""))) || 0;
+      var image = (card && (card.getAttribute("data-image") || (card.querySelector("img") || {}).src)) || "";
 
       var list = getWishlist();
       var idx = list.findIndex(function (w) { return w.id === id; });
@@ -665,7 +806,7 @@
         heart.classList.remove("active");
         Stackly.showToast(name + " removed from wishlist", "warning");
       } else {
-        list.push({ id: id, name: name });
+        list.push({ id: id, name: name, price: price, image: image });
         if (icon) { icon.classList.remove("far"); icon.classList.add("fas"); }
         heart.classList.add("active");
         Stackly.showToast(name + " added to wishlist!", "success");
@@ -673,7 +814,6 @@
       saveWishlist(list);
     });
 
-    // Restore active states
     var list = getWishlist();
     list.forEach(function (item) {
       var btn = document.querySelector('.wishlist-btn[data-id="' + item.id + '"], .wishlist-icon[data-id="' + item.id + '"]');
@@ -683,6 +823,84 @@
         if (i) { i.classList.remove("far"); i.classList.add("fas"); }
       }
     });
+  }
+
+  /* ─────────────────────────────────────────────
+     16b. WISHLIST PAGE RENDERING
+  ───────────────────────────────────────────── */
+  function initWishlistPage() {
+    var grid = document.getElementById("wishlistGrid");
+    if (!grid) return;
+
+    var emptyEl = document.getElementById("wishlistEmpty");
+    var countEl = document.getElementById("wishlistCount");
+
+    function render() {
+      var list = getWishlist();
+      if (countEl) countEl.textContent = "Saved Items (" + list.length + ")";
+
+      if (list.length === 0) {
+        grid.style.display = "none";
+        if (emptyEl) emptyEl.style.display = "block";
+        return;
+      }
+
+      grid.style.display = "";
+      if (emptyEl) emptyEl.style.display = "none";
+
+      var html = "";
+      list.forEach(function (item) {
+        html += '<div class="wishlist-card" data-id="' + item.id + '">';
+        html += '  <button class="wishlist-remove" data-id="' + item.id + '" aria-label="Remove from wishlist"><i class="fas fa-times"></i></button>';
+        html += '  <div class="wishlist-img">';
+        html += '    <img src="' + (item.image || "images/placeholder.jpg") + '" alt="' + item.name + '">';
+        html += '  </div>';
+        html += '  <div class="wishlist-info">';
+        html += '    <span class="product-category">Wishlist</span>';
+        html += '    <h4 class="product-name">' + item.name + '</h4>';
+        html += '    <div class="product-price"><span class="current">$' + item.price.toFixed(2) + '</span></div>';
+        html += '    <button class="wishlist-add-btn product-add-btn" data-id="' + item.id + '" data-price="' + item.price + '" data-name="' + item.name + '" data-image="' + item.image + '"><i class="fas fa-shopping-bag"></i> Add to Cart</button>';
+        html += '  </div>';
+        html += '</div>';
+      });
+      grid.innerHTML = html;
+    }
+
+    grid.addEventListener("click", function (e) {
+      var removeBtn = e.target.closest(".wishlist-remove");
+      if (removeBtn) {
+        var id = removeBtn.getAttribute("data-id");
+        var list = getWishlist();
+        var item = list.find(function (w) { return w.id === id; });
+        list = list.filter(function (w) { return w.id !== id; });
+        saveWishlist(list);
+        render();
+        if (item) Stackly.showToast(item.name + " removed from wishlist", "warning");
+        return;
+      }
+
+      var addBtn = e.target.closest(".wishlist-add-btn");
+      if (addBtn) {
+        var card = addBtn.closest(".wishlist-card");
+        var addId = addBtn.getAttribute("data-id");
+        var addItem = {
+          id: addId,
+          name: addBtn.getAttribute("data-name") || (card && card.querySelector(".product-name") || {}).textContent || "Product",
+          price: parseFloat(addBtn.getAttribute("data-price")) || 0,
+          image: addBtn.getAttribute("data-image") || (card && (card.querySelector("img") || {}).src) || "",
+          qty: 1
+        };
+        Stackly.addToCart(addItem);
+
+        var wishList = getWishlist();
+        wishList = wishList.filter(function (w) { return w.id !== addId; });
+        saveWishlist(wishList);
+        render();
+        Stackly.showToast(addItem.name + " added to cart!", "success");
+      }
+    });
+
+    render();
   }
 
   /* ─────────────────────────────────────────────
@@ -737,6 +955,19 @@
     if (overlay) overlay.addEventListener("click", closeModal);
     modal.addEventListener("click", function (e) {
       if (e.target === modal) closeModal();
+      var addBtn = e.target.closest("#qvAddCart");
+      if (addBtn) {
+        var item = {
+          id: addBtn.getAttribute("data-id") || "prod-" + Date.now(),
+          name: addBtn.getAttribute("data-name") || "Product",
+          price: parseFloat(addBtn.getAttribute("data-price")) || 0,
+          image: addBtn.getAttribute("data-image") || "",
+          qty: 1
+        };
+        Stackly.addToCart(item);
+        Stackly.showToast(item.name + " added to cart!", "success");
+        closeModal();
+      }
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && modal.classList.contains("active")) closeModal();
@@ -992,8 +1223,15 @@
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
           showToast("Enter a valid email.", "error"); return;
         }
-        if (!password || password.length < 6) {
-          showToast("Password must be at least 6 characters.", "error"); return;
+        if (!password || password.length < 8) { showToast("Password must be at least 8 characters.", "error"); return; }
+        if (!/[A-Z]/.test(password)) { showToast("Password needs an uppercase letter.", "error"); return; }
+        if (!/[a-z]/.test(password)) { showToast("Password needs a lowercase letter.", "error"); return; }
+        if (!/[0-9]/.test(password)) { showToast("Password needs a number.", "error"); return; }
+        if (!/[^A-Za-z0-9]/.test(password)) { showToast("Password needs a special character.", "error"); return; }
+
+        var rememberMe = loginForm.querySelector("#rememberMe");
+        if (rememberMe && !rememberMe.checked) {
+          showToast("Please check 'Remember me' to continue.", "error"); return;
         }
 
         var users = JSON.parse(localStorage.getItem("stacklyUsers") || "[]");
@@ -1292,11 +1530,14 @@
     initHeroSlider();
     initAllCountdowns();
     initProductFiltering();
+    initMobileFilterSidebar();
+    initSidebarFilters();
     initProductSorting();
     initViewToggle();
     initQuantityControls();
     initAddToCartButtons();
     initWishlist();
+    initWishlistPage();
     initQuickView();
     initCompare();
     initProductGallery();

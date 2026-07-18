@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addresses - Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="36"></a>
+      <button class="dash-sidebar-close" id="dashSidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="dash-sidebar-nav">
+      <a href="customer-dashboard.html" class="dash-nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+      <a href="customer-orders.html" class="dash-nav-item"><i class="fas fa-shopping-cart"></i> My Orders</a>
+      <a href="customer-wishlist.html" class="dash-nav-item"><i class="far fa-heart"></i> Wishlist</a>
+      <a href="customer-address.html" class="dash-nav-item active"><i class="fas fa-map-marker-alt"></i> Addresses</a>
+      <a href="customer-profile.html" class="dash-nav-item"><i class="far fa-user"></i> Profile</a>
+      <a href="index.html" class="dash-nav-item"><i class="fas fa-store"></i> Back to Shop</a>
+      <a href="login.html" class="dash-nav-item dash-nav-logout" id="customerLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="dash-main">
+    <!-- Top Bar -->
+    <div class="dash-topbar">
+      <button class="dash-menu-toggle" id="dashMenuToggle"><i class="fas fa-bars"></i></button>
+      <h2 class="dash-topbar-title">My Addresses</h2>
+      <div class="dash-topbar-actions">
+        <span class="dash-user"><i class="fas fa-user"></i> Customer</span>
+      </div>
+    </div>
+
+    <!-- Address Summary Stats -->
+    <div class="dash-stats">
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(79,70,229,0.1);color:#4F46E5"><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <span class="dash-stat-value">6</span>
+          <span class="dash-stat-label">Total Addresses</span>
+        </div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(16,185,129,0.1);color:#10b981"><i class="fas fa-check-circle"></i></div>
+        <div>
+          <span class="dash-stat-value">2</span>
+          <span class="dash-stat-label">Default</span>
+        </div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(245,158,11,0.1);color:#f59e0b"><i class="fas fa-globe"></i></div>
+        <div>
+          <span class="dash-stat-value">3</span>
+          <span class="dash-stat-label">Countries</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter / Search Bar -->
+    <div class="dash-card" style="margin-bottom:0;">
+      <div style="padding:16px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <div style="flex:1;min-width:200px;position:relative;">
+          <i class="fas fa-search" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#9ca3af;font-size:13px;"></i>
+          <input type="text" placeholder="Search addresses..." style="width:100%;padding:10px 12px 10px 36px;border:1px solid #e5e7eb;border-radius:8px;font-size:13px;outline:none;">
+        </div>
+        <select style="padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:13px;outline:none;color:#374151;background:#fff;">
+          <option value="">All Types</option>
+          <option value="home">Home</option>
+          <option value="office">Office</option>
+          <option value="billing">Billing</option>
+          <option value="shipping">Shipping</option>
+        </select>
+        <select style="padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:13px;outline:none;color:#374151;background:#fff;">
+          <option value="">All Countries</option>
+          <option value="us">United States</option>
+          <option value="uk">United Kingdom</option>
+          <option value="ca">Canada</option>
+        </select>
+        <a href="404.html" style="display:inline-flex;align-items:center;gap:8px;background:#4F46E5;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;font-size:13px;"><i class="fas fa-plus"></i> Add New</a>
+      </div>
+    </div>
+
+    <!-- Address Cards -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:24px;padding:24px 0;">
+
+      <!-- Home Address (Default) -->
+      <div class="dash-card" style="margin:0;border:2px solid #4F46E5;">
+        <div class="dash-card-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <h3 style="display:flex;align-items:center;gap:8px;"><i class="fas fa-home" style="color:#4F46E5;"></i> Home Address <span style="background:#4F46E5;color:#fff;font-size:11px;padding:2px 8px;border-radius:4px;font-weight:600;">Default</span></h3>
+          <div style="display:flex;gap:8px;">
+            <a href="404.html" style="background:rgba(79,70,229,0.1);color:#4F46E5;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;"><i class="fas fa-edit"></i> Edit</a>
+            <a href="404.html" style="background:rgba(239,68,68,0.1);color:#ef4444;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:4px;"><i class="fas fa-trash"></i> Delete</a>
+          </div>
+        </div>
+        <div style="padding:0 24px 24px;color:#6b7280;line-height:1.8;">
+          <p style="margin:0;"><strong style="color:#111827;">John Doe</strong></p>
+          <p style="margin:0;">742 Evergreen Terrace, Apt 3B</p>
+          <p style="margin:0;">Springfield, IL 62704</p>
+          <p style="margin:0;">United States</p>
+          <p style="margin:0;">Phone: (555) 123-4567</p>
+          <p style="margin:8px 0 0;"><span style="background:#f3f4f6;color:#374151;font-size:11px;padding:3px 8px;border-radius:4px;"><i class="fas fa-clock" style="margin-right:4px;"></i> Used for 8 orders</span></p>
+        </div>
+      </div>
+
+      <!-- Office Address (Default Shipping) -->
+      <div class="dash-card" style="margin:0;border:2px solid #10b981;">
+        <div class="dash-card-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <h3 style="display:flex;align-items:center;gap:8px;"><i class="fas fa-briefcase" style="color:#10b981;"></i> Office Address <span style="background:#10b981;color:#fff;font-size:11px;padding:2px 8px;border-radius:4px;font-weight:600;">Default Shipping</span></h3>
+          <div style="display:flex;gap:8px;">
+            <a href="404.html" style="background:rgba(79,70,229,0.1);color:#4F46E5;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;"><i class="fas fa-edit"></i> Edit</a>
+            <a href="404.html" style="background:rgba(239,68,68,0.1);color:#ef4444;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:4px;"><i class="fas fa-trash"></i> Delete</a>
+          </div>
+        </div>
+        <div style="padding:0 24px 24px;color:#6b7280;line-height:1.8;">
+          <p style="margin:0;"><strong style="color:#111827;">John Doe</strong></p>
+          <p style="margin:0;">200 Innovation Drive, Suite 400</p>
+          <p style="margin:0;">Chicago, IL 60601</p>
+          <p style="margin:0;">United States</p>
+          <p style="margin:0;">Phone: (555) 987-6543</p>
+          <p style="margin:8px 0 0;"><span style="background:#f3f4f6;color:#374151;font-size:11px;padding:3px 8px;border-radius:4px;"><i class="fas fa-clock" style="margin-right:4px;"></i> Used for 3 orders</span></p>
+        </div>
+      </div>
+
+      <!-- Billing Address -->
+      <div class="dash-card" style="margin:0;">
+        <div class="dash-card-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <h3 style="display:flex;align-items:center;gap:8px;"><i class="fas fa-credit-card" style="color:#f59e0b;"></i> Billing Address</h3>
+          <div style="display:flex;gap:8px;">
+            <a href="404.html" style="background:rgba(16,185,129,0.1);color:#10b981;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;"><i class="fas fa-check"></i> Set Default</a>
+            <a href="404.html" style="background:rgba(79,70,229,0.1);color:#4F46E5;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;"><i class="fas fa-edit"></i> Edit</a>
+            <a href="404.html" style="background:rgba(239,68,68,0.1);color:#ef4444;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:4px;"><i class="fas fa-trash"></i> Delete</a>
+          </div>
+        </div>
+        <div style="padding:0 24px 24px;color:#6b7280;line-height:1.8;">
+          <p style="margin:0;"><strong style="color:#111827;">John Doe</strong></p>
+          <p style="margin:0;">560 Oak Avenue, Floor 2</p>
+          <p style="margin:0;">Los Angeles, CA 90001</p>
+          <p style="margin:0;">United States</p>
+          <p style="margin:0;">Phone: (555) 456-7890</p>
+          <p style="margin:8px 0 0;"><span style="background:#f3f4f6;color:#374151;font-size:11px;padding:3px 8px;border-radius:4px;"><i class="fas fa-clock" style="margin-right:4px;"></i> Used for 1 order</span></p>
+        </div>
+      </div>
+
+      <!-- Shipping Address -->
+      <div class="dash-card" style="margin:0;">
+        <div class="dash-card-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <h3 style="display:flex;align-items:center;gap:8px;"><i class="fas fa-truck" style="color:#8b5cf6;"></i> Shipping Address</h3>
+          <div style="display:flex;gap:8px;">
+            <a href="404.html" style="background:rgba(16,185,129,0.1);color:#10b981;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;"><i class="fas fa-check"></i> Set Default</a>
+            <a href="404.html" style="background:rgba(79,70,229,0.1);color:#4F46E5;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;"><i class="fas fa-edit"></i> Edit</a>
+            <a href="404.html" style="background:rgba(239,68,68,0.1);color:#ef4444;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:4px;"><i class="fas fa-trash"></i> Delete</a>
+          </div>
+        </div>
+        <div style="padding:0 24px 24px;color:#6b7280;line-height:1.8;">
+          <p style="margin:0;"><strong style="color:#111827;">John Doe</strong></p>
+          <p style="margin:0;">890 Pine Street, Unit 12</p>
+          <p style="margin:0;">San Francisco, CA 94102</p>
+          <p style="margin:0;">United States</p>
+          <p style="margin:0;">Phone: (555) 321-0987</p>
+          <p style="margin:8px 0 0;"><span style="background:#f3f4f6;color:#374151;font-size:11px;padding:3px 8px;border-radius:4px;"><i class="fas fa-clock" style="margin-right:4px;"></i> Used for 0 orders</span></p>
+        </div>
+      </div>
+
+      <!-- Parent's Address -->
+      <div class="dash-card" style="margin:0;">
+        <div class="dash-card-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <h3 style="display:flex;align-items:center;gap:8px;"><i class="fas fa-heart" style="color:#ec4899;"></i> Parents' House</h3>
+          <div style="display:flex;gap:8px;">
+            <a href="404.html" style="background:rgba(16,185,129,0.1);color:#10b981;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;"><i class="fas fa-check"></i> Set Default</a>
+            <a href="404.html" style="background:rgba(79,70,229,0.1);color:#4F46E5;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;"><i class="fas fa-edit"></i> Edit</a>
+            <a href="404.html" style="background:rgba(239,68,68,0.1);color:#ef4444;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:4px;"><i class="fas fa-trash"></i> Delete</a>
+          </div>
+        </div>
+        <div style="padding:0 24px 24px;color:#6b7280;line-height:1.8;">
+          <p style="margin:0;"><strong style="color:#111827;">Robert Doe</strong></p>
+          <p style="margin:0;">123 Maple Lane</p>
+          <p style="margin:0;">Austin, TX 78701</p>
+          <p style="margin:0;">United States</p>
+          <p style="margin:0;">Phone: (555) 111-2222</p>
+          <p style="margin:8px 0 0;"><span style="background:#f3f4f6;color:#374151;font-size:11px;padding:3px 8px;border-radius:4px;"><i class="fas fa-clock" style="margin-right:4px;"></i> Used for 0 orders</span></p>
+        </div>
+      </div>
+
+      <!-- International Address -->
+      <div class="dash-card" style="margin:0;">
+        <div class="dash-card-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <h3 style="display:flex;align-items:center;gap:8px;"><i class="fas fa-globe-americas" style="color:#06b6d4;"></i> London Office</h3>
+          <div style="display:flex;gap:8px;">
+            <a href="404.html" style="background:rgba(16,185,129,0.1);color:#10b981;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;"><i class="fas fa-check"></i> Set Default</a>
+            <a href="404.html" style="background:rgba(79,70,229,0.1);color:#4F46E5;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;"><i class="fas fa-edit"></i> Edit</a>
+            <a href="404.html" style="background:rgba(239,68,68,0.1);color:#ef4444;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:4px;"><i class="fas fa-trash"></i> Delete</a>
+          </div>
+        </div>
+        <div style="padding:0 24px 24px;color:#6b7280;line-height:1.8;">
+          <p style="margin:0;"><strong style="color:#111827;">John Doe</strong></p>
+          <p style="margin:0;">45 Kensington High Street</p>
+          <p style="margin:0;">London, W8 4PT</p>
+          <p style="margin:0;">United Kingdom</p>
+          <p style="margin:0;">Phone: +44 20 7946 0958</p>
+          <p style="margin:8px 0 0;"><span style="background:#f3f4f6;color:#374151;font-size:11px;padding:3px 8px;border-radius:4px;"><i class="fas fa-clock" style="margin-right:4px;"></i> Used for 0 orders</span></p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Delivery Instructions + Map -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-bottom:24px;">
+
+      <!-- Delivery Instructions -->
+      <div class="dash-card">
+        <div class="dash-card-header"><h3><i class="fas fa-sticky-note" style="color:#f59e0b;margin-right:8px;"></i> Delivery Instructions</h3></div>
+        <div style="padding:0 24px 24px;">
+          <div style="background:#f9fafb;border-radius:8px;padding:16px;margin-bottom:12px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <strong style="font-size:13px;color:#111827;">Home Address</strong>
+              <a href="404.html" style="color:#4F46E5;font-size:12px;text-decoration:none;">Edit</a>
+            </div>
+            <p style="margin:0;font-size:13px;color:#6b7280;line-height:1.6;">Ring doorbell twice. Leave at front door if no answer. Gate code: #4532. Building B, 3rd floor.</p>
+          </div>
+          <div style="background:#f9fafb;border-radius:8px;padding:16px;margin-bottom:12px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <strong style="font-size:13px;color:#111827;">Office Address</strong>
+              <a href="404.html" style="color:#4F46E5;font-size:12px;text-decoration:none;">Edit</a>
+            </div>
+            <p style="margin:0;font-size:13px;color:#6b7280;line-height:1.6;">Deliver to front desk / reception. Ask for John Doe, Suite 400. Weekdays only, 9AM - 5PM.</p>
+          </div>
+          <div style="background:#f9fafb;border-radius:8px;padding:16px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+              <strong style="font-size:13px;color:#111827;">Parents' House</strong>
+              <a href="404.html" style="color:#4F46E5;font-size:12px;text-decoration:none;">Edit</a>
+            </div>
+            <p style="margin:0;font-size:13px;color:#6b7280;line-height:1.6;">Do not ring doorbell after 8PM. Leave in mailbox if small package.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Delivery Map / Location -->
+      <div class="dash-card">
+        <div class="dash-card-header"><h3><i class="fas fa-map" style="color:#8b5cf6;margin-right:8px;"></i> Recent Deliveries</h3></div>
+        <div style="padding:0 24px 24px;">
+          <div style="background:#f9fafb;border-radius:8px;overflow:hidden;height:160px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;color:#9ca3af;">
+              <i class="fas fa-map-marked-alt" style="font-size:40px;margin-bottom:8px;display:block;"></i>
+              <span style="font-size:13px;">Map view coming soon</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:#4F46E5;flex-shrink:0;"></div>
+              <span style="font-size:13px;color:#374151;flex:1;">Home — 742 Evergreen Terrace</span>
+              <span style="font-size:11px;color:#9ca3af;">Jul 10</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:#10b981;flex-shrink:0;"></div>
+              <span style="font-size:13px;color:#374151;flex:1;">Office — 200 Innovation Drive</span>
+              <span style="font-size:11px;color:#9ca3af;">Jul 8</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:#4F46E5;flex-shrink:0;"></div>
+              <span style="font-size:13px;color:#374151;flex:1;">Home — 742 Evergreen Terrace</span>
+              <span style="font-size:11px;color:#9ca3af;">Jul 3</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:#10b981;flex-shrink:0;"></div>
+              <span style="font-size:13px;color:#374151;flex:1;">Office — 200 Innovation Drive</span>
+              <span style="font-size:11px;color:#9ca3af;">Jun 28</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></div>
+              <span style="font-size:13px;color:#374151;flex:1;">Billing — 560 Oak Avenue</span>
+              <span style="font-size:11px;color:#9ca3af;">Jun 22</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    var sidebar = document.getElementById('dashSidebar');
+    var toggle = document.getElementById('dashMenuToggle');
+    var close = document.getElementById('dashSidebarClose');
+    if (toggle) toggle.addEventListener('click', function() { sidebar.classList.toggle('open'); });
+    if (close) close.addEventListener('click', function() { sidebar.classList.remove('open'); });
+  </script>
+</body>
+</html>

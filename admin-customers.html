@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customers - Admin | Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="36"></a>
+      <button class="dash-sidebar-close" id="dashSidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="dash-sidebar-nav">
+      <a href="admin-dashboard.html" class="dash-nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+      <a href="admin-products.html" class="dash-nav-item"><i class="fas fa-box"></i> Products</a>
+      <a href="admin-orders.html" class="dash-nav-item"><i class="fas fa-shopping-cart"></i> Orders</a>
+      <a href="admin-customers.html" class="dash-nav-item active"><i class="fas fa-users"></i> Customers</a>
+      <a href="admin-categories.html" class="dash-nav-item"><i class="fas fa-tags"></i> Categories</a>
+      <a href="admin-analytics.html" class="dash-nav-item"><i class="fas fa-chart-bar"></i> Analytics</a>
+      <a href="admin-settings.html" class="dash-nav-item"><i class="fas fa-cog"></i> Settings</a>
+      <a href="index.html" class="dash-nav-item"><i class="fas fa-store"></i> View Store</a>
+      <a href="login.html" class="dash-nav-item dash-nav-logout" id="adminLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="dash-main">
+    <div class="dash-topbar">
+      <button class="dash-menu-toggle" id="dashMenuToggle"><i class="fas fa-bars"></i></button>
+      <h2 class="dash-topbar-title">Customers</h2>
+      <div class="dash-topbar-actions">
+        <span class="dash-user"><i class="fas fa-search"></i> Search</span>
+      </div>
+    </div>
+
+    <div class="dash-stats">
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(79,70,229,0.1);color:#4F46E5"><i class="fas fa-users"></i></div>
+        <div><span class="dash-stat-value">8,420</span><span class="dash-stat-label">Total Customers</span></div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(16,185,129,0.1);color:#10b981"><i class="fas fa-user-check"></i></div>
+        <div><span class="dash-stat-value">6,890</span><span class="dash-stat-label">Active</span></div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(245,158,11,0.1);color:#f59e0b"><i class="fas fa-user-plus"></i></div>
+        <div><span class="dash-stat-value">324</span><span class="dash-stat-label">New This Month</span></div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(239,68,68,0.1);color:#ef4444"><i class="fas fa-user-times"></i></div>
+        <div><span class="dash-stat-value">128</span><span class="dash-stat-label">Inactive</span></div>
+      </div>
+    </div>
+
+    <!-- Search & Filter -->
+    <div class="dash-card" style="margin-bottom:0;">
+      <div style="padding:16px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <div style="flex:1;min-width:200px;position:relative;">
+          <i class="fas fa-search" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#9ca3af;font-size:13px;"></i>
+          <input type="text" placeholder="Search customers..." style="width:100%;padding:10px 12px 10px 36px;border:1px solid #e5e7eb;border-radius:8px;font-size:13px;outline:none;">
+        </div>
+        <select style="padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:13px;outline:none;color:#374151;background:#fff;">
+          <option value="">All Status</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+          <option value="blocked">Blocked</option>
+        </select>
+        <select style="padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:13px;outline:none;color:#374151;background:#fff;">
+          <option value="">Sort By</option>
+          <option value="name">Name</option>
+          <option value="spent">Most Spent</option>
+          <option value="orders">Most Orders</option>
+          <option value="joined">Recently Joined</option>
+        </select>
+        <a href="404.html" style="padding:10px 20px;background:#4F46E5;color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;">Apply</a>
+        <a href="404.html" style="padding:10px 20px;background:#f9fafb;color:#374151;border:1px solid #e5e7eb;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;"><i class="fas fa-file-export"></i> Export</a>
+      </div>
+    </div>
+
+    <div class="dash-card" style="margin-top:24px;">
+      <div class="dash-card-header" style="display:flex;justify-content:space-between;align-items:center;">
+        <h3>All Customers</h3>
+        <span style="font-size:13px;color:#6b7280;">Showing 15 of 8,420 customers</span>
+      </div>
+      <div class="dash-table-wrap">
+        <table class="dash-table">
+          <thead>
+            <tr><th>Customer</th><th>Email</th><th>Phone</th><th>Orders</th><th>Spent</th><th>Joined</th><th>Status</th><th>Action</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4F46E5,#818cf8);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">JS</div><span style="font-weight:600;">John Smith</span></div></td>
+              <td>john@email.com</td><td>(555) 123-4567</td><td>12</td><td>$1,245.88</td><td>Jan 5, 2026</td><td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#ec4899,#f9a8d4);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">SJ</div><span style="font-weight:600;">Sarah Johnson</span></div></td>
+              <td>sarah@email.com</td><td>(555) 234-5678</td><td>8</td><td>$892.50</td><td>Feb 12, 2026</td><td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#10b981,#34d399);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">MC</div><span style="font-weight:600;">Mike Chen</span></div></td>
+              <td>mike@email.com</td><td>(555) 345-6789</td><td>15</td><td>$2,100.00</td><td>Jan 18, 2026</td><td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">ED</div><span style="font-weight:600;">Emily Davis</span></div></td>
+              <td>emily@email.com</td><td>(555) 456-7890</td><td>5</td><td>$650.00</td><td>Mar 3, 2026</td><td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,#c4b5fd);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">AK</div><span style="font-weight:600;">Alex Kim</span></div></td>
+              <td>alex@email.com</td><td>(555) 567-8901</td><td>3</td><td>$180.00</td><td>Apr 20, 2026</td><td><span class="dash-badge dash-badge-warning">Inactive</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#06b6d4,#67e8f9);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">LW</div><span style="font-weight:600;">Lisa Wang</span></div></td>
+              <td>lisa@email.com</td><td>(555) 678-9012</td><td>20</td><td>$3,450.00</td><td>Dec 1, 2025</td><td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#ec4899,#f9a8d4);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">RG</div><span style="font-weight:600;">Rachel Green</span></div></td>
+              <td>rachel@email.com</td><td>(555) 789-0123</td><td>7</td><td>$780.00</td><td>Feb 28, 2026</td><td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#1e40af,#60a5fa);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">DL</div><span style="font-weight:600;">David Lee</span></div></td>
+              <td>david@email.com</td><td>(555) 890-1234</td><td>18</td><td>$4,280.00</td><td>Nov 15, 2025</td><td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#be123c,#fb7185);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">JT</div><span style="font-weight:600;">Jessica Taylor</span></div></td>
+              <td>jessica@email.com</td><td>(555) 901-2345</td><td>4</td><td>$320.00</td><td>May 8, 2026</td><td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#b45309,#fbbf24);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">CA</div><span style="font-weight:600;">Chris Anderson</span></div></td>
+              <td>chris@email.com</td><td>(555) 012-3456</td><td>9</td><td>$1,120.00</td><td>Jan 22, 2026</td><td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#047857,#34d399);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">AW</div><span style="font-weight:600;">Amanda White</span></div></td>
+              <td>amanda@email.com</td><td>(555) 111-2233</td><td>6</td><td>$890.00</td><td>Mar 15, 2026</td><td><span class="dash-badge dash-badge-warning">Inactive</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a78bfa);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">KM</div><span style="font-weight:600;">Kevin Martinez</span></div></td>
+              <td>kevin@email.com</td><td>(555) 222-3344</td><td>11</td><td>$1,560.00</td><td>Feb 5, 2026</td><td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#dc2626,#f87171);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">NH</div><span style="font-weight:600;">Nicole Harris</span></div></td>
+              <td>nicole@email.com</td><td>(555) 333-4455</td><td>2</td><td>$150.00</td><td>Jun 10, 2026</td><td><span class="dash-badge dash-badge-danger">Blocked</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0e7490,#22d3ee);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">BC</div><span style="font-weight:600;">Brandon Clark</span></div></td>
+              <td>brandon@email.com</td><td>(555) 444-5566</td><td>14</td><td>$2,340.00</td><td>Dec 20, 2025</td><td><span class="dash-badge dash-badge-success">Active</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+            <tr>
+              <td><div style="display:flex;align-items:center;gap:10px;"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#c2410c,#fb923c);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:11px;">TF</div><span style="font-weight:600;">Tom Foster</span></div></td>
+              <td>tom@email.com</td><td>(555) 555-6677</td><td>1</td><td>$49.99</td><td>Jul 1, 2026</td><td><span class="dash-badge dash-badge-warning">Inactive</span></td>
+              <td><div style="display:flex;gap:6px;"><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a><a href="404.html" style="color:#ef4444"><i class="fas fa-trash"></i></a></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Pagination -->
+      <div style="padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #f3f4f6;">
+        <span style="font-size:13px;color:#6b7280;">Showing 1-15 of 8,420 customers</span>
+        <div style="display:flex;gap:6px;">
+          <span style="width:32px;height:32px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#6b7280;font-size:13px;cursor:not-allowed;opacity:0.5;display:flex;align-items:center;justify-content:center;">Prev</span>
+          <a href="404.html" style="width:32px;height:32px;border:1px solid #4F46E5;border-radius:6px;background:#4F46E5;color:#fff;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;">1</a>
+          <a href="404.html" style="width:32px;height:32px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#374151;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;">2</a>
+          <a href="404.html" style="width:32px;height:32px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#374151;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;">3</a>
+          <span style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:#9ca3af;font-size:13px;">...</span>
+          <a href="404.html" style="width:32px;height:32px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#374151;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;">562</a>
+          <a href="404.html" style="width:32px;height:32px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#374151;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;">Next</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Spenders + Customer Growth -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;margin-bottom:24px;">
+
+      <!-- Top Spenders -->
+      <div class="dash-card">
+        <div class="dash-card-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <h3>Top Spenders</h3>
+          <a href="404.html" style="color:#4F46E5;font-size:13px;font-weight:600;text-decoration:none;">View All</a>
+        </div>
+        <div style="padding:8px 24px 16px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#1e40af,#60a5fa);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:12px;flex-shrink:0;">DL</div>
+            <div style="flex:1;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">David Lee</span><span style="font-size:11px;color:#9ca3af;">18 orders</span></div>
+            <span style="font-size:13px;font-weight:600;color:#111827;">$4,280</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#06b6d4,#67e8f9);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:12px;flex-shrink:0;">LW</div>
+            <div style="flex:1;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">Lisa Wang</span><span style="font-size:11px;color:#9ca3af;">20 orders</span></div>
+            <span style="font-size:13px;font-weight:600;color:#111827;">$3,450</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#0e7490,#22d3ee);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:12px;flex-shrink:0;">BC</div>
+            <div style="flex:1;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">Brandon Clark</span><span style="font-size:11px;color:#9ca3af;">14 orders</span></div>
+            <span style="font-size:13px;font-weight:600;color:#111827;">$2,340</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#10b981,#34d399);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:12px;flex-shrink:0;">MC</div>
+            <div style="flex:1;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">Mike Chen</span><span style="font-size:11px;color:#9ca3af;">15 orders</span></div>
+            <span style="font-size:13px;font-weight:600;color:#111827;">$2,100</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a78bfa);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:12px;flex-shrink:0;">KM</div>
+            <div style="flex:1;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">Kevin Martinez</span><span style="font-size:11px;color:#9ca3af;">11 orders</span></div>
+            <span style="font-size:13px;font-weight:600;color:#111827;">$1,560</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="dash-card">
+        <div class="dash-card-header"><h3>Customer Activity</h3></div>
+        <div style="padding:8px 24px 16px;">
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(16,185,129,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fas fa-user-plus" style="color:#10b981;font-size:12px;"></i></div>
+            <div><span style="font-size:13px;color:#111827;"><strong>Tom Foster</strong> created an account</span><br><span style="font-size:11px;color:#9ca3af;">2 hours ago</span></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(79,70,229,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fas fa-shopping-cart" style="color:#4F46E5;font-size:12px;"></i></div>
+            <div><span style="font-size:13px;color:#111827;"><strong>David Lee</strong> placed order #ORD-009</span><br><span style="font-size:11px;color:#9ca3af;">5 hours ago</span></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(245,158,11,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fas fa-ban" style="color:#f59e0b;font-size:12px;"></i></div>
+            <div><span style="font-size:13px;color:#111827;"><strong>Nicole Harris</strong> was blocked by admin</span><br><span style="font-size:11px;color:#9ca3af;">Yesterday</span></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(236,72,153,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fas fa-star" style="color:#ec4899;font-size:12px;"></i></div>
+            <div><span style="font-size:13px;color:#111827;"><strong>Lisa Wang</strong> left a 5-star review</span><br><span style="font-size:11px;color:#9ca3af;">Yesterday</span></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(139,92,246,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fas fa-undo" style="color:#8b5cf6;font-size:12px;"></i></div>
+            <div><span style="font-size:13px;color:#111827;"><strong>Chris Anderson</strong> requested a refund</span><br><span style="font-size:11px;color:#9ca3af;">2 days ago</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    var sidebar = document.getElementById('dashSidebar');
+    var toggle = document.getElementById('dashMenuToggle');
+    var close = document.getElementById('dashSidebarClose');
+    if (toggle) toggle.addEventListener('click', function() { sidebar.classList.toggle('open'); });
+    if (close) close.addEventListener('click', function() { sidebar.classList.remove('open'); });
+  </script>
+</body>
+</html>

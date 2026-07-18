@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Orders - Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="36"></a>
+      <button class="dash-sidebar-close" id="dashSidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="dash-sidebar-nav">
+      <a href="customer-dashboard.html" class="dash-nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+      <a href="customer-orders.html" class="dash-nav-item active"><i class="fas fa-shopping-cart"></i> My Orders</a>
+      <a href="customer-wishlist.html" class="dash-nav-item"><i class="far fa-heart"></i> Wishlist</a>
+      <a href="customer-address.html" class="dash-nav-item"><i class="fas fa-map-marker-alt"></i> Addresses</a>
+      <a href="customer-profile.html" class="dash-nav-item"><i class="far fa-user"></i> Profile</a>
+      <a href="index.html" class="dash-nav-item"><i class="fas fa-store"></i> Back to Shop</a>
+      <a href="login.html" class="dash-nav-item dash-nav-logout" id="customerLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="dash-main">
+    <!-- Top Bar -->
+    <div class="dash-topbar">
+      <button class="dash-menu-toggle" id="dashMenuToggle"><i class="fas fa-bars"></i></button>
+      <h2 class="dash-topbar-title">My Orders</h2>
+      <div class="dash-topbar-actions">
+        <span class="dash-user"><i class="fas fa-user"></i> Customer</span>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="dash-stats">
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(79,70,229,0.1);color:#4F46E5"><i class="fas fa-shopping-cart"></i></div>
+        <div>
+          <span class="dash-stat-value">12</span>
+          <span class="dash-stat-label">Total Orders</span>
+        </div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(16,185,129,0.1);color:#10b981"><i class="fas fa-check-circle"></i></div>
+        <div>
+          <span class="dash-stat-value">9</span>
+          <span class="dash-stat-label">Delivered</span>
+        </div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(245,158,11,0.1);color:#f59e0b"><i class="fas fa-clock"></i></div>
+        <div>
+          <span class="dash-stat-value">2</span>
+          <span class="dash-stat-label">In Progress</span>
+        </div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(239,68,68,0.1);color:#ef4444"><i class="fas fa-times-circle"></i></div>
+        <div>
+          <span class="dash-stat-value">1</span>
+          <span class="dash-stat-label">Cancelled</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Order Tracker -->
+    <div class="dash-card" style="margin-bottom:24px;">
+      <div class="dash-card-header">
+        <h3>Track Order #ORD-044</h3>
+        <span class="dash-badge dash-badge-info">In Transit</span>
+      </div>
+      <div style="padding:24px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+          <div style="text-align:center;flex:1;">
+            <div style="width:40px;height:40px;border-radius:50%;background:#4F46E5;color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;"><i class="fas fa-check" style="font-size:14px;"></i></div>
+            <span style="font-size:12px;font-weight:600;color:#4F46E5;">Confirmed</span>
+          </div>
+          <div style="flex:2;height:3px;background:#4F46E5;border-radius:2px;"></div>
+          <div style="text-align:center;flex:1;">
+            <div style="width:40px;height:40px;border-radius:50%;background:#4F46E5;color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;"><i class="fas fa-check" style="font-size:14px;"></i></div>
+            <span style="font-size:12px;font-weight:600;color:#4F46E5;">Shipped</span>
+          </div>
+          <div style="flex:2;height:3px;background:linear-gradient(to right,#4F46E5 60%,#e5e7eb 60%);border-radius:2px;"></div>
+          <div style="text-align:center;flex:1;">
+            <div style="width:40px;height:40px;border-radius:50%;background:#e5e7eb;color:#9ca3af;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;"><i class="fas fa-truck" style="font-size:14px;"></i></div>
+            <span style="font-size:12px;font-weight:600;color:#9ca3af;">In Transit</span>
+          </div>
+          <div style="flex:2;height:3px;background:#e5e7eb;border-radius:2px;"></div>
+          <div style="text-align:center;flex:1;">
+            <div style="width:40px;height:40px;border-radius:50%;background:#e5e7eb;color:#9ca3af;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;"><i class="fas fa-box-open" style="font-size:14px;"></i></div>
+            <span style="font-size:12px;font-weight:600;color:#9ca3af;">Delivered</span>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;color:#6b7280;">
+          <span>Placed: Jul 8, 2026</span>
+          <span>Est. Delivery: Jul 18, 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search & Filter Bar -->
+    <div class="dash-card" style="margin-bottom:24px;">
+      <div style="padding:16px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <div style="flex:1;min-width:200px;position:relative;">
+          <i class="fas fa-search" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#9ca3af;font-size:13px;"></i>
+          <input type="text" placeholder="Search orders..." style="width:100%;padding:10px 12px 10px 36px;border:1px solid #e5e7eb;border-radius:8px;font-size:13px;outline:none;">
+        </div>
+        <select style="padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:13px;outline:none;color:#374151;background:#fff;">
+          <option value="">All Status</option>
+          <option value="delivered">Delivered</option>
+          <option value="shipped">Shipped</option>
+          <option value="processing">Processing</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+        <select style="padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:13px;outline:none;color:#374151;background:#fff;">
+          <option value="">Last 6 Months</option>
+          <option value="30">Last 30 Days</option>
+          <option value="90">Last 3 Months</option>
+          <option value="180">Last 6 Months</option>
+          <option value="365">Last Year</option>
+        </select>
+        <button style="padding:10px 20px;background:#4F46E5;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;">Search</button>
+      </div>
+    </div>
+
+    <!-- Orders Table -->
+    <div class="dash-card">
+      <div class="dash-card-header">
+        <h3>Order History</h3>
+        <span style="font-size:13px;color:#6b7280;">Showing 12 orders</span>
+      </div>
+      <div class="dash-table-wrap">
+        <table class="dash-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Product</th>
+              <th>Qty</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#ORD-045</td>
+              <td>Wireless Headphones</td>
+              <td>1</td>
+              <td>$79.99</td>
+              <td><span class="dash-badge dash-badge-success">Delivered</span></td>
+              <td>Jul 10, 2026</td>
+              <td><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td>#ORD-044</td>
+              <td>Smart Watch Pro</td>
+              <td>1</td>
+              <td>$199.99</td>
+              <td><span class="dash-badge dash-badge-info">Shipped</span></td>
+              <td>Jul 8, 2026</td>
+              <td><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td>#ORD-042</td>
+              <td>Travel Backpack</td>
+              <td>1</td>
+              <td>$59.99</td>
+              <td><span class="dash-badge dash-badge-success">Delivered</span></td>
+              <td>Jul 3, 2026</td>
+              <td><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td>#ORD-040</td>
+              <td>Running Sneakers</td>
+              <td>2</td>
+              <td>$89.99</td>
+              <td><span class="dash-badge dash-badge-warning">Processing</span></td>
+              <td>Jun 28, 2026</td>
+              <td><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td>#ORD-038</td>
+              <td>Bluetooth Speaker</td>
+              <td>1</td>
+              <td>$49.99</td>
+              <td><span class="dash-badge dash-badge-success">Delivered</span></td>
+              <td>Jun 22, 2026</td>
+              <td><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td>#ORD-035</td>
+              <td>Laptop Stand</td>
+              <td>1</td>
+              <td>$34.99</td>
+              <td><span class="dash-badge dash-badge-danger">Cancelled</span></td>
+              <td>Jun 15, 2026</td>
+              <td><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td>#ORD-032</td>
+              <td>Digital Camera</td>
+              <td>1</td>
+              <td>$459.99</td>
+              <td><span class="dash-badge dash-badge-success">Delivered</span></td>
+              <td>Jun 8, 2026</td>
+              <td><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td>#ORD-029</td>
+              <td>Wireless Headphones</td>
+              <td>2</td>
+              <td>$159.98</td>
+              <td><span class="dash-badge dash-badge-success">Delivered</span></td>
+              <td>Jun 1, 2026</td>
+              <td><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td>#ORD-026</td>
+              <td>Smartphone Ultra</td>
+              <td>1</td>
+              <td>$999.99</td>
+              <td><span class="dash-badge dash-badge-success">Delivered</span></td>
+              <td>May 25, 2026</td>
+              <td><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td>#ORD-023</td>
+              <td>Travel Backpack</td>
+              <td>3</td>
+              <td>$179.97</td>
+              <td><span class="dash-badge dash-badge-success">Delivered</span></td>
+              <td>May 18, 2026</td>
+              <td><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td>#ORD-019</td>
+              <td>Smart Watch Pro</td>
+              <td>1</td>
+              <td>$199.99</td>
+              <td><span class="dash-badge dash-badge-success">Delivered</span></td>
+              <td>May 10, 2026</td>
+              <td><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td>#ORD-015</td>
+              <td>Running Sneakers</td>
+              <td>1</td>
+              <td>$89.99</td>
+              <td><span class="dash-badge dash-badge-success">Delivered</span></td>
+              <td>May 2, 2026</td>
+              <td><a href="404.html" style="color:#4F46E5"><i class="fas fa-eye"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- Pagination -->
+      <div style="padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #f3f4f6;">
+        <span style="font-size:13px;color:#6b7280;">Showing 1-12 of 12 orders</span>
+        <div style="display:flex;gap:6px;">
+          <button style="width:32px;height:32px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#6b7280;font-size:13px;cursor:not-allowed;opacity:0.5;">Prev</button>
+          <button style="width:32px;height:32px;border:1px solid #4F46E5;border-radius:6px;background:#4F46E5;color:#fff;font-size:13px;cursor:pointer;">1</button>
+          <button style="width:32px;height:32px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;color:#6b7280;font-size:13px;cursor:not-allowed;opacity:0.5;">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Summary Cards -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px;">
+      <div class="dash-card">
+        <div style="padding:20px;text-align:center;">
+          <i class="fas fa-dollar-sign" style="font-size:28px;color:#4F46E5;margin-bottom:12px;display:block;"></i>
+          <span style="display:block;font-size:24px;font-weight:700;color:#111827;">$2,504.85</span>
+          <span style="display:block;font-size:13px;color:#6b7280;margin-top:4px;">Total Spent</span>
+        </div>
+      </div>
+      <div class="dash-card">
+        <div style="padding:20px;text-align:center;">
+          <i class="fas fa-box" style="font-size:28px;color:#10b981;margin-bottom:12px;display:block;"></i>
+          <span style="display:block;font-size:24px;font-weight:700;color:#111827;">18</span>
+          <span style="display:block;font-size:13px;color:#6b7280;margin-top:4px;">Items Purchased</span>
+        </div>
+      </div>
+      <div class="dash-card">
+        <div style="padding:20px;text-align:center;">
+          <i class="fas fa-undo" style="font-size:28px;color:#f59e0b;margin-bottom:12px;display:block;"></i>
+          <span style="display:block;font-size:24px;font-weight:700;color:#111827;">1</span>
+          <span style="display:block;font-size:13px;color:#6b7280;margin-top:4px;">Returns Made</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    var sidebar = document.getElementById('dashSidebar');
+    var toggle = document.getElementById('dashMenuToggle');
+    var close = document.getElementById('dashSidebarClose');
+    if (toggle) toggle.addEventListener('click', function() { sidebar.classList.toggle('open'); });
+    if (close) close.addEventListener('click', function() { sidebar.classList.remove('open'); });
+  </script>
+</body>
+</html>

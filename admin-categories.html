@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categories - Admin | Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-sidebar-header">
+      <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="36"></a>
+      <button class="dash-sidebar-close" id="dashSidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="dash-sidebar-nav">
+      <a href="admin-dashboard.html" class="dash-nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
+      <a href="admin-products.html" class="dash-nav-item"><i class="fas fa-box"></i> Products</a>
+      <a href="admin-orders.html" class="dash-nav-item"><i class="fas fa-shopping-cart"></i> Orders</a>
+      <a href="admin-customers.html" class="dash-nav-item"><i class="fas fa-users"></i> Customers</a>
+      <a href="admin-categories.html" class="dash-nav-item active"><i class="fas fa-tags"></i> Categories</a>
+      <a href="admin-analytics.html" class="dash-nav-item"><i class="fas fa-chart-bar"></i> Analytics</a>
+      <a href="admin-settings.html" class="dash-nav-item"><i class="fas fa-cog"></i> Settings</a>
+      <a href="index.html" class="dash-nav-item"><i class="fas fa-store"></i> View Store</a>
+      <a href="login.html" class="dash-nav-item dash-nav-logout" id="adminLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="dash-main">
+    <div class="dash-topbar">
+      <button class="dash-menu-toggle" id="dashMenuToggle"><i class="fas fa-bars"></i></button>
+      <h2 class="dash-topbar-title">Categories</h2>
+      <div class="dash-topbar-actions">
+        <button class="btn btn-primary" style="padding:10px 20px;font-size:14px;border-radius:8px;border:none;cursor:pointer;background:#4F46E5;color:#fff"><i class="fas fa-plus"></i> Add Category</button>
+      </div>
+    </div>
+
+    <div class="dash-stats">
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(79,70,229,0.1);color:#4F46E5"><i class="fas fa-tags"></i></div>
+        <div><span class="dash-stat-value">12</span><span class="dash-stat-label">Total Categories</span></div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(16,185,129,0.1);color:#10b981"><i class="fas fa-check-circle"></i></div>
+        <div><span class="dash-stat-value">10</span><span class="dash-stat-label">Active</span></div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(245,158,11,0.1);color:#f59e0b"><i class="fas fa-box"></i></div>
+        <div><span class="dash-stat-value">1,280</span><span class="dash-stat-label">Total Products</span></div>
+      </div>
+    </div>
+
+    <div class="dash-card">
+      <div class="dash-card-header"><h3>All Categories</h3></div>
+      <div class="dash-table-wrap">
+        <table class="dash-table">
+          <thead>
+            <tr><th>Category</th><th>Products</th><th>Revenue</th><th>Status</th><th>Actions</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><i class="fas fa-laptop" style="margin-right:8px;color:#4F46E5"></i> Electronics</td><td>420</td><td>$89,200</td><td><span class="dash-badge dash-badge-success">Active</span></td><td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td></tr>
+            <tr><td><i class="fas fa-tshirt" style="margin-right:8px;color:#4F46E5"></i> Fashion</td><td>310</td><td>$45,600</td><td><span class="dash-badge dash-badge-success">Active</span></td><td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td></tr>
+            <tr><td><i class="fas fa-couch" style="margin-right:8px;color:#4F46E5"></i> Home & Living</td><td>180</td><td>$32,100</td><td><span class="dash-badge dash-badge-success">Active</span></td><td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td></tr>
+            <tr><td><i class="fas fa-dumbbell" style="margin-right:8px;color:#4F46E5"></i> Sports</td><td>145</td><td>$21,800</td><td><span class="dash-badge dash-badge-success">Active</span></td><td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td></tr>
+            <tr><td><i class="fas fa-book" style="margin-right:8px;color:#4F46E5"></i> Books</td><td>95</td><td>$8,400</td><td><span class="dash-badge dash-badge-warning">Inactive</span></td><td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td></tr>
+            <tr><td><i class="fas fa-gamepad" style="margin-right:8px;color:#4F46E5"></i> Gaming</td><td>130</td><td>$28,500</td><td><span class="dash-badge dash-badge-success">Active</span></td><td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    var sidebar = document.getElementById('dashSidebar');
+    var toggle = document.getElementById('dashMenuToggle');
+    var close = document.getElementById('dashSidebarClose');
+    if (toggle) toggle.addEventListener('click', function() { sidebar.classList.toggle('open'); });
+    if (close) close.addEventListener('click', function() { sidebar.classList.remove('open'); });
+  </script>
+</body>
+</html>

@@ -16,12 +16,12 @@
     </div>
     <nav class="dash-sidebar-nav">
       <a href="admin-dashboard.html" class="dash-nav-item active"><i class="fas fa-th-large"></i> Dashboard</a>
-      <a href="#" class="dash-nav-item"><i class="fas fa-box"></i> Products</a>
-      <a href="#" class="dash-nav-item"><i class="fas fa-shopping-cart"></i> Orders</a>
-      <a href="#" class="dash-nav-item"><i class="fas fa-users"></i> Customers</a>
-      <a href="#" class="dash-nav-item"><i class="fas fa-tags"></i> Categories</a>
-      <a href="#" class="dash-nav-item"><i class="fas fa-chart-bar"></i> Analytics</a>
-      <a href="#" class="dash-nav-item"><i class="fas fa-cog"></i> Settings</a>
+      <a href="admin-products.html" class="dash-nav-item"><i class="fas fa-box"></i> Products</a>
+      <a href="admin-orders.html" class="dash-nav-item"><i class="fas fa-shopping-cart"></i> Orders</a>
+      <a href="admin-customers.html" class="dash-nav-item"><i class="fas fa-users"></i> Customers</a>
+      <a href="admin-categories.html" class="dash-nav-item"><i class="fas fa-tags"></i> Categories</a>
+      <a href="admin-analytics.html" class="dash-nav-item"><i class="fas fa-chart-bar"></i> Analytics</a>
+      <a href="admin-settings.html" class="dash-nav-item"><i class="fas fa-cog"></i> Settings</a>
       <a href="index.html" class="dash-nav-item"><i class="fas fa-store"></i> View Store</a>
       <a href="login.html" class="dash-nav-item dash-nav-logout" id="adminLogout"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </nav>
@@ -70,10 +70,290 @@
       </div>
     </div>
 
+    <!-- Secondary Stats -->
+    <div class="dash-stats">
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(139,92,246,0.1);color:#8b5cf6"><i class="fas fa-percentage"></i></div>
+        <div>
+          <span class="dash-stat-value">3.2%</span>
+          <span class="dash-stat-label">Conversion Rate</span>
+        </div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(6,182,212,0.1);color:#06b6d4"><i class="fas fa-receipt"></i></div>
+        <div>
+          <span class="dash-stat-value">$71.81</span>
+          <span class="dash-stat-label">Avg. Order Value</span>
+        </div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(236,72,153,0.1);color:#ec4899"><i class="fas fa-undo"></i></div>
+        <div>
+          <span class="dash-stat-value">$1,240</span>
+          <span class="dash-stat-label">Total Refunds</span>
+        </div>
+      </div>
+      <div class="dash-stat-card">
+        <div class="dash-stat-icon" style="background:rgba(245,158,11,0.1);color:#f59e0b"><i class="fas fa-star"></i></div>
+        <div>
+          <span class="dash-stat-value">24</span>
+          <span class="dash-stat-label">Pending Reviews</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Revenue Chart + Order Status -->
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:24px;">
+
+      <!-- Revenue Chart -->
+      <div class="dash-card">
+        <div class="dash-card-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <h3>Revenue Overview</h3>
+          <select style="padding:6px 12px;border:1px solid #e5e7eb;border-radius:6px;font-size:12px;outline:none;color:#374151;background:#fff;">
+            <option>This Month</option>
+            <option>Last 3 Months</option>
+            <option>This Year</option>
+          </select>
+        </div>
+        <div style="padding:24px;">
+          <div style="display:flex;align-items:flex-end;gap:12px;height:180px;padding-bottom:8px;border-bottom:1px solid #f3f4f6;">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%;">
+              <div style="width:100%;background:linear-gradient(to top,#1e40af,#60a5fa);border-radius:4px 4px 0 0;height:60%;"></div>
+              <span style="font-size:10px;color:#9ca3af;">Jan</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%;">
+              <div style="width:100%;background:linear-gradient(to top,#047857,#34d399);border-radius:4px 4px 0 0;height:75%;"></div>
+              <span style="font-size:10px;color:#9ca3af;">Feb</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%;">
+              <div style="width:100%;background:linear-gradient(to top,#b45309,#fbbf24);border-radius:4px 4px 0 0;height:50%;"></div>
+              <span style="font-size:10px;color:#9ca3af;">Mar</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%;">
+              <div style="width:100%;background:linear-gradient(to top,#be123c,#fb7185);border-radius:4px 4px 0 0;height:85%;"></div>
+              <span style="font-size:10px;color:#9ca3af;">Apr</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%;">
+              <div style="width:100%;background:linear-gradient(to top,#7c3aed,#a78bfa);border-radius:4px 4px 0 0;height:70%;"></div>
+              <span style="font-size:10px;color:#9ca3af;">May</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%;">
+              <div style="width:100%;background:linear-gradient(to top,#0e7490,#22d3ee);border-radius:4px 4px 0 0;height:90%;"></div>
+              <span style="font-size:10px;color:#9ca3af;">Jun</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%;">
+              <div style="width:100%;background:linear-gradient(to top,#c2410c,#fb923c);border-radius:4px 4px 0 0;height:95%;"></div>
+              <span style="font-size:10px;color:#9ca3af;">Jul</span>
+            </div>
+          </div>
+          <div style="display:flex;gap:24px;margin-top:16px;">
+            <span style="font-size:12px;color:#6b7280;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#3b82f6;margin-right:6px;"></span>This Month: $24,560</span>
+            <span style="font-size:12px;color:#6b7280;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981;margin-right:6px;"></span>Last Month: $21,340</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Status Breakdown -->
+      <div class="dash-card">
+        <div class="dash-card-header"><h3>Order Status</h3></div>
+        <div style="padding:24px;">
+          <div style="text-align:center;margin-bottom:20px;">
+            <div style="width:120px;height:120px;border-radius:50%;border:12px solid #1b9f59;border-top-color:#3b82f6;border-right-color:#10b981;border-bottom-color:#f59e0b;border-left-color:#ef4444;margin:0 auto;"></div>
+            <span style="display:block;font-size:20px;font-weight:700;color:#111827;margin-top:12px;">342</span>
+            <span style="font-size:12px;color:#1a5dd2;">Total Orders</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:13px;color:#6b7280;display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:#3b82f6;"></span>Delivered</span>
+              <span style="font-size:13px;font-weight:600;color:#111827;">218</span>
+            </div>
+            <div style="height:4px;background:#f3f4f6;border-radius:2px;overflow:hidden;"><div style="height:100%;width:64%;background:#3b82f6;border-radius:2px;"></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:13px;color:#6b7280;display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:#10b981;"></span>Pending</span>
+              <span style="font-size:13px;font-weight:600;color:#111827;">58</span>
+            </div>
+            <div style="height:4px;background:#f3f4f6;border-radius:2px;overflow:hidden;"><div style="height:100%;width:17%;background:#10b981;border-radius:2px;"></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:13px;color:#6b7280;display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;"></span>Shipped</span>
+              <span style="font-size:13px;font-weight:600;color:#111827;">48</span>
+            </div>
+            <div style="height:4px;background:#f3f4f6;border-radius:2px;overflow:hidden;"><div style="height:100%;width:14%;background:#f59e0b;border-radius:2px;"></div></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:13px;color:#6b7280;display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:#ef4444;"></span>Cancelled</span>
+              <span style="font-size:13px;font-weight:600;color:#111827;">18</span>
+            </div>
+            <div style="height:4px;background:#f3f4f6;border-radius:2px;overflow:hidden;"><div style="height:100%;width:5%;background:#ef4444;border-radius:2px;"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Top Products + Top Customers -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;">
+
+      <!-- Top Selling Products -->
+      <div class="dash-card">
+        <div class="dash-card-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <h3>Top Selling Products</h3>
+          <a href="admin-products.html" style="color:#4F46E5;font-size:13px;font-weight:600;text-decoration:none;">View All</a>
+        </div>
+        <div class="dash-table-wrap">
+          <table class="dash-table">
+            <thead>
+              <tr><th>Product</th><th>Sold</th><th>Revenue</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Smartphone Ultra</td>
+                <td>324</td>
+                <td>$324,676</td>
+              </tr>
+              <tr>
+                <td>Laptop Pro 15</td>
+                <td>186</td>
+                <td>$241,794</td>
+              </tr>
+              <tr>
+                <td>Smart Watch Pro</td>
+                <td>298</td>
+                <td>$59,590</td>
+              </tr>
+              <tr>
+                <td>Wireless Headphones</td>
+                <td>412</td>
+                <td>$32,959</td>
+              </tr>
+              <tr>
+                <td>Running Sneakers</td>
+                <td>203</td>
+                <td>$18,268</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Top Customers -->
+      <div class="dash-card">
+        <div class="dash-card-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <h3>Top Customers</h3>
+          <a href="admin-customers.html" style="color:#4F46E5;font-size:13px;font-weight:600;text-decoration:none;">View All</a>
+        </div>
+        <div style="padding:8px 24px 16px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#4F46E5,#818cf8);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;">JD</div>
+            <div style="flex:1;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">John Doe</span><span style="font-size:11px;color:#9ca3af;">john@email.com</span></div>
+            <div style="text-align:right;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">$4,280</span><span style="font-size:11px;color:#9ca3af;">28 orders</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#10b981,#34d399);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;">SJ</div>
+            <div style="flex:1;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">Sarah Johnson</span><span style="font-size:11px;color:#9ca3af;">sarah@email.com</span></div>
+            <div style="text-align:right;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">$3,890</span><span style="font-size:11px;color:#9ca3af;">22 orders</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#fbbf24);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;">MC</div>
+            <div style="flex:1;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">Mike Chen</span><span style="font-size:11px;color:#9ca3af;">mike@email.com</span></div>
+            <div style="text-align:right;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">$2,750</span><span style="font-size:11px;color:#9ca3af;">19 orders</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ec4899,#f472b6);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;">ED</div>
+            <div style="flex:1;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">Emily Davis</span><span style="font-size:11px;color:#9ca3af;">emily@email.com</span></div>
+            <div style="text-align:right;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">$2,100</span><span style="font-size:11px;color:#9ca3af;">15 orders</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,#a78bfa);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;">AK</div>
+            <div style="flex:1;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">Alex Kim</span><span style="font-size:11px;color:#9ca3af;">alex@email.com</span></div>
+            <div style="text-align:right;"><span style="font-size:13px;font-weight:600;color:#111827;display:block;">$1,680</span><span style="font-size:11px;color:#9ca3af;">12 orders</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Low Stock + Activity -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;">
+
+      <!-- Low Stock Alerts -->
+      <div class="dash-card">
+        <div class="dash-card-header" style="display:flex;justify-content:space-between;align-items:center;">
+          <h3><i class="fas fa-exclamation-triangle" style="color:#f59e0b;margin-right:8px;"></i> Low Stock Alerts</h3>
+          <a href="admin-products.html" style="color:#4F46E5;font-size:13px;font-weight:600;text-decoration:none;">Manage</a>
+        </div>
+        <div class="dash-table-wrap">
+          <table class="dash-table">
+            <thead>
+              <tr><th>Product</th><th>Stock</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Camera Lens 50mm</td>
+                <td style="color:#ef4444;font-weight:600;">2</td>
+                <td><span class="dash-badge dash-badge-danger">Critical</span></td>
+              </tr>
+              <tr>
+                <td>MacBook Air M3</td>
+                <td style="color:#ef4444;font-weight:600;">3</td>
+                <td><span class="dash-badge dash-badge-danger">Critical</span></td>
+              </tr>
+              <tr>
+                <td>Digital Camera</td>
+                <td style="color:#f59e0b;font-weight:600;">7</td>
+                <td><span class="dash-badge dash-badge-warning">Low</span></td>
+              </tr>
+              <tr>
+                <td>Smart Watch Pro</td>
+                <td style="color:#f59e0b;font-weight:600;">12</td>
+                <td><span class="dash-badge dash-badge-warning">Low</span></td>
+              </tr>
+              <tr>
+                <td>Wireless Earbuds Pro</td>
+                <td style="color:#f59e0b;font-weight:600;">15</td>
+                <td><span class="dash-badge dash-badge-warning">Low</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="dash-card">
+        <div class="dash-card-header"><h3>Recent Activity</h3></div>
+        <div style="padding:8px 24px 16px;">
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(16,185,129,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fas fa-check" style="color:#10b981;font-size:12px;"></i></div>
+            <div><span style="font-size:13px;color:#111827;">New order <strong>#ORD-001</strong> delivered to John Smith</span><br><span style="font-size:11px;color:#9ca3af;">15 minutes ago</span></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(79,70,229,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fas fa-user-plus" style="color:#4F46E5;font-size:12px;"></i></div>
+            <div><span style="font-size:13px;color:#111827;">New customer <strong>Rachel Green</strong> registered</span><br><span style="font-size:11px;color:#9ca3af;">1 hour ago</span></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(245,158,11,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fas fa-box" style="color:#f59e0b;font-size:12px;"></i></div>
+            <div><span style="font-size:13px;color:#111827;">Product <strong>Camera Lens</strong> stock is low (2 left)</span><br><span style="font-size:11px;color:#9ca3af;">2 hours ago</span></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(239,68,68,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fas fa-times" style="color:#ef4444;font-size:12px;"></i></div>
+            <div><span style="font-size:13px;color:#111827;">Order <strong>#ORD-005</strong> cancelled by Alex Kim</span><br><span style="font-size:11px;color:#9ca3af;">3 hours ago</span></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(139,92,246,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fas fa-truck" style="color:#8b5cf6;font-size:12px;"></i></div>
+            <div><span style="font-size:13px;color:#111827;">Order <strong>#ORD-003</strong> shipped to Mike Chen</span><br><span style="font-size:11px;color:#9ca3af;">5 hours ago</span></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 0;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(6,182,212,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="fas fa-tag" style="color:#06b6d4;font-size:12px;"></i></div>
+            <div><span style="font-size:13px;color:#111827;">New category <strong>Home & Living</strong> created</span><br><span style="font-size:11px;color:#9ca3af;">Yesterday</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <!-- Recent Orders -->
-    <div class="dash-card">
-      <div class="dash-card-header">
+    <div class="dash-card" style="margin-top:24px;">
+      <div class="dash-card-header" style="display:flex;justify-content:space-between;align-items:center;">
         <h3>Recent Orders</h3>
+        <a href="admin-orders.html" style="color:#4F46E5;font-size:13px;font-weight:600;text-decoration:none;">View All Orders</a>
       </div>
       <div class="dash-table-wrap">
         <table class="dash-table">
@@ -83,6 +363,7 @@
               <th>Customer</th>
               <th>Product</th>
               <th>Amount</th>
+              <th>Payment</th>
               <th>Status</th>
               <th>Date</th>
             </tr>
@@ -93,6 +374,7 @@
               <td>John Smith</td>
               <td>Wireless Headphones</td>
               <td>$79.99</td>
+              <td><i class="fab fa-cc-visa" style="color:#1a1f71;"></i> Visa</td>
               <td><span class="dash-badge dash-badge-success">Delivered</span></td>
               <td>Jul 15, 2026</td>
             </tr>
@@ -101,6 +383,7 @@
               <td>Sarah Johnson</td>
               <td>Smart Watch Pro</td>
               <td>$199.99</td>
+              <td><i class="fab fa-paypal" style="color:#003087;"></i> PayPal</td>
               <td><span class="dash-badge dash-badge-warning">Pending</span></td>
               <td>Jul 14, 2026</td>
             </tr>
@@ -109,6 +392,7 @@
               <td>Mike Chen</td>
               <td>Running Sneakers</td>
               <td>$89.99</td>
+              <td><i class="fab fa-cc-mastercard" style="color:#eb001b;"></i> Mastercard</td>
               <td><span class="dash-badge dash-badge-info">Shipped</span></td>
               <td>Jul 13, 2026</td>
             </tr>
@@ -116,7 +400,8 @@
               <td>#ORD-004</td>
               <td>Emily Davis</td>
               <td>Laptop Pro 15</td>
-              <td>$1299.99</td>
+              <td>$1,299.99</td>
+              <td><i class="fab fa-cc-visa" style="color:#1a1f71;"></i> Visa</td>
               <td><span class="dash-badge dash-badge-success">Delivered</span></td>
               <td>Jul 12, 2026</td>
             </tr>
@@ -125,12 +410,94 @@
               <td>Alex Kim</td>
               <td>Bluetooth Speaker</td>
               <td>$49.99</td>
+              <td><i class="fab fa-apple-pay" style="color:#000;"></i> Apple Pay</td>
               <td><span class="dash-badge dash-badge-danger">Cancelled</span></td>
               <td>Jul 11, 2026</td>
+            </tr>
+            <tr>
+              <td>#ORD-006</td>
+              <td>Lisa Wang</td>
+              <td>Travel Backpack</td>
+              <td>$59.99</td>
+              <td><i class="fab fa-paypal" style="color:#003087;"></i> PayPal</td>
+              <td><span class="dash-badge dash-badge-success">Delivered</span></td>
+              <td>Jul 10, 2026</td>
+            </tr>
+            <tr>
+              <td>#ORD-007</td>
+              <td>Tom Brown</td>
+              <td>Digital Camera</td>
+              <td>$459.99</td>
+              <td><i class="fab fa-cc-visa" style="color:#1a1f71;"></i> Visa</td>
+              <td><span class="dash-badge dash-badge-info">Shipped</span></td>
+              <td>Jul 9, 2026</td>
             </tr>
           </tbody>
         </table>
       </div>
+    </div>
+
+    <!-- Quick Actions + Upcoming -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;margin-bottom:24px;">
+
+      <!-- Quick Actions -->
+      <div class="dash-card">
+        <div class="dash-card-header"><h3>Quick Actions</h3></div>
+        <div style="padding:16px 24px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+          <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:14px 16px;background:#f9fafb;border-radius:8px;text-decoration:none;color:#111827;font-size:13px;font-weight:600;border:1px solid #f3f4f6;transition:all 0.2s;">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(79,70,229,0.1);display:flex;align-items:center;justify-content:center;"><i class="fas fa-plus" style="color:#4F46E5;font-size:14px;"></i></div>
+            Add Product
+          </a>
+          <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:14px 16px;background:#f9fafb;border-radius:8px;text-decoration:none;color:#111827;font-size:13px;font-weight:600;border:1px solid #f3f4f6;transition:all 0.2s;">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(16,185,129,0.1);display:flex;align-items:center;justify-content:center;"><i class="fas fa-tags" style="color:#10b981;font-size:14px;"></i></div>
+            Add Category
+          </a>
+          <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:14px 16px;background:#f9fafb;border-radius:8px;text-decoration:none;color:#111827;font-size:13px;font-weight:600;border:1px solid #f3f4f6;transition:all 0.2s;">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(245,158,11,0.1);display:flex;align-items:center;justify-content:center;"><i class="fas fa-file-export" style="color:#f59e0b;font-size:14px;"></i></div>
+            Export Data
+          </a>
+          <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:14px 16px;background:#f9fafb;border-radius:8px;text-decoration:none;color:#111827;font-size:13px;font-weight:600;border:1px solid #f3f4f6;transition:all 0.2s;">
+            <div style="width:36px;height:36px;border-radius:8px;background:rgba(236,72,153,0.1);display:flex;align-items:center;justify-content:center;"><i class="fas fa-envelope" style="color:#ec4899;font-size:14px;"></i></div>
+            Send Newsletter
+          </a>
+        </div>
+      </div>
+
+      <!-- Upcoming Events -->
+      <div class="dash-card">
+        <div class="dash-card-header"><h3>Upcoming Events</h3></div>
+        <div style="padding:8px 24px 16px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:44px;height:44px;border-radius:8px;background:rgba(79,70,229,0.1);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-size:11px;color:#4F46E5;font-weight:600;line-height:1;">Jul</span>
+              <span style="font-size:16px;color:#4F46E5;font-weight:700;line-height:1;">20</span>
+            </div>
+            <div><span style="font-size:13px;font-weight:600;color:#111827;display:block;">Summer Sale Starts</span><span style="font-size:11px;color:#9ca3af;">Promotional campaign launch</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:44px;height:44px;border-radius:8px;background:rgba(16,185,129,0.1);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-size:11px;color:#10b981;font-weight:600;line-height:1;">Jul</span>
+              <span style="font-size:16px;color:#10b981;font-weight:700;line-height:1;">25</span>
+            </div>
+            <div><span style="font-size:13px;font-weight:600;color:#111827;display:block;">Inventory Audit</span><span style="font-size:11px;color:#9ca3af;">Quarterly stock check</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;">
+            <div style="width:44px;height:44px;border-radius:8px;background:rgba(245,158,11,0.1);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-size:11px;color:#f59e0b;font-weight:600;line-height:1;">Aug</span>
+              <span style="font-size:16px;color:#f59e0b;font-weight:700;line-height:1;">01</span>
+            </div>
+            <div><span style="font-size:13px;font-weight:600;color:#111827;display:block;">New Supplier Meeting</span><span style="font-size:11px;color:#9ca3af;">Discuss Q4 product line</span></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;">
+            <div style="width:44px;height:44px;border-radius:8px;background:rgba(139,92,246,0.1);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;">
+              <span style="font-size:11px;color:#8b5cf6;font-weight:600;line-height:1;">Aug</span>
+              <span style="font-size:16px;color:#8b5cf6;font-weight:700;line-height:1;">10</span>
+            </div>
+            <div><span style="font-size:13px;font-weight:600;color:#111827;display:block;">Monthly Review</span><span style="font-size:11px;color:#9ca3af;">July performance report</span></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 

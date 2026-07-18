@@ -12,19 +12,6 @@
 </head>
 <body>
 
-<div class="topbar">
-  <div class="container">
-    <div class="topbar-left">
-      <a href="#"><i class="fas fa-truck"></i> Free shipping on orders over $50</a>
-      <a href="#"><i class="fas fa-phone"></i> +1 (555) 123-4567</a>
-    </div>
-    <div class="topbar-right">
-      <a href="#"><i class="fas fa-map-marker-alt"></i> Store Locator</a>
-      <a href="track-order.html">Track Order</a>
-      <a href="#">English <i class="fas fa-chevron-down"></i></a>
-    </div>
-  </div>
-</div>
 
 <header class="header" id="header">
   <div class="container">
@@ -65,7 +52,7 @@
   </div>
 </div>
 
-<div class="section">
+<div class="section" style="padding-top:0;">
   <div class="container">
     <div class="shop-layout">
 
@@ -141,17 +128,17 @@
           <div class="shop-topbar-left">
             <span class="shop-results">Showing 12 products</span>
             <div class="view-toggle">
-              <button class="active"><i class="fas fa-th"></i></button>
-              <button><i class="fas fa-list"></i></button>
+              <button class="view-btn active" data-view="grid" aria-label="Grid view"><i class="fas fa-th"></i></button>
+              <button class="view-btn" data-view="list" aria-label="List view"><i class="fas fa-list"></i></button>
             </div>
           </div>
           <div class="shop-topbar-right">
             <select class="sort-select">
-              <option>Sort by: Featured</option>
-              <option>Price: Low to High</option>
-              <option>Price: High to Low</option>
-              <option>Newest</option>
-              <option>Best Rating</option>
+              <option value="featured">Sort by: Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="newest">Newest</option>
+              <option value="rating">Best Rating</option>
             </select>
             <button class="filter-btn"><i class="fas fa-sliders-h"></i> Filters</button>
           </div>
@@ -159,14 +146,14 @@
 
         <div class="products-grid">
 
-          <div class="product-card">
+          <div class="product-card" data-id="s1" data-name="Wireless Headphones" data-price="79.99" data-image="images/products/headphones.svg" data-category="electronics" data-brand="sony" data-color="black" data-rating="5">
             <div class="product-img">
-              <img src="images/products/headphones.svg" alt="Wireless Headphones">
+              <img src="images/products/Wireless-Headphones1.webp" alt="Wireless Headphones">
               <span class="product-badge badge-sale">Sale</span>
               <div class="product-actions">
-                <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                <button aria-label="Quick view"><i class="far fa-eye"></i></button>
-                <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+                <button class="wishlist-btn" data-id="s1" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
               </div>
             </div>
             <div class="product-info">
@@ -186,14 +173,14 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-id="s2" data-name="Smart Watch Pro" data-price="199.99" data-image="images/products/smartwatch.svg" data-category="electronics" data-brand="apple" data-color="black" data-rating="5">
             <div class="product-img">
-              <img src="images/products/smartwatch.svg" alt="Smart Watch Pro">
+              <img src="images/products/Smart-Watch.webp" alt="Smart Watch Pro">
               <span class="product-badge badge-hot">Hot</span>
               <div class="product-actions">
-                <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                <button aria-label="Quick view"><i class="far fa-eye"></i></button>
-                <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+                <button class="wishlist-btn" data-id="s2" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
               </div>
             </div>
             <div class="product-info">
@@ -213,14 +200,14 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-id="s3" data-name="Running Sneakers" data-price="129.99" data-image="images/products/sneakers.svg" data-category="fashion" data-brand="nike" data-color="white" data-rating="5">
             <div class="product-img">
-              <img src="images/products/sneakers.svg" alt="Running Sneakers">
+              <img src="images/products/Running-Sneakers.webp" alt="Running Sneakers">
               <span class="product-badge badge-new">New</span>
               <div class="product-actions">
-                <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                <button aria-label="Quick view"><i class="far fa-eye"></i></button>
-                <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+                <button class="wishlist-btn" data-id="s3" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
               </div>
             </div>
             <div class="product-info">
@@ -239,13 +226,13 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-id="s4" data-name="Travel Backpack" data-price="89.99" data-image="images/products/backpack.svg" data-category="fashion" data-brand="adidas" data-color="blue" data-rating="4">
             <div class="product-img">
-              <img src="images/products/backpack.svg" alt="Travel Backpack">
+              <img src="images/products/Travel-Backpack.webp" alt="Travel Backpack">
               <div class="product-actions">
-                <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                <button aria-label="Quick view"><i class="far fa-eye"></i></button>
-                <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+                <button class="wishlist-btn" data-id="s4" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
               </div>
             </div>
             <div class="product-info">
@@ -264,14 +251,14 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-id="s5" data-name="Mirrorless Camera" data-price="549.99" data-image="images/products/camera.svg" data-category="electronics" data-brand="sony" data-color="black" data-rating="5">
             <div class="product-img">
-              <img src="images/products/camera.svg" alt="Mirrorless Camera">
+              <img src="images/products/Digital-Camera.webp" alt="Mirrorless Camera">
               <span class="product-badge badge-sale">Sale</span>
               <div class="product-actions">
-                <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                <button aria-label="Quick view"><i class="far fa-eye"></i></button>
-                <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+                <button class="wishlist-btn" data-id="s5" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
               </div>
             </div>
             <div class="product-info">
@@ -291,13 +278,13 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-id="s6" data-name="Bluetooth Speaker" data-price="49.99" data-image="images/products/speaker.svg" data-category="electronics" data-brand="sony" data-color="blue" data-rating="4.5">
             <div class="product-img">
-              <img src="images/products/speaker.svg" alt="Bluetooth Speaker">
+              <img src="images/products/Bluetooth-Speaker.webp" alt="Bluetooth Speaker">
               <div class="product-actions">
-                <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                <button aria-label="Quick view"><i class="far fa-eye"></i></button>
-                <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+                <button class="wishlist-btn" data-id="s6" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
               </div>
             </div>
             <div class="product-info">
@@ -317,14 +304,14 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-id="s7" data-name="Smartphone Pro" data-price="999.99" data-image="images/products/phone.svg" data-category="electronics" data-brand="apple" data-color="black" data-rating="5">
             <div class="product-img">
-              <img src="images/products/phone.svg" alt="Smartphone Pro">
+              <img src="images/products/Smartphone-Ultra.webp" alt="Smartphone Pro">
               <span class="product-badge badge-new">New</span>
               <div class="product-actions">
-                <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                <button aria-label="Quick view"><i class="far fa-eye"></i></button>
-                <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+                <button class="wishlist-btn" data-id="s7" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
               </div>
             </div>
             <div class="product-info">
@@ -343,13 +330,13 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-id="s8" data-name="Ultra Laptop" data-price="1299.99" data-image="images/products/laptop.svg" data-category="electronics" data-brand="apple" data-color="white" data-rating="5">
             <div class="product-img">
-              <img src="images/products/laptop.svg" alt="Ultra Laptop">
+              <img src="images/products/Laptop.webp" alt="Ultra Laptop">
               <div class="product-actions">
-                <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                <button aria-label="Quick view"><i class="far fa-eye"></i></button>
-                <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+                <button class="wishlist-btn" data-id="s8" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
               </div>
             </div>
             <div class="product-info">
@@ -368,14 +355,14 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-id="s9" data-name="Wireless Earbuds" data-price="59.99" data-image="images/products/headphones2.svg" data-category="electronics" data-brand="apple" data-color="white" data-rating="4">
             <div class="product-img">
-              <img src="images/products/headphones2.svg" alt="Wireless Earbuds">
+              <img src="images/products/Wireless-Earbuds.webp" alt="Wireless Earbuds">
               <span class="product-badge badge-sale">Sale</span>
               <div class="product-actions">
-                <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                <button aria-label="Quick view"><i class="far fa-eye"></i></button>
-                <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+                <button class="wishlist-btn" data-id="s9" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
               </div>
             </div>
             <div class="product-info">
@@ -395,13 +382,13 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-id="s10" data-name="Wireless Charger" data-price="29.99" data-image="images/products/charger.svg" data-category="electronics" data-brand="samsung" data-color="white" data-rating="4.5">
             <div class="product-img">
-              <img src="images/products/charger.svg" alt="Wireless Charger">
+              <img src="images/products/Wireless-Charger.webp" alt="Wireless Charger">
               <div class="product-actions">
-                <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                <button aria-label="Quick view"><i class="far fa-eye"></i></button>
-                <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+                <button class="wishlist-btn" data-id="s10" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
               </div>
             </div>
             <div class="product-info">
@@ -420,13 +407,13 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-id="s11" data-name="Insulated Bottle" data-price="34.99" data-image="images/products/bottle.svg" data-category="sports" data-brand="adidas" data-color="green" data-rating="4">
             <div class="product-img">
-              <img src="images/products/bottle.svg" alt="Insulated Bottle">
+              <img src="images/products/Insulated-Bottle.webp" alt="Insulated Bottle">
               <div class="product-actions">
-                <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                <button aria-label="Quick view"><i class="far fa-eye"></i></button>
-                <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+                <button class="wishlist-btn" data-id="s11" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
               </div>
             </div>
             <div class="product-info">
@@ -445,13 +432,13 @@
             </div>
           </div>
 
-          <div class="product-card">
+          <div class="product-card" data-id="s12" data-name="Sport Watch Band" data-price="19.99" data-image="images/products/watch-band.svg" data-category="fashion" data-brand="nike" data-color="red" data-rating="5">
             <div class="product-img">
-              <img src="images/products/watch-band.svg" alt="Sport Watch Band">
+              <img src="images/products/Sport-Watch.webp" alt="Sport Watch Band">
               <div class="product-actions">
-                <button aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                <button aria-label="Quick view"><i class="far fa-eye"></i></button>
-                <button aria-label="Add to cart"><i class="fas fa-shopping-bag"></i></button>
+                <button class="wishlist-btn" data-id="s12" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+                <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
               </div>
             </div>
             <div class="product-info">
@@ -474,8 +461,8 @@
 
         <div class="pagination">
           <span class="active">1</span>
-          <a href="#">2</a>
-          <a href="#" class="next">Next &gt;</a>
+          <a href="404.html">2</a>
+          <a href="404.html" class="next">Next &gt;</a>
         </div>
       </main>
 
@@ -483,63 +470,85 @@
   </div>
 </div>
 
-<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
-<div class="toast-container" id="toastContainer"></div>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-logo"><img src="images/logo.webp" alt="Stackly" height="40"></div>
-        <p class="footer-desc">Premium e-commerce store offering quality products at unbeatable prices. Shop with confidence.</p>
-        <div class="footer-social">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
+<div class="quickview-modal" id="quickviewModal">
+  <div class="quickview-overlay" id="quickviewOverlay"></div>
+  <div class="quickview-dialog">
+    <button class="quickview-close" id="quickviewClose"><i class="fas fa-times"></i></button>
+    <div class="quickview-content">
+      <div class="quickview-img"><img src="images/products/headphones.svg" alt="" id="qvImg"></div>
+      <div class="quickview-info">
+        <span class="quickview-cat" id="qvCat">Electronics</span>
+        <h3 id="qvName">Product Name</h3>
+        <div class="quickview-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span>(4.5)</span></div>
+        <div class="quickview-price"><span class="price-new" id="qvPrice">$79.99</span><span class="price-old" id="qvOldPrice">$129.99</span></div>
+        <p class="quickview-desc" id="qvDesc">High-quality product with premium features.</p>
+        <div class="quickview-btns">
+          <button class="btn btn-primary add-to-cart-btn" id="qvAddCart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+          <button class="btn btn-outline" id="qvWishlist" disabled style="pointer-events:none;opacity:0.5;cursor:not-allowed;"><i class="far fa-heart"></i></button>
         </div>
-      </div>
-      <div>
-        <h4 class="footer-heading">Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="terms.html">Terms &amp; Conditions</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="footer-heading">Categories</h4>
-        <ul class="footer-links">
-          <li><a href="shop.html">Electronics</a></li>
-          <li><a href="shop.html">Fashion</a></li>
-          <li><a href="shop.html">Home &amp; Living</a></li>
-          <li><a href="shop.html">Sports</a></li>
-          <li><a href="shop.html">Beauty</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="footer-heading">Contact Us</h4>
-        <ul class="footer-contact">
-          <li><i class="fas fa-map-marker-alt"></i><span>123 Commerce St, New York, NY 10001</span></li>
-          <li><i class="fas fa-phone"></i><span>+1 (555) 123-4567</span></li>
-          <li><i class="fas fa-envelope"></i><span>support@stackly.com</span></li>
-          <li><i class="fas fa-clock"></i><span>Mon-Fri: 9AM - 6PM</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Stackly. All rights reserved.</p>
-      <div class="payment-icons">
-        <img src="images/payments/visa.svg" alt="Visa">
-        <img src="images/payments/mastercard.svg" alt="Mastercard">
-        <img src="images/payments/paypal.svg" alt="PayPal">
-        <img src="images/payments/applepay.svg" alt="Apple Pay">
       </div>
     </div>
   </div>
-</footer>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+<div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-logo"><img src="images/logo.webp" alt="Stackly" height="42"></a>
+          <p class="footer-desc">Stackly is your one-stop destination for premium products at unbeatable prices. Shop with confidence and enjoy fast, reliable delivery.</p>
+          <div class="footer-social">
+            <a href="404.html" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="404.html" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+            <a href="404.html" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="404.html" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Customer Service</h4>
+          <ul class="footer-links">
+            <li><a href="login.html">My Account</a></li>
+            <li><a href="tracking.html">Order Tracking</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="shipping.html">Shipping Policy</a></li>
+            <li><a href="returns.html">Returns &amp; Exchanges</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact Info</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> 123 Street, New York, NY 10001</li>
+            <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+            <li><i class="fas fa-envelope"></i> support@stackly.com</li>
+            <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Stackly. All Rights Reserved.</p>
+        <div class="payment-icons">
+          <img src="images/payments/visa.svg" alt="Visa">
+          <img src="images/payments/mastercard.svg" alt="Mastercard">
+          <img src="images/payments/paypal.svg" alt="PayPal">
+          <img src="images/payments/applepay.svg" alt="Apple Pay">
+        </div>
+      </div>
+    </div>
+  </footer>
 
 <script src="js/main.js"></script>
 </body>
