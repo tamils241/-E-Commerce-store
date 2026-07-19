@@ -11,7 +11,7 @@
   <aside class="dash-sidebar" id="dashSidebar">
     <div class="dash-sidebar-header">
       <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="36"></a>
-      <button class="dash-sidebar-close" id="dashSidebarClose"><i class="fas fa-times"></i></button>
+      <button type="button" class="dash-sidebar-close" id="dashSidebarClose"><i class="fas fa-times"></i></button>
     </div>
     <nav class="dash-sidebar-nav">
       <a href="admin-dashboard.html" class="dash-nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
@@ -31,7 +31,7 @@
       <button class="dash-menu-toggle" id="dashMenuToggle"><i class="fas fa-bars"></i></button>
       <h2 class="dash-topbar-title">Products</h2>
       <div class="dash-topbar-actions">
-        <button class="btn btn-primary" style="padding:10px 20px;font-size:14px;border-radius:8px;border:none;cursor:pointer;background:#4F46E5;color:#fff"><i class="fas fa-plus"></i> Add Product</button>
+        <button id="addProductBtn" class="btn btn-primary" style="padding:10px 20px;font-size:14px;border-radius:8px;border:none;cursor:pointer;background:#4F46E5;color:#fff"><i class="fas fa-plus"></i> Add Product</button>
       </div>
     </div>
 
@@ -65,40 +65,40 @@
           </thead>
           <tbody>
             <tr>
-              <td><img src="images/products/wireless-headphones1.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
+              <td><img src="images/products/Wireless-Headphones1.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
               <td>Wireless Headphones</td><td>Electronics</td><td>$79.99</td><td>124</td>
               <td><span class="dash-badge dash-badge-success">Active</span></td>
-              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
+              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="javascript:void(0)"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
             </tr>
             <tr>
-              <td><img src="images/products/smart-watch.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
+              <td><img src="images/products/Smart-Watch.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
               <td>Smart Watch Pro</td><td>Electronics</td><td>$199.99</td><td>67</td>
               <td><span class="dash-badge dash-badge-success">Active</span></td>
-              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
+              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="javascript:void(0)"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
             </tr>
             <tr>
               <td><img src="images/products/Running-Sneakers.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
               <td>Running Sneakers</td><td>Fashion</td><td>$89.99</td><td>0</td>
               <td><span class="dash-badge dash-badge-danger">Out of Stock</span></td>
-              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
+              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="javascript:void(0)"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
             </tr>
             <tr>
-              <td><img src="images/products/laptop.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
+              <td><img src="images/products/Laptop.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
               <td>Laptop Pro 15</td><td>Electronics</td><td>$1,299.99</td><td>34</td>
               <td><span class="dash-badge dash-badge-success">Active</span></td>
-              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
+              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="javascript:void(0)"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
             </tr>
             <tr>
               <td><img src="images/products/Bluetooth-Speaker.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
               <td>Bluetooth Speaker</td><td>Electronics</td><td>$49.99</td><td>210</td>
               <td><span class="dash-badge dash-badge-success">Active</span></td>
-              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
+              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="javascript:void(0)"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
             </tr>
             <tr>
               <td><img src="images/products/Travel-Backpack.webp" alt="" style="width:40px;height:40px;object-fit:cover;border-radius:6px"></td>
               <td>Travel Backpack</td><td>Fashion</td><td>$59.99</td><td>89</td>
               <td><span class="dash-badge dash-badge-success">Active</span></td>
-              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="404.html"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
+              <td><i class="fas fa-edit" style="color:#4F46E5;cursor:pointer;margin-right:8px"></i><a href="javascript:void(0)"><i class="fas fa-trash" style="color:#ef4444;cursor:pointer"></i></a></td>
             </tr>
           </tbody>
         </table>
@@ -106,13 +106,91 @@
     </div>
   </div>
 
+  <!-- Add Product Modal -->
+  <div class="modal-overlay" id="addProductModal">
+    <div class="modal-dialog" style="max-width:600px;">
+      <div class="modal-header">
+        <h3>Add New Product</h3>
+        <button class="modal-close" id="closeProductModal"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="addProductForm" action="javascript:void(0)">
+          <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" placeholder="e.g. Wireless Headphones" required>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label>Category</label>
+              <select style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;background:#fff;">
+                <option>Electronics</option>
+                <option>Fashion</option>
+                <option>Home & Living</option>
+                <option>Sports</option>
+                <option>Beauty</option>
+                <option>Gaming</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Price ($)</label>
+              <input type="number" step="0.01" min="0" placeholder="0.00">
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label>Stock</label>
+              <input type="number" min="0" placeholder="0">
+            </div>
+            <div class="form-group">
+              <label>Status</label>
+              <select style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;background:#fff;">
+                <option>Active</option>
+                <option>Draft</option>
+                <option>Out of Stock</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea rows="3" placeholder="Product description..." style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;resize:vertical;font-family:inherit;"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Product Image</label>
+            <input type="file" accept="image/*" style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;">
+          </div>
+          <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:24px;padding-top:16px;border-top:1px solid #e5e7eb;">
+            <button type="button" class="modal-cancel" id="cancelProductModal">Cancel</button>
+            <button type="submit" class="modal-submit">Add Product</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
   <script>
-    var sidebar = document.getElementById('dashSidebar');
-    var toggle = document.getElementById('dashMenuToggle');
-    var close = document.getElementById('dashSidebarClose');
-    if (toggle) toggle.addEventListener('click', function() { sidebar.classList.toggle('open'); });
-    if (close) close.addEventListener('click', function() { sidebar.classList.remove('open'); });
+
+    var modal = document.getElementById('addProductModal');
+    var btn = document.getElementById('addProductBtn');
+    var closeBtn = document.getElementById('closeProductModal');
+    var cancelBtn = document.getElementById('cancelProductModal');
+    var form = document.getElementById('addProductForm');
+
+    function openModal() { modal.classList.add('active'); }
+    function closeModal() { modal.classList.remove('active'); form.reset(); }
+
+    if (btn) btn.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+
+    if (form) form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = form.querySelector('input[type="text"]').value.trim();
+      if (!name) { alert('Please enter a product name.'); return; }
+      alert('Product "' + name + '" added successfully!');
+      closeModal();
+    });
   </script>
 </body>
 </html>

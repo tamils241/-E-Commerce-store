@@ -11,7 +11,7 @@
   <aside class="dash-sidebar" id="dashSidebar">
     <div class="dash-sidebar-header">
       <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="36"></a>
-      <button class="dash-sidebar-close" id="dashSidebarClose"><i class="fas fa-times"></i></button>
+      <button type="button" class="dash-sidebar-close" id="dashSidebarClose"><i class="fas fa-times"></i></button>
     </div>
     <nav class="dash-sidebar-nav">
       <a href="admin-dashboard.html" class="dash-nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
@@ -31,19 +31,19 @@
       <button class="dash-menu-toggle" id="dashMenuToggle"><i class="fas fa-bars"></i></button>
       <h2 class="dash-topbar-title">Settings</h2>
       <div class="dash-topbar-actions">
-        <a href="404.html" style="padding:10px 20px;font-size:14px;border-radius:8px;border:none;cursor:pointer;background:#4F46E5;color:#fff;font-weight:600;text-decoration:none">Save Changes</a>
+        <a href="javascript:void(0)" style="padding:10px 20px;font-size:14px;border-radius:8px;border:none;cursor:pointer;background:#4F46E5;color:#fff;font-weight:600;text-decoration:none">Save Changes</a>
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:200px 1fr;gap:24px">
+    <div class="dash-grid-sidebar" style="display:grid;grid-template-columns:200px 1fr;gap:24px">
       <!-- Settings Nav -->
       <div class="dash-card" style="height:fit-content">
         <div style="padding:16px">
-          <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;background:rgba(79,70,229,0.08);color:#4F46E5;font-weight:600;font-size:14px;text-decoration:none;margin-bottom:4px"><i class="fas fa-store"></i> Store</a>
-          <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;color:#6b7280;font-size:14px;text-decoration:none;margin-bottom:4px"><i class="fas fa-credit-card"></i> Payments</a>
-          <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;color:#6b7280;font-size:14px;text-decoration:none;margin-bottom:4px"><i class="fas fa-truck"></i> Shipping</a>
-          <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;color:#6b7280;font-size:14px;text-decoration:none;margin-bottom:4px"><i class="fas fa-bell"></i> Notifications</a>
-          <a href="404.html" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;color:#6b7280;font-size:14px;text-decoration:none"><i class="fas fa-shield-alt"></i> Security</a>
+          <a href="javascript:void(0)" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;background:rgba(79,70,229,0.08);color:#4F46E5;font-weight:600;font-size:14px;text-decoration:none;margin-bottom:4px"><i class="fas fa-store"></i> Store</a>
+          <a href="javascript:void(0)" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;color:#6b7280;font-size:14px;text-decoration:none;margin-bottom:4px"><i class="fas fa-credit-card"></i> Payments</a>
+          <a href="javascript:void(0)" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;color:#6b7280;font-size:14px;text-decoration:none;margin-bottom:4px"><i class="fas fa-truck"></i> Shipping</a>
+          <a href="javascript:void(0)" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;color:#6b7280;font-size:14px;text-decoration:none;margin-bottom:4px"><i class="fas fa-bell"></i> Notifications</a>
+          <a href="javascript:void(0)" style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;color:#6b7280;font-size:14px;text-decoration:none"><i class="fas fa-shield-alt"></i> Security</a>
         </div>
       </div>
 
@@ -53,7 +53,7 @@
         <div class="dash-card" style="margin-bottom:24px">
           <div class="dash-card-header"><h3>Store Settings</h3></div>
           <div style="padding:24px">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+            <div class="dash-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
               <div>
                 <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Store Name</label>
                 <input type="text" value="Stackly" style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;box-sizing:border-box">
@@ -86,7 +86,7 @@
         <div class="dash-card" style="margin-bottom:24px">
           <div class="dash-card-header"><h3>Tax Settings</h3></div>
           <div style="padding:24px">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+            <div class="dash-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
               <div>
                 <label style="display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px">Tax Rate (%)</label>
                 <input type="number" value="8.5" style="width:100%;padding:10px 14px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;box-sizing:border-box">
@@ -125,12 +125,5 @@
   </div>
 
   <script src="js/main.js"></script>
-  <script>
-    var sidebar = document.getElementById('dashSidebar');
-    var toggle = document.getElementById('dashMenuToggle');
-    var close = document.getElementById('dashSidebarClose');
-    if (toggle) toggle.addEventListener('click', function() { sidebar.classList.toggle('open'); });
-    if (close) close.addEventListener('click', function() { sidebar.classList.remove('open'); });
-  </script>
 </body>
 </html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deals - Stackly</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="42"></a>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html"><i class="fas fa-shopping-bag"></i> Shop</a></li>
+          <li><a href="categories.html"><i class="fas fa-th-large"></i> Categories</a></li>
+          <li><a href="deals.html" class="active">Deals</a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="header-actions">
+        <a href="javascript:void(0)" class="header-btn" aria-label="Search"><i class="fas fa-search"></i></a>
+        <a href="wishlist.html" class="header-btn" aria-label="Wishlist"><i class="far fa-heart"></i><span class="badge" id="wishlistBadge">0</span></a>
+        <a href="cart.html" class="header-btn" aria-label="Cart"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartBadge">0</span></a>
+        <a href="login.html" class="header-btn" aria-label="Account"><i class="far fa-user"></i></a>
+      </div>
+    </div>
+  </header>
+
+<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+<div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" id="mobileNavClose"><i class="fas fa-times"></i></button>
+  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  <a href="shop.html"><i class="fas fa-shopping-bag"></i> Shop</a>
+  <a href="categories.html"><i class="fas fa-th-large"></i> Categories</a>
+  <a href="deals.html"><i class="fas fa-fire"></i> Deals</a>
+  <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+  <div class="mobile-nav-divider"></div>
+  <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+  <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+</div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Deals &amp; Offers</h1>
+      <p>Grab the best deals before they're gone</p>
+      <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> Deals</div>
+    </div>
+  </section>
+
+  <!-- Flash Sale -->
+  <section class="flash-sale">
+    <div class="container">
+      <div class="flash-header">
+        <div class="flash-title">
+          <h2><i class="fas fa-bolt"></i> Flash Sale</h2>
+        </div>
+        <div class="countdown">
+          <div class="countdown-box">
+            <span class="countdown-value hours" id="cdHours">08</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-value minutes" id="cdMinutes">45</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-value seconds" id="cdSeconds">30</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+      </div>
+      <div class="flash-progress">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:72%"></div>
+        </div>
+        <span>72% Claimed</span>
+      </div>
+      <div class="flash-products">
+        <div class="flash-product-card product-card" data-id="d1" data-name="Wireless Headphones" data-price="79.99" data-image="images/products/Wireless-Headphones1.webp">
+          <div class="flash-product-img">
+            <img src="images/products/Wireless-Headphones1.webp" alt="Wireless Headphones">
+            <div class="product-actions">
+              <button class="wishlist-btn" data-id="d1" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+              <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="flash-product-info">
+            <h4>Wireless Headphones</h4>
+            <span class="price">$79.99</span>
+            <span class="old-price">$149.99</span>
+            <a href="shop.html" class="flash-btn">Buy Now</a>
+          </div>
+        </div>
+        <div class="flash-product-card product-card" data-id="d2" data-name="Smart Watch Pro" data-price="199.99" data-image="images/products/Smart-Watch.webp">
+          <div class="flash-product-img">
+            <img src="images/products/Smart-Watch.webp" alt="Smart Watch Pro">
+            <div class="product-actions">
+              <button class="wishlist-btn" data-id="d2" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+              <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="flash-product-info">
+            <h4>Smart Watch Pro</h4>
+            <span class="price">$199.99</span>
+            <span class="old-price">$349.99</span>
+            <a href="shop.html" class="flash-btn">Buy Now</a>
+          </div>
+        </div>
+        <div class="flash-product-card product-card" data-id="d3" data-name="Running Sneakers" data-price="89.99" data-image="images/products/Running-Sneakers.webp">
+          <div class="flash-product-img">
+            <img src="images/products/Running-Sneakers.webp" alt="Running Sneakers">
+            <div class="product-actions">
+              <button class="wishlist-btn" data-id="d3" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+              <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="flash-product-info">
+            <h4>Running Sneakers</h4>
+            <span class="price">$89.99</span>
+            <span class="old-price">$159.99</span>
+            <a href="shop.html" class="flash-btn">Buy Now</a>
+          </div>
+        </div>
+        <div class="flash-product-card product-card" data-id="d4" data-name="Travel Backpack" data-price="59.99" data-image="images/products/Travel-Backpack.webp">
+          <div class="flash-product-img">
+            <img src="images/products/Travel-Backpack.webp" alt="Travel Backpack">
+            <div class="product-actions">
+              <button class="wishlist-btn" data-id="d4" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+              <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+              <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+            </div>
+          </div>
+          <div class="flash-product-info">
+            <h4>Travel Backpack</h4>
+            <span class="price">$59.99</span>
+            <span class="old-price">$99.99</span>
+            <a href="shop.html" class="flash-btn">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deal of the Day -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Limited Time</span>
+        <h2>Deal of the Day</h2>
+      </div>
+      <div class="promo-grid">
+        <div class="promo-card promo-large">
+          <div class="promo-card-img"><img src="images/products/Laptop.webp" alt="Laptop Pro 15"></div>
+          <div class="promo-card-body">
+            <span class="promo-tag">Save $300</span>
+            <h3>Laptop Pro 15</h3>
+            <p>Powerful performance meets sleek design. Perfect for professionals and creatives.</p>
+            <a href="shop.html" class="btn btn-primary">Grab This Deal</a>
+          </div>
+        </div>
+        <div class="promo-card">
+          <div class="promo-card-img"><img src="images/products/Smartphone-Ultra.webp" alt="Smartphone Ultra"></div>
+          <div class="promo-card-body">
+            <span class="promo-tag">20% Off</span>
+            <h3>Smartphone Ultra</h3>
+            <p>Flagship camera, all-day battery, stunning display.</p>
+            <a href="shop.html" class="btn btn-primary">Shop Now</a>
+          </div>
+        </div>
+        <div class="promo-card">
+          <div class="promo-card-img"><img src="images/products/Smart-Watch.webp" alt="Smart Watch Pro"></div>
+          <div class="promo-card-body">
+            <span class="promo-tag">33% Off</span>
+            <h3>Smart Watch Pro</h3>
+            <p>Track your fitness, stay connected in style.</p>
+            <a href="shop.html" class="btn btn-primary">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Deals -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Browse</span>
+        <h2>Deals by Category</h2>
+      </div>
+      <div class="categories-full-grid">
+        <a href="shop.html" class="category-card-full">
+          <div class="category-icon-full"><img src="images/categories/electronics.svg" alt="Electronics"></div>
+          <h3>Electronics</h3>
+          <p>Up to 40% off on gadgets</p>
+          <span class="category-count">Shop Now <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="shop.html" class="category-card-full">
+          <div class="category-icon-full"><img src="images/categories/fashion.svg" alt="Fashion"></div>
+          <h3>Fashion</h3>
+          <p>Up to 50% off seasonal picks</p>
+          <span class="category-count">Shop Now <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="shop.html" class="category-card-full">
+          <div class="category-icon-full"><img src="images/categories/home.svg" alt="Home &amp; Living"></div>
+          <h3>Home &amp; Living</h3>
+          <p>Up to 35% off furniture</p>
+          <span class="category-count">Shop Now <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="shop.html" class="category-card-full">
+          <div class="category-icon-full"><img src="images/categories/sports.svg" alt="Sports"></div>
+          <h3>Sports</h3>
+          <p>Up to 45% off gear</p>
+          <span class="category-count">Shop Now <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="shop.html" class="category-card-full">
+          <div class="category-icon-full"><img src="images/categories/beauty.svg" alt="Beauty"></div>
+          <h3>Beauty</h3>
+          <p>Up to 30% off top brands</p>
+          <span class="category-count">Shop Now <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="shop.html" class="category-card-full">
+          <div class="category-icon-full"><img src="images/categories/gaming.svg" alt="Gaming"></div>
+          <h3>Gaming</h3>
+          <p>Up to 25% off consoles</p>
+          <span class="category-count">Shop Now <i class="fas fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily Deals Products -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Today Only</span>
+        <h2>Daily Deals</h2>
+      </div>
+      <div class="products-grid">
+        <div class="product-card" data-id="dd1" data-name="Wireless Earbuds" data-price="59.99" data-image="images/products/Wireless-Earbuds.webp">
+          <div class="product-img"><img src="images/products/Wireless-Earbuds.webp" alt="Wireless Earbuds"></div>
+          <div class="product-badge"><span class="badge-sale">-33%</span></div>
+          <div class="product-actions">
+            <button class="wishlist-btn" data-id="dd1" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+            <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+            <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Electronics</span>
+            <h4 class="product-name">Wireless Earbuds</h4>
+            <div class="product-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+              <span class="count">(203)</span>
+            </div>
+            <div class="product-price">
+              <span class="current">$59.99</span>
+              <span class="old">$89.99</span>
+            </div>
+          </div>
+          <button class="product-add-btn"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-id="dd2" data-name="Bluetooth Speaker" data-price="49.99" data-image="images/products/Bluetooth-Speaker.webp">
+          <div class="product-img"><img src="images/products/Bluetooth-Speaker.webp" alt="Bluetooth Speaker"></div>
+          <div class="product-badge"><span class="badge-hot">Hot</span></div>
+          <div class="product-actions">
+            <button class="wishlist-btn" data-id="dd2" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+            <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+            <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Electronics</span>
+            <h4 class="product-name">Bluetooth Speaker</h4>
+            <div class="product-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+              <span class="count">(312)</span>
+            </div>
+            <div class="product-price">
+              <span class="current">$49.99</span>
+              <span class="old">$79.99</span>
+            </div>
+          </div>
+          <button class="product-add-btn"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-id="dd3" data-name="Digital Camera" data-price="299.99" data-image="images/products/Digital-Camera.webp">
+          <div class="product-img"><img src="images/products/Digital-Camera.webp" alt="Digital Camera"></div>
+          <div class="product-badge"><span class="badge-sale">-33%</span></div>
+          <div class="product-actions">
+            <button class="wishlist-btn" data-id="dd3" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+            <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+            <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Electronics</span>
+            <h4 class="product-name">Digital Camera</h4>
+            <div class="product-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+              <span class="count">(64)</span>
+            </div>
+            <div class="product-price">
+              <span class="current">$299.99</span>
+              <span class="old">$449.99</span>
+            </div>
+          </div>
+          <button class="product-add-btn"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-id="dd4" data-name="Wireless Charger" data-price="29.99" data-image="images/products/Wireless-Charger.webp">
+          <div class="product-img"><img src="images/products/Wireless-Charger.webp" alt="Wireless Charger"></div>
+          <div class="product-badge"><span class="badge-new">New</span></div>
+          <div class="product-actions">
+            <button class="wishlist-btn" data-id="dd4" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+            <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+            <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Electronics</span>
+            <h4 class="product-name">Wireless Charger</h4>
+            <div class="product-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+              <span class="count">(98)</span>
+            </div>
+            <div class="product-price">
+              <span class="current">$29.99</span>
+              <span class="old">$49.99</span>
+            </div>
+          </div>
+          <button class="product-add-btn"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-id="dd5" data-name="Travel Backpack" data-price="59.99" data-image="images/products/Travel-Backpack.webp">
+          <div class="product-img"><img src="images/products/Travel-Backpack.webp" alt="Travel Backpack"></div>
+          <div class="product-badge"><span class="badge-sale">-40%</span></div>
+          <div class="product-actions">
+            <button class="wishlist-btn" data-id="dd5" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+            <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+            <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Fashion</span>
+            <h4 class="product-name">Travel Backpack</h4>
+            <div class="product-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+              <span class="count">(87)</span>
+            </div>
+            <div class="product-price">
+              <span class="current">$59.99</span>
+              <span class="old">$99.99</span>
+            </div>
+          </div>
+          <button class="product-add-btn"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-id="dd6" data-name="Insulated Bottle" data-price="34.99" data-image="images/products/Insulated-Bottle.webp">
+          <div class="product-img"><img src="images/products/Insulated-Bottle.webp" alt="Insulated Bottle"></div>
+          <div class="product-badge"><span class="badge-hot">Hot</span></div>
+          <div class="product-actions">
+            <button class="wishlist-btn" data-id="dd6" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+            <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+            <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Sports</span>
+            <h4 class="product-name">Insulated Bottle</h4>
+            <div class="product-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+              <span class="count">(56)</span>
+            </div>
+            <div class="product-price">
+              <span class="current">$34.99</span>
+              <span class="old">$54.99</span>
+            </div>
+          </div>
+          <button class="product-add-btn"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-id="dd7" data-name="Sport Watch Band" data-price="19.99" data-image="images/products/Sport-Watch.webp">
+          <div class="product-img"><img src="images/products/Sport-Watch.webp" alt="Sport Watch Band"></div>
+          <div class="product-badge"><span class="badge-sale">-50%</span></div>
+          <div class="product-actions">
+            <button class="wishlist-btn" data-id="dd7" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+            <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+            <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Fashion</span>
+            <h4 class="product-name">Sport Watch Band</h4>
+            <div class="product-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <span class="count">(42)</span>
+            </div>
+            <div class="product-price">
+              <span class="current">$19.99</span>
+              <span class="old">$39.99</span>
+            </div>
+          </div>
+          <button class="product-add-btn"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-id="dd8" data-name="Laptop Stand" data-price="44.99" data-image="images/products/Laptop-Stand.webp">
+          <div class="product-img"><img src="images/products/Laptop-Stand.webp" alt="Laptop Stand"></div>
+          <div class="product-badge"><span class="badge-new">New</span></div>
+          <div class="product-actions">
+            <button class="wishlist-btn" data-id="dd8" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+            <button class="quick-view-btn" data-action="quick-view" aria-label="Quick view"><i class="far fa-eye"></i></button>
+            <button class="compare-btn" data-action="compare" aria-label="Compare"><i class="fas fa-exchange-alt"></i></button>
+          </div>
+          <div class="product-info">
+            <span class="product-category">Electronics</span>
+            <h4 class="product-name">Laptop Stand</h4>
+            <div class="product-rating">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+              <span class="count">(118)</span>
+            </div>
+            <div class="product-price">
+              <span class="current">$44.99</span>
+              <span class="old">$69.99</span>
+            </div>
+          </div>
+          <button class="product-add-btn"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-truck"></i></div>
+          <div class="feature-text">
+            <h4>Free Shipping</h4>
+            <p>Free shipping on orders over $50</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-undo"></i></div>
+          <div class="feature-text">
+            <h4>Easy Returns</h4>
+            <p>30-day return policy</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="feature-text">
+            <h4>Secure Payment</h4>
+            <p>100% secure checkout</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-headset"></i></div>
+          <div class="feature-text">
+            <h4>24/7 Support</h4>
+            <p>Dedicated customer support</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands -->
+  <section class="brands-section">
+    <div class="container">
+      <div class="brands-track">
+        <div class="brands-slide">
+          <div class="brand-item"><img src="images/brands/Nike.webp" alt="Nike"></div>
+          <div class="brand-item"><img src="images/brands/Adidas.webp" alt="Adidas"></div>
+          <div class="brand-item"><img src="images/brands/Apple.webp" alt="Apple"></div>
+          <div class="brand-item"><img src="images/brands/Samsung.webp" alt="Samsung"></div>
+          <div class="brand-item"><img src="images/brands/Sony.webp" alt="Sony"></div>
+          <div class="brand-item"><img src="images/brands/Canon.webp" alt="Canon"></div>
+          <div class="brand-item"><img src="images/brands/puma.svg" alt="Puma"></div>
+          <div class="brand-item"><img src="images/brands/LG.webp" alt="LG"></div>
+        </div>
+        <div class="brands-slide">
+          <div class="brand-item"><img src="images/brands/Nike.webp" alt="Nike"></div>
+          <div class="brand-item"><img src="images/brands/Adidas.webp" alt="Adidas"></div>
+          <div class="brand-item"><img src="images/brands/Apple.webp" alt="Apple"></div>
+          <div class="brand-item"><img src="images/brands/Samsung.webp" alt="Samsung"></div>
+          <div class="brand-item"><img src="images/brands/Sony.webp" alt="Sony"></div>
+          <div class="brand-item"><img src="images/brands/Canon.webp" alt="Canon"></div>
+          <div class="brand-item"><img src="images/brands/puma.svg" alt="Puma"></div>
+          <div class="brand-item"><img src="images/brands/LG.webp" alt="LG"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div>
+          <h2>Subscribe to Our Newsletter</h2>
+          <p>Get the latest updates on new products and upcoming sales delivered straight to your inbox.</p>
+        </div>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-logo"><img src="images/logo.webp" alt="Stackly" height="42"></a>
+          <p class="footer-desc">Stackly is your one-stop destination for premium products at unbeatable prices. Shop with confidence and enjoy fast, reliable delivery.</p>
+          <div class="footer-social">
+            <a href="javascript:void(0)" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="javascript:void(0)" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+            <a href="javascript:void(0)" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="javascript:void(0)" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html"><i class="fas fa-shopping-bag"></i> Shop</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Customer Service</h4>
+          <ul class="footer-links">
+            <li><a href="login.html">My Account</a></li>
+            <li><a href="tracking.html">Order Tracking</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="shipping.html">Shipping Policy</a></li>
+            <li><a href="returns.html">Returns &amp; Exchanges</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact Info</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> 123 Street, New York, NY 10001</li>
+            <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+            <li><i class="fas fa-envelope"></i> support@stackly.com</li>
+            <li><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 6:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Stackly. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="javascript:void(0)">Privacy Policy</a>
+          <a href="javascript:void(0)">Terms &amp; Conditions</a>
+        </div>
+        <div class="payment-icons">
+          <a href="javascript:void(0)"><img src="images/payments/visa.svg" alt="Visa"></a>
+          <a href="javascript:void(0)"><img src="images/payments/mastercard.svg" alt="Mastercard"></a>
+          <a href="javascript:void(0)"><img src="images/payments/paypal.svg" alt="PayPal"></a>
+          <a href="javascript:void(0)"><img src="images/payments/applepay.svg" alt="Apple Pay"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

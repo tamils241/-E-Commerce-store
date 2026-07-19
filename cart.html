@@ -11,21 +11,6 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<div class="topbar">
-  <div class="container">
-    <div class="topbar-left">
-      <a href="404.html"><i class="fas fa-truck"></i> Free shipping on orders over $50</a>
-      <a href="404.html"><i class="fas fa-phone"></i> +1 (555) 123-4567</a>
-    </div>
-    <div class="topbar-right">
-      <a href="404.html"><i class="fas fa-map-marker-alt"></i> Store Locator</a>
-      <a href="track-order.html">Track Order</a>
-      <a href="404.html">English <i class="fas fa-chevron-down"></i></a>
-    </div>
-  </div>
-</div>
-
 <header class="header" id="header">
   <div class="container">
     <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="42"></a>
@@ -33,27 +18,35 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="shop.html" class="active">Shop</a></li>
-        <li><a href="categories.html">Categories</a></li>
-        <li><a href="deals.html">Deals</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="categories.html"><i class="fas fa-th-large"></i> Categories</a></li>
+        <li><a href="deals.html"><i class="fas fa-fire"></i> Deals</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
       </ul>
     </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
     <div class="header-actions">
-      <button class="header-btn" id="searchBtn" aria-label="Search"><i class="fas fa-search"></i></button>
+      <a href="javascript:void(0)" class="header-btn" aria-label="Search"><i class="fas fa-search"></i></a>
       <a href="wishlist.html" class="header-btn" aria-label="Wishlist"><i class="far fa-heart"></i><span class="badge" id="wishlistBadge">0</span></a>
       <a href="cart.html" class="header-btn" aria-label="Cart"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartBadge">0</span></a>
       <a href="login.html" class="header-btn" aria-label="Account"><i class="far fa-user"></i></a>
     </div>
   </div>
 </header>
+<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 <div class="mobile-nav" id="mobileNav">
-  <a href="index.html">Home</a>
-  <a href="shop.html">Shop</a>
-  <a href="shop.html">Categories</a>
-  <a href="shop.html">Deals</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
+    <button class="mobile-nav-close" id="mobileNavClose"><i class="fas fa-times"></i></button>
+  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  <a href="shop.html"><i class="fas fa-shopping-bag"></i> Shop</a>
+  <a href="categories.html"><i class="fas fa-th-large"></i> Categories</a>
+  <a href="deals.html"><i class="fas fa-fire"></i> Deals</a>
+  <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+  <div class="mobile-nav-divider"></div>
+  <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+  <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
 </div>
 
 <div class="page-header">
@@ -161,13 +154,13 @@
         </div>
         <div class="coupon-form">
           <input type="text" placeholder="Coupon code">
-          <a href="404.html" style="text-decoration:none;color:inherit;">Apply</a>
+          <a href="javascript:void(0)" style="text-decoration:none;color:inherit;">Apply</a>
         </div>
         <div class="summary-total">
           <span>Total</span>
           <span id="cart-total">$539.96</span>
         </div>
-        <button class="checkout-btn">Proceed to Checkout</button>
+        <a href="checkout.html" class="checkout-btn" style="text-decoration:none;text-align:center;display:block;">Proceed to Checkout</a>
         <p style="text-align:center; margin-top:12px; font-size:0.85rem; color:#888;"><i class="fas fa-lock"></i> Secure Checkout</p>
       </div>
 
@@ -186,19 +179,19 @@
           <a href="index.html" class="footer-logo"><img src="images/logo.webp" alt="Stackly" height="42"></a>
           <p class="footer-desc">Stackly is your one-stop destination for premium products at unbeatable prices. Shop with confidence and enjoy fast, reliable delivery.</p>
           <div class="footer-social">
-            <a href="404.html" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="404.html" aria-label="X"><i class="fab fa-x-twitter"></i></a>
-            <a href="404.html" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="404.html" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="javascript:void(0)" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="javascript:void(0)" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+            <a href="javascript:void(0)" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="javascript:void(0)" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
         <div>
           <h4 class="footer-heading">Quick Links</h4>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
+            <li><a href="shop.html"><i class="fas fa-shopping-bag"></i> Shop</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
             <li><a href="blog.html">Blog</a></li>
           </ul>
         </div>
@@ -224,11 +217,15 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 Stackly. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="javascript:void(0)">Privacy Policy</a>
+          <a href="javascript:void(0)">Terms &amp; Conditions</a>
+        </div>
         <div class="payment-icons">
-          <img src="images/payments/visa.svg" alt="Visa">
-          <img src="images/payments/mastercard.svg" alt="Mastercard">
-          <img src="images/payments/paypal.svg" alt="PayPal">
-          <img src="images/payments/applepay.svg" alt="Apple Pay">
+          <a href="javascript:void(0)"><img src="images/payments/visa.svg" alt="Visa"></a>
+          <a href="javascript:void(0)"><img src="images/payments/mastercard.svg" alt="Mastercard"></a>
+          <a href="javascript:void(0)"><img src="images/payments/paypal.svg" alt="PayPal"></a>
+          <a href="javascript:void(0)"><img src="images/payments/applepay.svg" alt="Apple Pay"></a>
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@
   <aside class="dash-sidebar" id="dashSidebar">
     <div class="dash-sidebar-header">
       <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="36"></a>
-      <button class="dash-sidebar-close" id="dashSidebarClose"><i class="fas fa-times"></i></button>
+      <button type="button" class="dash-sidebar-close" id="dashSidebarClose"><i class="fas fa-times"></i></button>
     </div>
     <nav class="dash-sidebar-nav">
       <a href="admin-dashboard.html" class="dash-nav-item"><i class="fas fa-th-large"></i> Dashboard</a>
@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div class="dash-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
       <!-- Top Products -->
       <div class="dash-card">
         <div class="dash-card-header"><h3>Top Selling Products</h3></div>
@@ -98,12 +98,5 @@
   </div>
 
   <script src="js/main.js"></script>
-  <script>
-    var sidebar = document.getElementById('dashSidebar');
-    var toggle = document.getElementById('dashMenuToggle');
-    var close = document.getElementById('dashSidebarClose');
-    if (toggle) toggle.addEventListener('click', function() { sidebar.classList.toggle('open'); });
-    if (close) close.addEventListener('click', function() { sidebar.classList.remove('open'); });
-  </script>
 </body>
 </html>
