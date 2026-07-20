@@ -4730,6 +4730,13 @@ select {
   color: var(--primary-color);
 }
 
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 24px;
+}
+
 /* ============================================
    32. Order Success
    ============================================ */
@@ -7688,5 +7695,15 @@ select {
   }
   .modal-body {
     padding: 16px;
+  }
+
+  .wishlist-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .wishlist-grid {
+    grid-template-columns: 1fr !important;
   }
 }
