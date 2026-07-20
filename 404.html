@@ -8,6 +8,46 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="index.html" class="logo"><img src="images/logo.webp" alt="Stackly" height="42"></a>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html"><i class="fas fa-shopping-bag"></i> Shop</a></li>
+          <li><a href="categories.html"><i class="fas fa-th-large"></i> Categories</a></li>
+          <li><a href="deals.html"><i class="fas fa-fire"></i> Deals</a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="header-actions">
+        <a href="404.html" class="header-btn" aria-label="Search"><i class="fas fa-search"></i></a>
+        <a href="wishlist.html" class="header-btn" aria-label="Wishlist"><i class="far fa-heart"></i></a>
+        <a href="cart.html" class="header-btn" aria-label="Cart"><i class="fas fa-shopping-bag"></i></a>
+        <a href="login.html" class="header-btn" aria-label="Account"><i class="far fa-user"></i></a>
+      </div>
+    </div>
+  </header>
+
+<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+<div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav-close" id="mobileNavClose"><i class="fas fa-times"></i></button>
+  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  <a href="shop.html"><i class="fas fa-shopping-bag"></i> Shop</a>
+  <a href="categories.html"><i class="fas fa-th-large"></i> Categories</a>
+  <a href="deals.html"><i class="fas fa-fire"></i> Deals</a>
+  <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+  <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+  <div class="mobile-nav-divider"></div>
+  <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+  <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+</div>
+
   <!-- 404 Content -->
   <section class="error-page">
     <div class="container">
@@ -22,6 +62,24 @@
       </div>
     </div>
   </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2025 Stackly. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms &amp; Conditions</a>
+        </div>
+        <div class="payment-icons">
+          <a href="404.html"><img src="images/payments/visa.webp" alt="Visa"></a>
+          <a href="404.html"><img src="images/payments/mastercard.webp" alt="Mastercard"></a>
+          <a href="404.html"><img src="images/payments/paypal.webp" alt="PayPal"></a>
+          <a href="404.html"><img src="images/payments/applepay.webp" alt="Apple Pay"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script src="js/main.js"></script>
 </body>

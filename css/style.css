@@ -4712,6 +4712,24 @@ select {
   box-shadow: var(--shadow-lg);
 }
 
+.error-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.error-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.error-links a:hover {
+  color: var(--primary-color);
+}
+
 /* ============================================
    32. Order Success
    ============================================ */
@@ -7254,6 +7272,7 @@ select {
   font-weight: 600;
   color: var(--text-dark, #111827);
   cursor: pointer;
+  text-decoration: none;
   transition: background 0.2s ease;
 }
 

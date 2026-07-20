@@ -1257,9 +1257,9 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var name = (form.querySelector("[name='name'], #contact-name") || {}).value || "";
-      var email = (form.querySelector("[name='email'], #contact-email") || {}).value || "";
-      var message = (form.querySelector("[name='message'], #contact-message") || {}).value || "";
+      var name = (form.querySelector("[name='name'], #contactName") || {}).value || "";
+      var email = (form.querySelector("[name='email'], #contactEmail") || {}).value || "";
+      var message = (form.querySelector("[name='message'], #contactMessage") || {}).value || "";
 
       if (!name.trim()) { showToast("Please enter your name.", "error"); return; }
       if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showToast("Please enter a valid email.", "error"); return; }

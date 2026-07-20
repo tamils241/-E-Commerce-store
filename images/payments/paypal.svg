@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 50" width="80" height="50">
-  <rect width="80" height="50" rx="6" fill="#003087"/>
-  <text x="15" y="34" font-family="system-ui" font-size="16" font-weight="800" fill="#009cde">Pay</text>
-  <text x="40" y="34" font-family="system-ui" font-size="16" font-weight="800" fill="#012169">Pal</text>
-</svg>
