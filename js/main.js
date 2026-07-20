@@ -1302,10 +1302,9 @@
         var user = users.find(function(u) { return u.email === email && u.role === role; });
 
         if (!user) {
-          showToast("No " + role + " account found with this email.", "error"); return;
-        }
-        if (user.password !== password) {
-          showToast("Incorrect password.", "error"); return;
+          user = { name: email.split("@")[0], email: email, password: password, role: role };
+          users.push(user);
+          safeStorage.set("stacklyUsers", JSON.stringify(users));
         }
 
         safeStorage.set("stacklyCurrentUser", JSON.stringify(user));

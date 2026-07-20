@@ -282,6 +282,13 @@
     </div>
   </div>
 
+  <script>
+    (function() {
+      var user = null;
+      try { user = JSON.parse(localStorage.getItem("stacklyCurrentUser")); } catch(e) {}
+      if (!user || user.role !== "customer") { window.location.href = "login.html"; }
+    })();
+  </script>
   <script src="js/main.js"></script>
 </body>
 </html>
